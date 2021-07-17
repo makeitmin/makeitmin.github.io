@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 17 Jul 2021 18:17:25 GMT</lastBuildDate><item><title><![CDATA[아스키코드 vs 유니코드]]></title><description><![CDATA[문자셋의 종류 SBCS(Single Byte Character Set) 1바이트 문자 표현 ASCII CODE printf, scanf, fgets, fputs 함수 MBCS(Multi Byte Character Set) 1바이트 or…]]></description><link>https://makeitmin.github.io/Computer Science/아스키코드-vs-유니코드/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/아스키코드-vs-유니코드/</guid><pubDate>Sat, 17 Jul 2021 18:07:55 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문자셋의-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%9E%90%EC%85%8B%EC%9D%98-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;문자셋의 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문자셋의 종류&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[Blog posted about ...]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 17 Jul 2021 18:27:39 GMT</lastBuildDate><item><title><![CDATA[컴퓨터 구조에 대한 두 번째 이야기]]></title><description><![CDATA[컴퓨터 구조의 접근방법 (1) 컴퓨터 디자인 CPU…]]></description><link>https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-두-번째-이야기/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-두-번째-이야기/</guid><pubDate>Sat, 17 Jul 2021 18:08:10 GMT</pubDate><content:encoded>&lt;h2 id=&quot;컴퓨터-구조의-접근방법-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%A0%91%EA%B7%BC%EB%B0%A9%EB%B2%95-1&quot; aria-label=&quot;컴퓨터 구조의 접근방법 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컴퓨터 구조의 접근방법 (1)&lt;/h2&gt;
+&lt;h3 id=&quot;컴퓨터-디자인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%B4%ED%93%A8%ED%84%B0-%EB%94%94%EC%9E%90%EC%9D%B8&quot; aria-label=&quot;컴퓨터 디자인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컴퓨터 디자인&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU(하드웨어)를 디자인하는 것&lt;/li&gt;
+&lt;li&gt;하드웨어 전문가, 알고리즘 전문가, 인터페이스 전문가, 프로그래머 필요&lt;/li&gt;
+&lt;li&gt;명령어가 어떻게 구성되느냐에 따라 레지스터 구성되고, 레지스터 구성에 따라 하드웨어 디자인
+→ 하드웨어 디자인과 레지스터-명령어 디자인은 병행 필요&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;레지스터&lt;/strong&gt;와 &lt;strong&gt;명령어&lt;/strong&gt;(컴파일러를 통해 만들어지는 명령어의 집합) 디자인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;레지스터-디자인의-핵심&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0-%EB%94%94%EC%9E%90%EC%9D%B8%EC%9D%98-%ED%95%B5%EC%8B%AC&quot; aria-label=&quot;레지스터 디자인의 핵심 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레지스터 디자인의 핵심&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;레지스터의 비트 수
+→ 보편적으로 n비트 시스템에서는 명령어가 n비트이기 때문에 레지스터도 n비트로 설정&lt;/li&gt;
+&lt;li&gt;레지스터 개수
+→ 다다익선&lt;/li&gt;
+&lt;li&gt;레지스터 각각의 용도
+→ RAM이나 H/D과 같은 범용 메모리와는 다르게 특별한 목적이 할당된 칸이 존재
+→ 명령어가 단순화되고, 속도 향상&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;컴퓨터-구조의-접근방법-2&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%B4%ED%93%A8%ED%84%B0-%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%A0%91%EA%B7%BC%EB%B0%A9%EB%B2%95-2&quot; aria-label=&quot;컴퓨터 구조의 접근방법 2 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컴퓨터 구조의 접근방법 (2)&lt;/h2&gt;
+&lt;p&gt;명령어 디자인에 따라 ALU 도 결정 → ALU가 명령어를 읽어야 하기 때문&lt;/p&gt;
+&lt;h3 id=&quot;명령어-구성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%85%EB%A0%B9%EC%96%B4-%EA%B5%AC%EC%84%B1&quot; aria-label=&quot;명령어 구성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;명령어 구성&lt;/h3&gt;
+&lt;p&gt;각 부분에 비트를 조합하여 할당 → 명령어의 종류에 따라 명령어 구성(설계)이 상이&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예약&lt;/li&gt;
+&lt;li&gt;연산자&lt;/li&gt;
+&lt;li&gt;저장소
+→ 연산 결과는 레지스터에 저장&lt;/li&gt;
+&lt;li&gt;피연산자
+→ 레지스터 주소 or 숫자 구분하기 위해 첫 비트를 구분자로 약속
+→ 표현할 수 있는 숫자가 많지 않음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;명령어-구조-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%85%EB%A0%B9%EC%96%B4-%EA%B5%AC%EC%A1%B0-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;명령어 구조 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;명령어 구조 종류&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CISC 계열
+→ 복잡한 명령어, 다양한 형태로 조합
+→ 일정 수준 이상 속도를 향상시킬 수 없음&lt;/li&gt;
+&lt;li&gt;RISC 계열
+→ CISC의 명령어를 간소화
+→ 제한사항 존재
+→ 오늘날 대부분의 CPU에 적용
+→ Fetch, Decode, Execution 을 각각 1클럭에 수행할 때, 여러 명령어 동시에 실행 가능
+→ CISC 보다 적은 클럭 수를 가지고 같은 양의 명령 수행 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;load--store-명령어-디자인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#load--store-%EB%AA%85%EB%A0%B9%EC%96%B4-%EB%94%94%EC%9E%90%EC%9D%B8&quot; aria-label=&quot;load  store 명령어 디자인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;LOAD &amp;#x26; STORE 명령어 디자인&lt;/h2&gt;
+&lt;h3 id=&quot;load-명령어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#load-%EB%AA%85%EB%A0%B9%EC%96%B4&quot; aria-label=&quot;load 명령어 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;LOAD 명령어&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;레지스터로 피연산자의 메모리 주소를 불러들이는 명령&lt;/li&gt;
+&lt;li&gt;명령어 구조
+→ 예약
+→ LOAD
+→ destination
+→ source&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;store-명령어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#store-%EB%AA%85%EB%A0%B9%EC%96%B4&quot; aria-label=&quot;store 명령어 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;STORE 명령어&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;연산 결과를 레지스터에 저장&lt;/li&gt;
+&lt;li&gt;명령어 구조
+→ 예약
+→ STORE
+→ source
+→ destination&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;load-와-store-의-필요성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#load-%EC%99%80-store-%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1&quot; aria-label=&quot;load 와 store 의 필요성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;LOAD 와 STORE 의 필요성&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;명령어 제한
+→ 사칙연산의 피연산자는 숫자 or 레지스터 주소
+→ 연산 결과는 레지스터에 저장
+→ 모든 연산은 레지스터를 통해 진행&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;레지스터를-통한-연산&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0%EB%A5%BC-%ED%86%B5%ED%95%9C-%EC%97%B0%EC%82%B0&quot; aria-label=&quot;레지스터를 통한 연산 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;레지스터를 통한 연산&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;LOAD r1, 0x10&lt;/strong&gt; (0x10 에 있는 피연산자 호출하여 r1에 할당)&lt;br&gt;
+&lt;strong&gt;LOAD r2, 0x20&lt;/strong&gt; (0x20 에 있는 피연산자 호출하여 r2에 할당)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ADD r3, r1, r2&lt;/strong&gt; (r1 과 r2 를 ADD 연산 하여 r3 에 할당)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;STORE r3, 0x30&lt;/strong&gt; (r3 의 값을 0x30 에 저장)&lt;/p&gt;
+&lt;h2 id=&quot;메모리를-참조하는-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%A5%BC-%EC%B0%B8%EC%A1%B0%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;메모리를 참조하는 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;메모리를 참조하는 방법&lt;/h2&gt;
+&lt;h3 id=&quot;direct-모드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#direct-%EB%AA%A8%EB%93%9C&quot; aria-label=&quot;direct 모드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Direct 모드&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;메모리 주소를 레지스터에 바로 할당
+→ LOAD r1, 0x10 (0x10 값을 r1 에 할당)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;indirect-모드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#indirect-%EB%AA%A8%EB%93%9C&quot; aria-label=&quot;indirect 모드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Indirect 모드&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;메모리 주소에 있는 번지수를 참조하여 해당 번지에 있는 값을 레지스터에 할당
+→ LOAD r1, [0x10] (0x10 에 있는 번지수를 참조하여 그 값을 r1 에 할당)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;문제점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C%EC%A0%90&quot; aria-label=&quot;문제점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;현재의 비트 수로는 주소나 값을 표현하기 어려움&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;해결법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%95%B4%EA%B2%B0%EB%B2%95&quot; aria-label=&quot;해결법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;해결법&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;LOAD r1, 0x0010&lt;/strong&gt; (0x0010 에 있는 피연산자 호출하여 r1에 할당)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MUL r0, 4, 4&lt;/strong&gt; (4와 4를 곱셈하여 16을 r0에 할당)&lt;br&gt;
+&lt;strong&gt;MUL r2, 4, 4&lt;/strong&gt; (4와 4를 곱셈하여 16을 r2에 할당)&lt;br&gt;
+&lt;strong&gt;MUL r3, r0, r2&lt;/strong&gt; (r0와 r2를 곱셈하여 256, 즉 0x100 을 r3에 할당)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;STORE r3, 0x0030&lt;/strong&gt; (r3 의 값을 0x0030 에 저장)&lt;br&gt;
+&lt;strong&gt;LOAD r2, [0x0030]&lt;/strong&gt; (0x0030 에 있는 번지수를 참조하여 그 값을 r2 에 할당)  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ADD r3, r1, r2&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[아스키코드 vs 유니코드]]></title><description><![CDATA[문자셋의 종류 SBCS(Single Byte Character Set) 1바이트 문자 표현 ASCII CODE printf, scanf, fgets, fputs 함수 MBCS(Multi Byte Character Set) 1바이트 or…]]></description><link>https://makeitmin.github.io/Computer Science/아스키코드-vs-유니코드/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/아스키코드-vs-유니코드/</guid><pubDate>Sat, 17 Jul 2021 18:07:55 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문자셋의-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%9E%90%EC%85%8B%EC%9D%98-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;문자셋의 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문자셋의 종류&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;SBCS(Single Byte Character Set)&lt;/p&gt;

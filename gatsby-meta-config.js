@@ -1,12 +1,12 @@
 module.exports = {
   title: `makeitmin.io`,
-  description: `Blog posted about ...`,
+  description: `휘발되지 않는 멋쟁이 개발자 되기`,
   author: `Seongmin Ha`,
   introduction: `휘발되지 않는 멋쟁이 개발자 되기`,
   siteUrl: `https://makeitmin.github.io`, // Your blog site url
   social: {
     twitter: ``, // Your Twitter account
-    github: `https://www.github.com/makeitmin`, // Your GitHub account
+    github: `makeitmin`, // Your GitHub account
     medium: ``, // Your Medium account
     facebook: ``, // Your Facebook account
     linkedin: ``, // Your LinkedIn account

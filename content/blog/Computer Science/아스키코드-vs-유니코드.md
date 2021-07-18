@@ -1,6 +1,6 @@
 ---
 title: 아스키코드 vs 유니코드
-date: 2021-07-17 18:07:55
+date: 2021-06-28 18:07:55
 category: Computer Science
 thumbnail: { thumbnailSrc }
 draft: false

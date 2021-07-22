@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Jul 2021 08:17:06 GMT</lastBuildDate><item><title><![CDATA[프로세스의 생성과 소멸]]></title><description><![CDATA[프로세스 프로세스란 프로세스별로 할당받는 리소스를 모두 포함하는 개념 가상 메모리 공간 + 프로세스 별로 독립적으로 사용하게 되는 레지스터 셋 RAM 보다 더 큰 메모리 공간을 할당받았을 경우, 까지 사용 레지스터 셋은 현재 실행 중인…]]></description><link>https://makeitmin.github.io/Computer Science/프로세스의-생성과-소멸/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/프로세스의-생성과-소멸/</guid><pubDate>Sun, 18 Jul 2021 16:37:25 GMT</pubDate><content:encoded>&lt;h2 id=&quot;프로세스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4&quot; aria-label=&quot;프로세스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로세스&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Jul 2021 08:04:19 GMT</lastBuildDate><item><title><![CDATA[프로세스의 생성과 소멸]]></title><description><![CDATA[프로세스 프로세스란 프로세스별로 할당받는 리소스를 모두 포함하는 개념 가상 메모리 공간 + 프로세스 별로 독립적으로 사용하게 되는 레지스터 셋 RAM 보다 더 큰 메모리 공간을 할당받았을 경우, 까지 사용 레지스터 셋은 현재 실행 중인…]]></description><link>https://makeitmin.github.io/Computer Science/프로세스의-생성과-소멸/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/프로세스의-생성과-소멸/</guid><pubDate>Sun, 18 Jul 2021 16:37:25 GMT</pubDate><content:encoded>&lt;h2 id=&quot;프로세스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4&quot; aria-label=&quot;프로세스 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로세스&lt;/h2&gt;
 &lt;p&gt;프로세스란 프로세스별로 할당받는 리소스를 모두 포함하는 개념&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;가상 메모리 공간 + 프로세스 별로 독립적으로 사용하게 되는 레지스터 셋&lt;/li&gt;
@@ -259,7 +259,141 @@
 &lt;li&gt;CPU 내부에서 데이터와 명령어는 &lt;code class=&quot;language-text&quot;&gt;레지스터&lt;/code&gt;에 대기 상태로 저장된다.&lt;/li&gt;
 &lt;li&gt;순차적인 &lt;code class=&quot;language-text&quot;&gt;클럭 신호&lt;/code&gt;에 따라 레지스터에 저장된 명령어는 &lt;code class=&quot;language-text&quot;&gt;컨트롤 유닛&lt;/code&gt;으로 전송되어 해석(Decode)되고, 레지스터에 저장된 데이터는 &lt;code class=&quot;language-text&quot;&gt;ALU&lt;/code&gt;로 전송된다.&lt;/li&gt;
 &lt;li&gt;ALU에서 명령어와 데이터로 연산이 수행된다. (Execution)&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[소개 업데이트 예정입니다]]></description><link>https://makeitmin.github.io/resume-en/</link><guid isPermaLink="false">https://makeitmin.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h1&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[GitLab에서 GitHub로 Repository 이전하기]]></title><description><![CDATA[Code 이전하기 (간단) Issues, Milestones, Merge Request 이전하기 (복잡)   시작하기 전에 Merge Request를 이전하는 것은 open 되어 있는 것들만 가능합니다. GitHub API 정책상 Merge…]]></description><link>https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</link><guid isPermaLink="false">https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</guid><pubDate>Sat, 27 Mar 2021 07:07:12 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;li&gt;Code 이전하기 (간단)&lt;/li&gt;
+&lt;li&gt;Issues, Milestones, Merge Request 이전하기 (복잡)  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;시작하기-전에&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90&quot; aria-label=&quot;시작하기 전에 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시작하기 전에&lt;/h2&gt;
+&lt;p&gt;Merge Request를 이전하는 것은 &lt;strong&gt;open&lt;/strong&gt; 되어 있는 것들만 가능합니다. GitHub API 정책상 Merge Request를 Pull Request로 옮기는 것은 &lt;strong&gt;Target 브랜치와 Source 브랜치 간의 커밋 차이&lt;/strong&gt;가 있어야 가능하다고 합니다. 이미 merged 상태인 것은 두 브랜치 간의 차이를 추적할 수 없으므로 Merge Request의 형태로 옮기기 어렵습니다.  &lt;/p&gt;
+&lt;p&gt;해당 부분에 대해 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/issues/91#issuecomment-884719601&quot;&gt;직접 질문을 남긴 내용&lt;/a&gt;입니다.  &lt;/p&gt;
+&lt;p&gt;질문 당시 merged 상태인 Merge Request를 이전할 경우 오류가 나고 있는 상황이었고, 이에 따라 이미 merged 상태인 Merge Request는 Issue의 형태로 이전되도록 어떤 친절한 개발자분의 코드 개선으로 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/pull/93&quot;&gt;오류가 핸들링된 내용&lt;/a&gt;입니다.&lt;/p&gt;
+&lt;h2 id=&quot;방법-1--code-이전하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%A9%EB%B2%95-1--code-%EC%9D%B4%EC%A0%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;방법 1  code 이전하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;방법 1 : Code 이전하기&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;GitHub에 옮길 빈 Repository를 미리 생성합니다.&lt;/li&gt;
+&lt;li&gt;로컬에서 다음을 수행합니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# GitLab에서 bare 상태로 자신의 Repository clone 해오기&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone --mirror https://kdt-gitlab.elice.io/001_part2_project-portfolio/team2/skidmarker.git
+
+&lt;span class=&quot;token comment&quot;&gt;# 프로젝트 폴더로 이동하기&lt;/span&gt;
+&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; skidmarker.git
+
+&lt;span class=&quot;token comment&quot;&gt;# 새 GitHub Repository에 remote 연결&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; remote set-url --push origin https://github.com/makeitmin/skidmarker.git
+
+&lt;span class=&quot;token comment&quot;&gt;# 새 GitHub Repository로 push 하기&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push --no-verify --mirror https://github.com/makeitmin/skidmarker.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;방법-2---issues-milestones-merge-requests-이전하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%A9%EB%B2%95-2---issues-milestones-merge-requests-%EC%9D%B4%EC%A0%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;방법 2   issues milestones merge requests 이전하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;방법 2 :  Issues, Milestones, Merge Requests 이전하기&lt;/h2&gt;
+&lt;h3 id=&quot;폴더-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;폴더 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폴더 생성하기&lt;/h3&gt;
+&lt;p&gt;CMD를 열고 다음을 수행합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; C:/Users/사용자/.ssh
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; github
+&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; gitlab&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;gitlab과-github에서-각각-ssh-key-발급받기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gitlab%EA%B3%BC-github%EC%97%90%EC%84%9C-%EA%B0%81%EA%B0%81-ssh-key-%EB%B0%9C%EA%B8%89%EB%B0%9B%EA%B8%B0&quot; aria-label=&quot;gitlab과 github에서 각각 ssh key 발급받기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GitLab과 GitHub에서 각각 SSH Key 발급받기&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;GitLab 공개키&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1.1&lt;/strong&gt; SSH Key 발급받기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Git Bash에서 작업&lt;/span&gt;
+ssh-keygen
+Generating public/private rsa key pair.
+**Enter &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;which&lt;/span&gt; to save the key &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;/c/Users/사용자/.ssh/id_rsa&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;: /c/Users/사용자/.ssh/github/id_rsa &lt;span class=&quot;token comment&quot;&gt;# Key 파일 저장할 경로 입력하기**&lt;/span&gt;
+Created directory &lt;span class=&quot;token string&quot;&gt;&apos;/기본저장경로 또는 입력경로&apos;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+**Enter passphrase &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; no passphrase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;:      &lt;span class=&quot;token comment&quot;&gt;# 암호 입력하기**&lt;/span&gt;
+**Enter same passphrase again:                     &lt;span class=&quot;token comment&quot;&gt;# 암호 재입력하기**&lt;/span&gt;
+Your identification has been saved &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; /입력한 경로.
+Your public key has been saved &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; /입력한 경로.
+The key fingerprint is: &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;1.1.2&lt;/strong&gt; Key 파일이 저장된 경로의 id_rsa.pub 내용 복사&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# ssh-rsa 뒤부터 사용자 이메일까지 복사&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; C://Users/사용자/.ssh/github/id_rsa.pub ssh-rsa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;1.1.3&lt;/strong&gt; &lt;code class=&quot;language-text&quot;&gt;GitLab 프로필&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;Settings&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;SSH Keys&lt;/code&gt;에 접근&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1.4&lt;/strong&gt; 복사한 id_rsa.pub 내용 붙여넣고 등록&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.1.5&lt;/strong&gt; 발급된 token 복사하기(다시 조회할 수 없으니 꼭 다른 곳에 복사해두기)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub 공개키&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.1&lt;/strong&gt; SSH Key 발급받기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Git Bash&lt;/span&gt;
+ssh-keygen
+Generating public/private rsa key pair.
+**Enter &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;which&lt;/span&gt; to save the key &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;/c/Users/사용자/.ssh/id_rsa&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;: /c/Users/사용자/.ssh/gitlab/id_rsa &lt;span class=&quot;token comment&quot;&gt;# Key 파일 저장할 경로 입력하기**&lt;/span&gt;
+Created directory &lt;span class=&quot;token string&quot;&gt;&apos;/기본저장경로 또는 입력경로&apos;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
+**Enter passphrase &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;empty &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; no passphrase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;:      &lt;span class=&quot;token comment&quot;&gt;# 암호 입력하기**&lt;/span&gt;
+**Enter same passphrase again:                     &lt;span class=&quot;token comment&quot;&gt;# 암호 재입력하기**&lt;/span&gt;
+Your identification has been saved &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; /입력한 경로.
+Your public key has been saved &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; /입력한 경로.
+The key fingerprint is: &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;2.2&lt;/strong&gt; Key 파일이 저장된 경로의 id_rsa.pub 내용 복사&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# ssh-rsa 뒤부터 사용자 이메일까지 복사&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;cat&lt;/span&gt; C://Users/사용자/.ssh/gitlab/id_rsa.pub ssh-rsa&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;2.3&lt;/strong&gt; &lt;code class=&quot;language-text&quot;&gt;GitHub 프로필&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;Settings&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;SSH and GPG Key&lt;/code&gt; → &lt;code class=&quot;language-text&quot;&gt;New SSH Key&lt;/code&gt;에 접근&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.4&lt;/strong&gt; 복사한 id_rsa.pub 내용 붙여넣고 등록&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.5&lt;/strong&gt; 발급된 token 복사하기(다시 조회할 수 없으니 꼭 다른 곳에 복사해두기)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;node-gitlab-2-github-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#node-gitlab-2-github-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;node gitlab 2 github 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;node-gitlab-2-github 사용하기&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;node-gitlab-2-github 가져오기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/piceaTech/node-gitlab-2-github.git
+&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; node-gitlab-2-github&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;node_modules 설치하기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; i&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;settings.ts 생성하기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; sample_settings.ts settings.ts&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;settings.ts 작성하고 저장하기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+
+gitlab: &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    url: &lt;span class=&quot;token string&quot;&gt;&apos;https://kdt-gitlab.elice.io&apos;&lt;/span&gt;,
+    token: &lt;span class=&quot;token string&quot;&gt;&apos;복사해둔 GitLab token&apos;&lt;/span&gt;,
+    projectId: &lt;span class=&quot;token string&quot;&gt;&apos;GitLab Repository의 Project ID&apos;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# ex) 551 (Repository 타이틀 아래에 있음)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;,
+  github: &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    baseUrl: &lt;span class=&quot;token string&quot;&gt;&apos;https://api.github.com&apos;&lt;/span&gt;,
+    owner: &lt;span class=&quot;token string&quot;&gt;&apos;GitHub 유저명&apos;&lt;/span&gt;,
+    token: &lt;span class=&quot;token string&quot;&gt;&apos;복사해둔 GitHub token&apos;&lt;/span&gt;,
+    repo: &lt;span class=&quot;token string&quot;&gt;&apos;GitHub Repository 이름&apos;&lt;/span&gt;,
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;,
+
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+
+transfer: &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    milestones: true,
+    labels: true,
+    issues: true,
+    mergeRequests: true,
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;,
+
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;실행하기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;참고링크&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;node-gitlab-2-github&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github&quot;&gt;piceaTech/node-gitlab-2-github&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSH 공개키 생성&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/book/ko/v2/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot;&gt;Git - SSH 공개키 만들기&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SSH 공개키 등록&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://brunch.co.kr/@anonymdevoo/10&quot;&gt;Github ssh key 등록하는 법&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[소개 업데이트 예정입니다]]></description><link>https://makeitmin.github.io/resume-en/</link><guid isPermaLink="false">https://makeitmin.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h1&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;p&gt;&lt;em&gt;업데이트 예정입니다&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;</content:encoded></item></channel></rss>

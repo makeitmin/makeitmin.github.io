@@ -170,16 +170,10 @@ mkdir gitlab
     npm run start
     ```
 
-**참고링크**
+## 참고자료
 
-- node-gitlab-2-github
+- node-gitlab-2-github ([레포지토리](https://github.com/piceaTech/node-gitlab-2-github))
 
-    [piceaTech/node-gitlab-2-github](https://github.com/piceaTech/node-gitlab-2-github)
+- SSH 공개키 생성 ([문서](https://git-scm.com/book/ko/v2/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0))
 
-- SSH 공개키 생성
-
-    [Git - SSH 공개키 만들기](https://git-scm.com/book/ko/v2/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0)
-
-- SSH 공개키 등록
-
-    [Github ssh key 등록하는 법](https://brunch.co.kr/@anonymdevoo/10)
+- SSH 공개키 등록 ([블로그](https://brunch.co.kr/@anonymdevoo/10))

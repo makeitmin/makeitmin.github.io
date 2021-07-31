@@ -28,3 +28,7 @@ draft: false
 - MBCS 기반 프로그래밍의 문제점 해결 → 모든 문자들을 동일한 2바이트의 크기로 처리
 - 자료형 char → 자료형 wchar_t
 - 할당되는 문자열 앞에 'L' 표기
+
+## 참고자료
+
+- 뇌를 자극하는 윈도우즈 시스템 프로그래밍 ([도서](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788979144611&orderClick=LEa&Kc=), [강의](https://www.inflearn.com/course/%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D))

@@ -1,4 +1,370 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 31 Jul 2021 16:40:58 GMT</lastBuildDate><item><title><![CDATA[커널 오브젝트에 대한 이해]]></title><description><![CDATA[…]]></description><link>https://makeitmin.github.io/Computer Science/커널-오브젝트에-대한-이해/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/커널-오브젝트에-대한-이해/</guid><pubDate>Sat, 31 Jul 2021 16:08:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;커널&lt;/strong&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 03 Aug 2021 13:23:37 GMT</lastBuildDate><item><title><![CDATA[Django 시작하기 (feat. PostgreSQL)]]></title><description><![CDATA[이때까지 사용해본 웹 프레임워크는 Spring과 Flask가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI…]]></description><link>https://makeitmin.github.io/TIL/django-시작하기-(feat.-postgresql)/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/django-시작하기-(feat.-postgresql)/</guid><pubDate>Tue, 03 Aug 2021 12:08:42 GMT</pubDate><content:encoded>&lt;p&gt;이때까지 사용해본 웹 프레임워크는 &lt;strong&gt;Spring&lt;/strong&gt;과 &lt;strong&gt;Flask&lt;/strong&gt;가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다.&lt;/p&gt;
+&lt;p&gt;Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller)로 이루어져 있었다. 사실 그때는 MVC 패턴의 장점인 재사용성, 모듈화 등을 정확히 알고 썼다기보다는 폴더가 역할별로 잘 나뉘어 있기 때문에 화면 코드(JSP, HTML)와 데이터를 불러오는 코드(DAO: Data Access Object)가 어지럽게 뒤섞이지 않는 것이 좋았던 것 같다.&lt;/p&gt;
+&lt;p&gt;Flask는 Python 환경에서 Flask 패키지를 설치해서 &lt;code class=&quot;language-text&quot;&gt;app.py&lt;/code&gt; 파일 하나에 API 함수를 짜서 하나하나 조립하듯이 구현했기 때문에 직관적이고 자유도가 높아서 좋았다.&lt;/p&gt;
+&lt;p&gt;이렇게 지금까지 알고 있던 2개의 프레임워크를 뒤로 하고, Python으로 백엔드를 구현할 때 가장 많이 사용한다는 Django에 대해 알아보려고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;django-조사하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#django-%EC%A1%B0%EC%82%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;django 조사하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Django 조사하기&lt;/h2&gt;
+&lt;p&gt;Django에 대해 다룬 블로그나 문서는 아주 많았다. 처음부터 전부 알기엔 어려웠지만, 내 머리는 이때까지의 경험에 빗대어 Django를 이렇게 (아주 거칠게) 요약했다. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Spring의 MVC 패턴을 가져가면서 Flask처럼 Python을 사용하는 프레임워크&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MVC 패턴에서의 Controller 역할을 Django에서는 프레임워크 자체가 수행하기 때문에 Controller보다는 화면을 보여주는 Template 부분을 강조하여 MVT, MTV 패턴으로 표기한 곳도 많았다.&lt;/p&gt;
+&lt;p&gt;Python을 쓰는 Flask와의 비교도 많이 볼 수 있었다. &lt;/p&gt;
+&lt;p&gt;Django는 구현해야 하는 내부 앱이 많거나, 안정성과 확장성을 중요하게 여기는 대형 프로젝트에서 사용한다. Django로 프로젝트를 생성하면 대부분의 개발환경 설정이 완료되어 있기 때문에 경제적이다. &lt;/p&gt;
+&lt;p&gt;반면 Flask는 복잡한 구조가 필요하지 않고, 안정성을 개발자가 짠 코드만으로도 충분히 커버할 수 있는 간단한 프로젝트에서 많이 사용한다. 당연히 Django보다 가볍다.&lt;/p&gt;
+&lt;h2 id=&quot;django-프로젝트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#django-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8&quot; aria-label=&quot;django 프로젝트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Django 프로젝트&lt;/h2&gt;
+&lt;h3 id=&quot;django-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#django-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;django 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Django 설치&lt;/h3&gt;
+&lt;p&gt;여러 글을 읽었는데 일단 너무 많고, 나는 글로 읽는 것보다 직접 해보면서 더 잘 배우는 타입이어서 그냥 Django 프로젝트를 하나 만들어보기로 했다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;django 패키지를 설치한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;pip &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;django_test라는 이름의 프로젝트를 생성한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;django-admin startproject django_test &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;프로젝트 Tree는 다음과 같다. 참고로 Linux 환경에서는 &lt;code class=&quot;language-text&quot;&gt;tree&lt;/code&gt; 명령어를 이용하면 손쉽게 폴더 구조를 그릴 수 있다.  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;django_test
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;-- django_test
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;-- __init__.py
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;-- asgi.py
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;-- settings.py
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;-- urls.py
+&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;   &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;`&lt;/span&gt;-- wsgi.py
+&lt;span class=&quot;token variable&quot;&gt;`&lt;/span&gt;&lt;/span&gt;-- manage.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;생성된-파일의-용도&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%9D%EC%84%B1%EB%90%9C-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%9A%A9%EB%8F%84&quot; aria-label=&quot;생성된 파일의 용도 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;생성된 파일의 용도&lt;/h3&gt;
+&lt;p&gt;자동으로 생성된 각각의 파일이 어떤 역할을 하는지 알아보았다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;manage.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Django 프로젝트의 다양한 커맨드를 관리하는 Util 파일&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;init&lt;/strong&gt;.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Python이 이 디렉토리를 패키지처럼 다룰 수 있도록 명시하는 파일&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;settings.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Django 프로젝트의 환경 및 구성을 저장하는 파일&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;urls.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Django 프로젝트의 URL 선언을 저장하는 파일&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;asgi.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Django 프로젝트를 서비스하기 위한 ASGI 호환 웹 서버 인터페이스&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;wsgi.py&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Django 프로젝트를 서비스하기 위한 WSGI 호환 웹 서버 인터페이스&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;wsgi와-asgi의-차이점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wsgi%EC%99%80-asgi%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90&quot; aria-label=&quot;wsgi와 asgi의 차이점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;WSGI와 ASGI의 차이점&lt;/h3&gt;
+&lt;p&gt;생성된 파일을 보면, 웹 서버 인터페이스를 담당하는 파일이 wsgi.py와 asgi.py로 2개인 것을 확인할 수 있다. 애플리케이션이 Nginx, Apache와 같은 웹 서버와 상호작용하기 위한 인터페이스라는 점에서는 같은 역할을 하지만, 각각 호환되는 형식에 따라 나뉜 것이다.&lt;/p&gt;
+&lt;p&gt;그렇다면 이 2가지 형식의 차이는 무엇일까? 가장 큰 차이점은 &lt;strong&gt;비동기 처리의 가능 여부&lt;/strong&gt;에 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;WSGI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;웹 서버와 애플리케이션 사이의 미들웨어로 웹 서버가 애플리케이션의 코드를 이해할 수 있도록 중간에서 코드를 읽어 반환하는 역할이다. WSGI는 2가지 형태가 존재한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;웹서버(Nginx, Apache)에서 제공하는 내장 모듈 형식&lt;/li&gt;
+&lt;li&gt;Python으로 작성된 Web App Server 형식&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ASGI&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;대용량 트래픽에서 동기 처리만을 지원하여 한계를 가지는 WSGI와는 달리, ASGI는 비동기 처리를 지원한다. 따라서 &lt;strong&gt;Websocket 프로토콜과 HTTP 2.0을 지원&lt;/strong&gt;한다고 한다. Websocket 등을 사용한 &lt;strong&gt;실시간 서비스&lt;/strong&gt; 등에는 ASGI가 적합하다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;postsql-데이터베이스에-유저-등록하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postsql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%97%90-%EC%9C%A0%EC%A0%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0&quot; aria-label=&quot;postsql 데이터베이스에 유저 등록하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostSQL 데이터베이스에 유저 등록하기&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;PostgreSQL은 사전에 설치한 상태이다. 다음과 같이 입력하여 접속한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; -u postgres psql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;접속에 성공하면 유저를 생성한다. ‘admin’이라는 이름으로 생성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;CREATE &lt;span class=&quot;token environment constant&quot;&gt;USER&lt;/span&gt; admin&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;프로젝트에 쓸 데이터베이스를 생성한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;CREATE DATABASE django_db OWNER admin&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;참고로 유저 패스워드는 다음과 같이 변경할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;ALTER &lt;span class=&quot;token environment constant&quot;&gt;USER&lt;/span&gt; admin WITH PASSWORD &lt;span class=&quot;token string&quot;&gt;&apos;admin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;postgresql-패키지-설치하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;postgresql 패키지 설치하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL 패키지 설치하기&lt;/h3&gt;
+&lt;p&gt;pip로 PostgreSQL 패키지를 설치한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;pip3 &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; psycopg2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치하는 중에 다음과 같은 오류가 발생하였다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+./psycopg/psycopg.h:36:10: fatal error: libpq-fe.h: No such &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt; or directory
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+error: &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;x86_64-linux-gnu-gcc&apos;&lt;/span&gt; failed with &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; status &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libpq&lt;/code&gt; 패키지를 따로 설치하고 다시 시도하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; libpq-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;프로젝트-설정settingspy-수정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EC%A0%95settingspy-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;프로젝트 설정settingspy 수정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 설정(settings.py) 수정하기&lt;/h3&gt;
+&lt;p&gt;Django 프로젝트의 설정이 구현되어 있는 &lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt; 파일을 다음과 같이 수정한다. 데이터베이스로 설정한 PostgreSQL은 사전에 설치한 상태이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;시간대(TIME_ZONE)&lt;/li&gt;
+&lt;li&gt;static 폴더의 경로(STATIC_ROOT)&lt;/li&gt;
+&lt;li&gt;데이터베이스 설정(DATABASES)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+Django settings for django_test project.
+
+Generated by &apos;django-admin startproject&apos; using Django 3.2.6.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/3.2/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/3.2/ref/settings/
+&quot;&quot;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; pathlib &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Path
+
+&lt;span class=&quot;token comment&quot;&gt;# Build paths inside the project like this: BASE_DIR / &apos;subdir&apos;.&lt;/span&gt;
+BASE_DIR &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;__file__&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;parent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;parent
+
+&lt;span class=&quot;token comment&quot;&gt;# Quick-start development settings - unsuitable for production&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# SECURITY WARNING: keep the secret key used in production secret!&lt;/span&gt;
+SECRET_KEY &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django-insecure-#x(fox4#*2+x(c%v!jmf(7om$xw)_9qx0y^&amp;amp;efx6i9_b)9fv+d&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# SECURITY WARNING: don&apos;t run with debug turned on in production!&lt;/span&gt;
+DEBUG &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;
+
+ALLOWED_HOSTS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Application definition&lt;/span&gt;
+
+INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.admin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.contenttypes&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.sessions&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.messages&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.staticfiles&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+MIDDLEWARE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.security.SecurityMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.sessions.middleware.SessionMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.common.CommonMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.csrf.CsrfViewMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.middleware.AuthenticationMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.messages.middleware.MessageMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.clickjacking.XFrameOptionsMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+ROOT_URLCONF &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django_test.urls&apos;&lt;/span&gt;
+
+TEMPLATES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;BACKEND&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.template.backends.django.DjangoTemplates&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;DIRS&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;APP_DIRS&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;OPTIONS&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&apos;context_processors&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+                &lt;span class=&quot;token string&quot;&gt;&apos;django.template.context_processors.debug&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token string&quot;&gt;&apos;django.template.context_processors.request&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.context_processors.auth&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.messages.context_processors.messages&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+WSGI_APPLICATION &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django_test.wsgi.application&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Database&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# https://docs.djangoproject.com/en/3.2/ref/settings/#databases&lt;/span&gt;
+
+DATABASES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;default&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;ENGINE&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.db.backends.postgresql&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django_db&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;USER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;admin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;PASSWORD&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;admin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;HOST&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;localhost&apos;&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;PORT&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;5432&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Password validation&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators&lt;/span&gt;
+
+AUTH_PASSWORD_VALIDATORS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.password_validation.UserAttributeSimilarityValidator&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.password_validation.MinimumLengthValidator&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.password_validation.CommonPasswordValidator&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth.password_validation.NumericPasswordValidator&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Internationalization&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# https://docs.djangoproject.com/en/3.2/topics/i18n/&lt;/span&gt;
+
+LANGUAGE_CODE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;en-us&apos;&lt;/span&gt;
+
+TIME_ZONE &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Asia/Seoul&apos;&lt;/span&gt;
+
+USE_I18N &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;
+
+USE_L10N &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;
+
+USE_TZ &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Static files (CSS, JavaScript, Images)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# https://docs.djangoproject.com/en/3.2/howto/static-files/&lt;/span&gt;
+
+STATIC_URL &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/static/&apos;&lt;/span&gt;
+STATIC_ROOT &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; os&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;BASE_DIR&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;static&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Default primary key field type&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field&lt;/span&gt;
+
+DEFAULT_AUTO_FIELD &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.db.models.BigAutoField&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;django--postgresql-연동하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#django--postgresql-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0&quot; aria-label=&quot;django  postgresql 연동하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Django + PostgreSQL 연동하기&lt;/h2&gt;
+&lt;p&gt;Django 프로젝트에 데이터베이스가 반영될 수 있더록 마이그레이션 작업을 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 마이그레이트&lt;/span&gt;
+python3 manage.py migrate
+
+&lt;span class=&quot;token comment&quot;&gt;# 슈퍼유저 생성&lt;/span&gt;
+python manage.py createsuperuser&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Django 초보 가이드 - 실습을 통해 알아보는 장고 입문 (&lt;a href=&quot;https://www.inflearn.com/course/django-%EC%B4%88%EB%B3%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%8B%A4%EC%8A%B5%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9E%A5%EA%B3%A0-%EC%9E%85%EB%AC%B8&quot;&gt;강의&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Django 공식 문서 (문서)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Django 앱 작성하기 (&lt;a href=&quot;https://docs.djangoproject.com/ko/3.2/intro/tutorial01/&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ASGI를 사용하여 배포하는 방법 (&lt;a href=&quot;https://docs.djangoproject.com/ko/3.2/howto/deployment/asgi/&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Django Girls 튜토리얼&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;나의 첫 번째 Django 프로젝트 (&lt;a href=&quot;https://tutorial.djangogirls.org/ko/django_start_project/&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;PostgreSQL 연동 준비 (&lt;a href=&quot;https://tutorial-extensions.djangogirls.org/ko/optional_postgresql_installation#undefined-6&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;REST API 개발로 알아보는 WSGI, ASGI (&lt;a href=&quot;https://blog.neonkid.xyz/249&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;psycopg2 설치 오류 (&lt;a href=&quot;https://stackoverflow.com/questions/63584368/pip-install-psycopg2-error-command-x86-64-linux-gnu-gcc-failed-with-exit-st&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;PostgreSQL 연동하기 (&lt;a href=&quot;https://hecpas0620.tistory.com/15&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[PostgreSQL 시작하기 (feat. Django)]]></title><description><![CDATA[기존에 사용한 경험이 있는 데이터베이스는 MySQL과 MongoDB가 있었다. 관계형 데이터베이스(RDB)로 범위를 줄이면 MySQL 정도였고, 엘리스 AI 트랙에서 했던 프로젝트 중에 백엔드를 Django와 PostgreSQL…]]></description><link>https://makeitmin.github.io/TIL/postgresql-시작하기-(feat.-django)/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/postgresql-시작하기-(feat.-django)/</guid><pubDate>Tue, 03 Aug 2021 12:08:36 GMT</pubDate><content:encoded>&lt;p&gt;기존에 사용한 경험이 있는 데이터베이스는 MySQL과 MongoDB가 있었다. 관계형 데이터베이스(RDB)로 범위를 줄이면 MySQL 정도였고, 엘리스 AI 트랙에서 했던 프로젝트 중에 백엔드를 Django와 PostgreSQL로 구성한 프로젝트가 있었다. 나는 그 프로젝트에서 프론트엔드를 맡았고 Django를 애초에 몰랐기에 백엔드 코드를 자세히 보지 않았는데, 당시 백엔드 개발을 맡은 팀원이 개발환경 구성을 굉장히 일찍 끝내서 인상깊었던 기억이 있다.&lt;/p&gt;
+&lt;p&gt;그렇게 백엔드는 캄캄하게 모른 채로 지나간 프로젝트였는데 드디어 그 프로젝트의 백엔드 코드와 데이터베이스 구성을 이해할 수 있게 될 것 같아 벌써 기분이 좋다. &lt;/p&gt;
+&lt;h2 id=&quot;postgresql-조사하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql-%EC%A1%B0%EC%82%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;postgresql 조사하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL 조사하기&lt;/h2&gt;
+&lt;h3 id=&quot;postgresql의-필요성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql%EC%9D%98-%ED%95%84%EC%9A%94%EC%84%B1&quot; aria-label=&quot;postgresql의 필요성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL의 필요성&lt;/h3&gt;
+&lt;p&gt;Django 프로젝트를 위해 관계형 데이터베이스인 PostgreSQL에 대해 찾아보면서 들었던 가장 큰 의문은 &lt;strong&gt;관계형 데이터베이스를 사용한다면 왜 MySQL이나 Oracle이 아닌 PostgreSQL을 사용하는지&lt;/strong&gt;였다. 답은 &lt;strong&gt;다른 데이터베이스에 비해 Django 입장에서 PostgreSQL만이 지원하는 기능이 많기 때문&lt;/strong&gt;이었다. Django 공식 문서에서는 다음과 같이 설명하고 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;PostgreSQL has a number of features which are not shared by the other databases Django supports. (생략) … Django provides support for a number of data types which will only work with PostgreSQL.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;postgresql의-장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql%EC%9D%98-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;postgresql의 장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL의 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;무료 오픈 소스&lt;/li&gt;
+&lt;li&gt;관계형 데이터베이스지만 객체 지향 데이터베이스의 기능(테이블 상속 및 함수 오버로딩)도 가능&lt;/li&gt;
+&lt;li&gt;ACID(트랜잭션의 원자성, 일관성, 격리성, 내구성)를 엄격하게 준수하면서 동시성을 보장&lt;/li&gt;
+&lt;li&gt;다양한 데이터 타입 지원&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;postgresql-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;postgresql 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL 사용하기&lt;/h2&gt;
+&lt;h3 id=&quot;postgresql-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;postgresql 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL 설치&lt;/h3&gt;
+&lt;p&gt;설치되는 환경은 Ubuntu 18.04 이다. &lt;a href=&quot;https://www.postgresql.org/download/linux/ubuntu/&quot;&gt;PostgreSQL 공식 문서&lt;/a&gt;를 통해 저장소를 확인하였다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;postgresql과 postgresql-contrib을 설치한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 저장소 설정&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sh&lt;/span&gt; -c &lt;span class=&quot;token string&quot;&gt;&apos;echo &quot;deb http://apt.postgresql.org/pub/repos/apt &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list&apos;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;wget&lt;/span&gt; --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt-key &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; -
+
+&lt;span class=&quot;token comment&quot;&gt;# apt 패키지 업데이트&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; update
+
+&lt;span class=&quot;token comment&quot;&gt;# postgresql, postgresql-contrib 설치&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; postgresql postgresql-contrib&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PostgreSQL 서버를 연결한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;service&lt;/span&gt; postgresql start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;서버가 잘 연결되었는지 확인한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 13/main (port 5432): online 이 뜨면 성공&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;service&lt;/span&gt; postgresql status&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;root 유저 설정&lt;/strong&gt;
+여기서 조금 헤맸는데, 이유는 바로 PostgreSQL을 시작하기 위해 &lt;code class=&quot;language-text&quot;&gt;psql&lt;/code&gt;을 입력했지만 다음과 같은 오류가 발생했기 때문이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;psql: error: FATAL:  role &lt;span class=&quot;token string&quot;&gt;&quot;root&quot;&lt;/span&gt; does not exist&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 오류는 PostgreSQL에 ‘root’라는 Role이 등록되지 않아 생긴 문제이다. Unix 시스템의 root 계정과는 다른 개념이다. 대신 PostgreSQL에 슈퍼유저로 기본 등록되어 있는 postgres 계정으로 접속하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; -u postgres psql&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 바로 Shell이 뜬다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;postgresql의-명령어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#postgresql%EC%9D%98-%EB%AA%85%EB%A0%B9%EC%96%B4&quot; aria-label=&quot;postgresql의 명령어 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PostgreSQL의 명령어&lt;/h3&gt;
+&lt;p&gt;데이터베이스와 테이블을 생성 또는 삭제하고, 데이터를 삽입/조회/수정/삭제할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 데이터베이스 생성&lt;/span&gt;
+CREATE DATABASE testdb&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터베이스 삭제&lt;/span&gt;
+DROP DATABASE testdb&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터베이스 접속(Linux Command)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; -u postgres psql -d testdb
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터베이스 목록&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;l
+
+&lt;span class=&quot;token comment&quot;&gt;# 테이블 생성&lt;/span&gt;
+CREATE TABLE &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+	USER_ID SERIAL PRIMARY KEY,
+	USER_NAME VARCHAR&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; UNIQUE NOT NULL,
+	PASSWORD VARCHAR&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; NOT NULL,
+	EMAIL VARCHAR&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;355&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; UNIQUE NOT NULL
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 테이블 삭제&lt;/span&gt;
+DROP TABLE user&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터 삽입&lt;/span&gt;
+INSERT INTO &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt; VALUES &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;seongmin&apos;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;1234&apos;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&apos;seongminha0910@gmail.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터 조회&lt;/span&gt;
+SELECT * FROM &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+SELECT EMAIL FROM &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터 수정&lt;/span&gt;
+UPDATE &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt; SET &lt;span class=&quot;token assign-left variable&quot;&gt;EMAIL&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;seongminha.dev@gmail.com&apos;&lt;/span&gt; where &lt;span class=&quot;token assign-left variable&quot;&gt;USER_ID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 데이터 삭제&lt;/span&gt;
+DELETE FROM &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span&gt; where &lt;span class=&quot;token assign-left variable&quot;&gt;USER_ID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SQLite vs MySQL vs PostgreSql: 관계형 DB 시스템의 비교 (&lt;a href=&quot;https://smoh.tistory.com/370?category=706280&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PostgreSQL 공식문서 (&lt;a href=&quot;https://www.postgresql.org/&quot;&gt;문서&lt;/a&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PostgreSQL 설치 (&lt;a href=&quot;https://www.postgresql.org/download/linux/ubuntu/&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;PostgreSQL 기본 쿼리 (&lt;a href=&quot;https://www.postgresql.org/docs/9.2/sql-insert.html&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Django 공식 문서 (&lt;a href=&quot;https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Django Girls 튜토리얼 (&lt;a href=&quot;https://tutorial-extensions.djangogirls.org/ko/optional_postgresql_installation#undefined-6&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[커널 오브젝트에 대한 이해]]></title><description><![CDATA[…]]></description><link>https://makeitmin.github.io/Computer Science/커널-오브젝트에-대한-이해/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/커널-오브젝트에-대한-이해/</guid><pubDate>Sat, 31 Jul 2021 16:08:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;strong&gt;커널&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;모든 운영체제에 존재하는 핵심 모듈&lt;/li&gt;
 &lt;li&gt;커널의 기능을 추가하고 보강한 것이 현대의 운영체제&lt;/li&gt;

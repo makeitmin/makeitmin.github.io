@@ -289,7 +289,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ## Django + PostgreSQL 연동하기
 
-Django 프로젝트에 데이터베이스가 반영될 수 있더록 마이그레이션 작업을 해준다.
+Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.
 
 ```bash
 # 마이그레이트

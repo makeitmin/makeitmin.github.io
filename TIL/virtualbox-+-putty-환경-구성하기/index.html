@@ -64,275 +64,81 @@
       
       
       
-      }</script><link rel="icon" href="/icons/icon-48x48.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">makeitmin.io</title><meta data-react-helmet="true" name="description" content="이때까지 사용해본 웹 프레임워크는 Spring과 Flask가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다. Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller…"/><meta data-react-helmet="true" property="og:title" content="Django 시작하기 (feat. PostgreSQL)"/><meta data-react-helmet="true" property="og:description" content="이때까지 사용해본 웹 프레임워크는 Spring과 Flask가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다. Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="Seongmin Ha"/><meta data-react-helmet="true" name="twitter:title" content="Django 시작하기 (feat. PostgreSQL)"/><meta data-react-helmet="true" name="twitter:description" content="이때까지 사용해본 웹 프레임워크는 Spring과 Flask가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다. Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-d95f70afb19b3c46baf5.js"/><link as="script" rel="preload" href="/framework-727eca7a674e10b21a9f.js"/><link as="script" rel="preload" href="/app-c3e773f2cd03c6ddd00d.js"/><link as="script" rel="preload" href="/styles-9605c3fbd8ad08ecf405.js"/><link as="script" rel="preload" href="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-dd6f26883b125809e772.js"/><link as="script" rel="preload" href="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-0ce370ceadc6d81dc869.js"/><link as="script" rel="preload" href="/69ca9dfa785447e3d8b116b383997bcdc8df623a-10e87aa0d7fcd4caa01a.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js"/><link as="fetch" rel="preload" href="/page-data/TIL/django-시작하기-(feat.-postgresql)/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">makeitmin.io</a><a href="https://github.com/makeitmin" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:39rem;padding:2.4375rem 1.21875rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>Django 시작하기 (feat. PostgreSQL)</h1><p class="post-date">2021-08-03</p><div><p>이때까지 사용해본 웹 프레임워크는 <strong>Spring</strong>과 <strong>Flask</strong>가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다.</p>
-<p>Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller)로 이루어져 있었다. 사실 그때는 MVC 패턴의 장점인 재사용성, 모듈화 등을 정확히 알고 썼다기보다는 폴더가 역할별로 잘 나뉘어 있기 때문에 화면 코드(JSP, HTML)와 데이터를 불러오는 코드(DAO: Data Access Object)가 어지럽게 뒤섞이지 않는 것이 좋았던 것 같다.</p>
-<p>Flask는 Python 환경에서 Flask 패키지를 설치해서 <code class="language-text">app.py</code> 파일 하나에 API 함수를 짜서 하나하나 조립하듯이 구현했기 때문에 직관적이고 자유도가 높아서 좋았다.</p>
-<p>이렇게 지금까지 알고 있던 2개의 프레임워크를 뒤로 하고, Python으로 백엔드를 구현할 때 가장 많이 사용한다는 Django에 대해 알아보려고 한다.</p>
-<h2 id="django-조사하기" style="position:relative;"><a href="#django-%EC%A1%B0%EC%82%AC%ED%95%98%EA%B8%B0" aria-label="django 조사하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django 조사하기</h2>
-<p>Django에 대해 다룬 블로그나 문서는 아주 많았다. 처음부터 전부 알기엔 어려웠지만, 내 머리는 이때까지의 경험에 빗대어 Django를 이렇게 (아주 거칠게) 요약했다. </p>
-<p><strong>Spring의 MVC 패턴을 가져가면서 Flask처럼 Python을 사용하는 프레임워크</strong></p>
-<p>MVC 패턴에서의 Controller 역할을 Django에서는 프레임워크 자체가 수행하기 때문에 Controller보다는 화면을 보여주는 Template 부분을 강조하여 MVT, MTV 패턴으로 표기한 곳도 많았다.</p>
-<p>Python을 쓰는 Flask와의 비교도 많이 볼 수 있었다. </p>
-<p>Django는 구현해야 하는 내부 앱이 많거나, 안정성과 확장성을 중요하게 여기는 대형 프로젝트에서 사용한다. Django로 프로젝트를 생성하면 대부분의 개발환경 설정이 완료되어 있기 때문에 경제적이다. </p>
-<p>반면 Flask는 복잡한 구조가 필요하지 않고, 안정성을 개발자가 짠 코드만으로도 충분히 커버할 수 있는 간단한 프로젝트에서 많이 사용한다. 당연히 Django보다 가볍다.</p>
-<h2 id="django-프로젝트" style="position:relative;"><a href="#django-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" aria-label="django 프로젝트 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django 프로젝트</h2>
-<h3 id="django-설치" style="position:relative;"><a href="#django-%EC%84%A4%EC%B9%98" aria-label="django 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django 설치</h3>
-<p>여러 글을 읽었는데 일단 너무 많고, 나는 글로 읽는 것보다 직접 해보면서 더 잘 배우는 타입이어서 그냥 Django 프로젝트를 하나 만들어보기로 했다.</p>
+      }</script><link rel="icon" href="/icons/icon-48x48.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=8826034da180fa75bc48ccf4ee728d30"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">makeitmin.io</title><meta data-react-helmet="true" name="description" content="회사에서 사용하기로 한 개발환경은 VirtualBox에 가상 환경을 올리고, PuTTY를 통해 접속하는 형태이다. 가상 환경은 이미 만들어두신 OVA 형식의 이미지가 있어서, 복사를 받아서 올리기만 하면 됐다. 각 환경 구성 방법과 오류가 발생하여 해결한 기록을 남겨두려고 한다. VirtualBox 환경 구성하기 VirtualBox 설치 파일과 확장팩 다운로드하기 VirtualBox 공식 홈페이지의 다운로드 카테고리에 접속하면 설치 파일을 받을 수 있다. VirtualBox 버전 platform…"/><meta data-react-helmet="true" property="og:title" content="VirtualBox + PuTTY 환경 구성하기"/><meta data-react-helmet="true" property="og:description" content="회사에서 사용하기로 한 개발환경은 VirtualBox에 가상 환경을 올리고, PuTTY를 통해 접속하는 형태이다. 가상 환경은 이미 만들어두신 OVA 형식의 이미지가 있어서, 복사를 받아서 올리기만 하면 됐다. 각 환경 구성 방법과 오류가 발생하여 해결한 기록을 남겨두려고 한다. VirtualBox 환경 구성하기 VirtualBox 설치 파일과 확장팩 다운로드하기 VirtualBox 공식 홈페이지의 다운로드 카테고리에 접속하면 설치 파일을 받을 수 있다. VirtualBox 버전 platform…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="Seongmin Ha"/><meta data-react-helmet="true" name="twitter:title" content="VirtualBox + PuTTY 환경 구성하기"/><meta data-react-helmet="true" name="twitter:description" content="회사에서 사용하기로 한 개발환경은 VirtualBox에 가상 환경을 올리고, PuTTY를 통해 접속하는 형태이다. 가상 환경은 이미 만들어두신 OVA 형식의 이미지가 있어서, 복사를 받아서 올리기만 하면 됐다. 각 환경 구성 방법과 오류가 발생하여 해결한 기록을 남겨두려고 한다. VirtualBox 환경 구성하기 VirtualBox 설치 파일과 확장팩 다운로드하기 VirtualBox 공식 홈페이지의 다운로드 카테고리에 접속하면 설치 파일을 받을 수 있다. VirtualBox 버전 platform…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-d95f70afb19b3c46baf5.js"/><link as="script" rel="preload" href="/framework-727eca7a674e10b21a9f.js"/><link as="script" rel="preload" href="/app-c3e773f2cd03c6ddd00d.js"/><link as="script" rel="preload" href="/styles-9605c3fbd8ad08ecf405.js"/><link as="script" rel="preload" href="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-dd6f26883b125809e772.js"/><link as="script" rel="preload" href="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-0ce370ceadc6d81dc869.js"/><link as="script" rel="preload" href="/69ca9dfa785447e3d8b116b383997bcdc8df623a-10e87aa0d7fcd4caa01a.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js"/><link as="fetch" rel="preload" href="/page-data/TIL/virtualbox-+-putty-환경-구성하기/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">makeitmin.io</a><a href="https://github.com/makeitmin" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:39rem;padding:2.4375rem 1.21875rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>VirtualBox + PuTTY 환경 구성하기</h1><p class="post-date">2021-08-06</p><div><p>회사에서 사용하기로 한 개발환경은 VirtualBox에 가상 환경을 올리고, PuTTY를 통해 접속하는 형태이다. 가상 환경은 이미 만들어두신 OVA 형식의 이미지가 있어서, 복사를 받아서 올리기만 하면 됐다. 각 환경 구성 방법과 오류가 발생하여 해결한 기록을 남겨두려고 한다.</p>
+<h2 id="virtualbox-환경-구성하기" style="position:relative;"><a href="#virtualbox-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0" aria-label="virtualbox 환경 구성하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VirtualBox 환경 구성하기</h2>
 <ol>
+<li><strong>VirtualBox 설치 파일과 확장팩 다운로드하기</strong><br>
+<a href="https://www.virtualbox.org/">VirtualBox 공식 홈페이지</a>의 <a href="https://www.virtualbox.org/wiki/Downloads">다운로드</a> 카테고리에 접속하면 설치 파일을 받을 수 있다. <strong>VirtualBox [버전] platform pakages</strong> 의 하단에 있는 링크 중에 선택하면 된다. 현재 VirtualBox를 설치하려는 환경은 Windows 이므로 Windows hosts 링크를 선택했다. 다운로드가 완료되면 <code class="language-text">VirtualBox-[버전]-145957-Win.exe</code> 실행 파일이 로컬에 저장된다.<br>
+바로 아래에 <strong>VirtualBox [버전] Oracle VM VirtualBox Extension Pack</strong>의 하단에 있는 All platforms 링크를 클릭해서 확장팩도 저장한다.  </li>
+<li><strong>VirtualBox 설치 진행하기</strong><br>
+설치 파일을 실행하면 설치를 진행할 수 있고, 진행하면서 설정은 따로 바꾸지 않고 기본값으로 지정했다. 확장팩은 VirtualBox 설치가 완료된 후 실행하면 자동으로 반영된다.</li>
+<li><strong>VirtualBox 실행하기</strong><br>
+설치된 VirtualBox를 실행하면 Oracle VM VirtualBox 관리자 창이 나타난다. 상단의 메뉴 중에서 가상 시스템 가져오기를 선택하여 보유한 가상 환경 이미지(.ova)의 경로를 입력할 수 있다. 경로를 입력하고 가져오기 버튼을 클릭하면 환경이 생성된다.</li>
+</ol>
+<h2 id="putty-환경-구성하기" style="position:relative;"><a href="#putty-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0" aria-label="putty 환경 구성하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PuTTY 환경 구성하기</h2>
+<ol>
+<li><strong>PuTTY 설치 파일 다운로드하기</strong><br>
+<a href="https://www.putty.org/">PuTTY 공식 홈페이지</a>에 가면 <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">다운로드</a> 페이지로 이동할 수 있는 링크가 있다. 해당 페이지로 이동해서 <strong>Package files</strong> 하단에 있는 링크 중에 자신의 OS와 비트에 맞는 MSI 파일을 다운로드 받는다.</li>
+<li><strong>PuTTY 설치 진행하기</strong><br>
+설치 파일을 실행하여 기본값으로 설치를 진행한다.</li>
+<li><strong>PuTTY로 가상 환경 접속하기</strong><br>
+PuTTY를 실행하면 접속을 위해 알맞은 Host Name(또는 IP 주소)와 Port를 지정한다. IP 주소는 가상 환경마다 다르므로 확인이 필요하다.<br>
+VirtualBox의 <strong>설정>네트워크>고급</strong>에서 포트포워딩 규칙 버튼을 클릭하면, 생성되는 창의 호스트 IP 컬럼에서 확인할 수 있다. Port는 사용 중이 아니라면 보통 22번으로 지정한다.<br>
+Session에 이름을 입력하여 저장하면 접속할 때마다 IP 주소와 Port를 입력하지 않아도 되고, Open 버튼을 클릭하여 가상 환경에 접속할 수 있다.</li>
+</ol>
+<h2 id="virtualbox-종료하기" style="position:relative;"><a href="#virtualbox-%EC%A2%85%EB%A3%8C%ED%95%98%EA%B8%B0" aria-label="virtualbox 종료하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VirtualBox 종료하기</h2>
+<p>VirtualBox를 창을 닫아 강제 종료하면 문제가 발생할 수 있다. 꼭 VirtualBox로 실행 중인 가상 환경 안에서 시스템을 정상적으로 종료해야 한다.</p>
+<h2 id="virtualbox-오류-기록" style="position:relative;"><a href="#virtualbox-%EC%98%A4%EB%A5%98-%EA%B8%B0%EB%A1%9D" aria-label="virtualbox 오류 기록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VirtualBox 오류 기록</h2>
+<h3 id="문제상황" style="position:relative;"><a href="#%EB%AC%B8%EC%A0%9C%EC%83%81%ED%99%A9" aria-label="문제상황 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문제상황</h3>
+<p>VirtualBox를 실행하였을 때 오류 메세지가 뜨면서 프로그램 실행 불가</p>
+<h3 id="오류-메세지" style="position:relative;"><a href="#%EC%98%A4%EB%A5%98-%EB%A9%94%EC%84%B8%EC%A7%80" aria-label="오류 메세지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>오류 메세지</h3>
+<p>명령행에서 시작할 머신을 지정해야 합니다.<br>
+사용 방법: VirtualboxVM —startvm &#x3C;name|UUID><br>
+이름이 name이거나 uuid가 uuid인 virtualbox 가상 머신을 시작합니다.</p>
+<h3 id="해결방법" style="position:relative;"><a href="#%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95" aria-label="해결방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>해결방법</h3>
+<p><strong>첫 번째 시도: 설치된 가상 머신 중에 같은 이름을 가진 가상 머신이 있는지 확인</strong></p>
+<p>가상 머신이 중복되어 시작할 머신을 지정해달라는 오류인 것으로 짐작하고 다음을 시도하였다.</p>
+<ol>
+<li>관리자 권한으로 CMD 실행</li>
 <li>
-<p>django 패키지를 설치한다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">pip <span class="token function">install</span> django</code></pre></div>
+<p>가상 머신이 존재하는 경로로 이동</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> C:<span class="token punctuation">\</span>Users<span class="token punctuation">\</span><span class="token punctuation">[</span>사용자 이름<span class="token punctuation">]</span><span class="token punctuation">\</span>VirtualBox VMs</code></pre></div>
+</li>
+<li>같은 이름의 폴더가 존재한다면 1개만 남기고 삭제</li>
+<li>다시 실행</li>
+</ol>
+<p>해당 경로에 들어갔지만, 가상 머신이 중복되어 발생하는 오류는 아닌 것으로 확인하였다.</p>
+<p><strong>두 번째 시도: 가상머신 UUID 확인</strong></p>
+<p>오류 메세지에 UUID가 있어 무엇인지 찾아보니 가상 머신이 고유하게 가진 id(Universally Unique Identifier)인 것을 알게 되었다. 따라서 UUID를 알아내고, 오류 메세지에 있는 명령어에 직접적으로 지정하여 실행해주면 오류가 해결될 것으로 짐작하고 다음을 시도하였다.</p>
+<ol>
+<li>관리자 권한으로 CMD 실행</li>
+<li>
+<p>VirtualBox 커맨드를 사용하기 위해 VirtualBox 설치 경로로 이동</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> C:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Oracle<span class="token punctuation">\</span>VirtualBox</code></pre></div>
 </li>
 <li>
-<p>django_test라는 이름의 프로젝트를 생성한다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">django-admin startproject django_test <span class="token builtin class-name">.</span></code></pre></div>
+<p>가상 머신 리스트 확인</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># 명령어 실행</span>
+VBoxManage.exe list vms
+
+<span class="token comment"># 성공 시 "가상 머신 이름" {UUID} 형식으로 리스트 출력</span>
+<span class="token string">"example_vm"</span> <span class="token punctuation">{</span>4ecvfdh574q-erw42-4<span class="token punctuation">..</span>.<span class="token punctuation">}</span></code></pre></div>
 </li>
 <li>
-<p>프로젝트 Tree는 다음과 같다. 참고로 Linux 환경에서는 <code class="language-text">tree</code> 명령어를 이용하면 손쉽게 폴더 구조를 그릴 수 있다.  </p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">django_test
-<span class="token operator">|</span>-- django_test
-<span class="token operator">|</span>   <span class="token operator">|</span>-- __init__.py
-<span class="token operator">|</span>   <span class="token operator">|</span>-- asgi.py
-<span class="token operator">|</span>   <span class="token operator">|</span>-- settings.py
-<span class="token operator">|</span>   <span class="token operator">|</span>-- urls.py
-<span class="token operator">|</span>   <span class="token variable"><span class="token variable">`</span>-- wsgi.py
-<span class="token variable">`</span></span>-- manage.py</code></pre></div>
+<p>UUID 복사 및 명령어 실행</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">VirtualboxVM --startvm 4ecvfdh574q-erw42-4<span class="token punctuation">..</span>.</code></pre></div>
 </li>
 </ol>
-<h3 id="생성된-파일의-용도" style="position:relative;"><a href="#%EC%83%9D%EC%84%B1%EB%90%9C-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EC%9A%A9%EB%8F%84" aria-label="생성된 파일의 용도 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>생성된 파일의 용도</h3>
-<p>자동으로 생성된 각각의 파일이 어떤 역할을 하는지 알아보았다.</p>
-<ul>
-<li>
-<p><strong>manage.py</strong></p>
-<p>Django 프로젝트의 다양한 커맨드를 관리하는 Util 파일</p>
-</li>
-<li>
-<p><strong><strong>init</strong>.py</strong></p>
-<p>Python이 이 디렉토리를 패키지처럼 다룰 수 있도록 명시하는 파일</p>
-</li>
-<li>
-<p><strong>settings.py</strong></p>
-<p>Django 프로젝트의 환경 및 구성을 저장하는 파일</p>
-</li>
-<li>
-<p><strong>urls.py</strong></p>
-<p>Django 프로젝트의 URL 선언을 저장하는 파일</p>
-</li>
-<li>
-<p><strong>asgi.py</strong></p>
-<p>Django 프로젝트를 서비스하기 위한 ASGI 호환 웹 서버 인터페이스</p>
-</li>
-<li>
-<p><strong>wsgi.py</strong></p>
-<p>Django 프로젝트를 서비스하기 위한 WSGI 호환 웹 서버 인터페이스</p>
-</li>
-</ul>
-<h3 id="wsgi와-asgi의-차이점" style="position:relative;"><a href="#wsgi%EC%99%80-asgi%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90" aria-label="wsgi와 asgi의 차이점 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WSGI와 ASGI의 차이점</h3>
-<p>생성된 파일을 보면, 웹 서버 인터페이스를 담당하는 파일이 wsgi.py와 asgi.py로 2개인 것을 확인할 수 있다. 애플리케이션이 Nginx, Apache와 같은 웹 서버와 상호작용하기 위한 인터페이스라는 점에서는 같은 역할을 하지만, 각각 호환되는 형식에 따라 나뉜 것이다.</p>
-<p>그렇다면 이 2가지 형식의 차이는 무엇일까? 가장 큰 차이점은 <strong>비동기 처리의 가능 여부</strong>에 있다.</p>
-<ul>
-<li>
-<p><strong>WSGI</strong></p>
-<p>웹 서버와 애플리케이션 사이의 미들웨어로 웹 서버가 애플리케이션의 코드를 이해할 수 있도록 중간에서 코드를 읽어 반환하는 역할이다. WSGI는 2가지 형태가 존재한다.</p>
-<ul>
-<li>웹서버(Nginx, Apache)에서 제공하는 내장 모듈 형식</li>
-<li>Python으로 작성된 Web App Server 형식</li>
-</ul>
-</li>
-<li>
-<p><strong>ASGI</strong></p>
-<p>대용량 트래픽에서 동기 처리만을 지원하여 한계를 가지는 WSGI와는 달리, ASGI는 비동기 처리를 지원한다. 따라서 <strong>Websocket 프로토콜과 HTTP 2.0을 지원</strong>한다고 한다. Websocket 등을 사용한 <strong>실시간 서비스</strong> 등에는 ASGI가 적합하다.</p>
-</li>
-</ul>
-<h3 id="postsql-데이터베이스에-유저-등록하기" style="position:relative;"><a href="#postsql-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%97%90-%EC%9C%A0%EC%A0%80-%EB%93%B1%EB%A1%9D%ED%95%98%EA%B8%B0" aria-label="postsql 데이터베이스에 유저 등록하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PostSQL 데이터베이스에 유저 등록하기</h3>
-<ol>
-<li>
-<p>PostgreSQL은 사전에 설치한 상태이다. 다음과 같이 입력하여 접속한다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> -u postgres psql</code></pre></div>
-</li>
-<li>
-<p>접속에 성공하면 유저를 생성한다. ‘admin’이라는 이름으로 생성했다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">CREATE <span class="token environment constant">USER</span> admin<span class="token punctuation">;</span></code></pre></div>
-</li>
-<li>
-<p>프로젝트에 쓸 데이터베이스를 생성한다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">CREATE DATABASE django_db OWNER admin<span class="token punctuation">;</span></code></pre></div>
-</li>
-<li>
-<p>참고로 유저 패스워드는 다음과 같이 변경할 수 있다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> admin WITH PASSWORD <span class="token string">'admin'</span><span class="token punctuation">;</span></code></pre></div>
-</li>
-</ol>
-<h3 id="postgresql-패키지-설치하기" style="position:relative;"><a href="#postgresql-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0" aria-label="postgresql 패키지 설치하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PostgreSQL 패키지 설치하기</h3>
-<p>pip로 PostgreSQL 패키지를 설치한다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">pip3 <span class="token function">install</span> psycopg2</code></pre></div>
-<p>설치하는 중에 다음과 같은 오류가 발생하였다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token punctuation">..</span>.
-./psycopg/psycopg.h:36:10: fatal error: libpq-fe.h: No such <span class="token function">file</span> or directory
-<span class="token punctuation">..</span>.
-error: <span class="token builtin class-name">command</span> <span class="token string">'x86_64-linux-gnu-gcc'</span> failed with <span class="token builtin class-name">exit</span> status <span class="token number">1</span></code></pre></div>
-<p><code class="language-text">libpq</code> 패키지를 따로 설치하고 다시 시도하면 된다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> libpq-dev</code></pre></div>
-<h3 id="프로젝트-설정settingspy-수정하기" style="position:relative;"><a href="#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%A4%EC%A0%95settingspy-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="프로젝트 설정settingspy 수정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>프로젝트 설정(settings.py) 수정하기</h3>
-<p>Django 프로젝트의 설정이 구현되어 있는 <code class="language-text">settings.py</code> 파일을 다음과 같이 수정한다. 데이터베이스로 설정한 PostgreSQL은 사전에 설치한 상태이다.</p>
-<ul>
-<li>시간대(TIME_ZONE)</li>
-<li>static 폴더의 경로(STATIC_ROOT)</li>
-<li>데이터베이스 설정(DATABASES)</li>
-</ul>
-<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
-Django settings for django_test project.
-
-Generated by 'django-admin startproject' using Django 3.2.6.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/3.2/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/3.2/ref/settings/
-"""</span>
-
-<span class="token keyword">from</span> pathlib <span class="token keyword">import</span> Path
-
-<span class="token comment"># Build paths inside the project like this: BASE_DIR / 'subdir'.</span>
-BASE_DIR <span class="token operator">=</span> Path<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">.</span>resolve<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>parent<span class="token punctuation">.</span>parent
-
-<span class="token comment"># Quick-start development settings - unsuitable for production</span>
-<span class="token comment"># See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/</span>
-
-<span class="token comment"># SECURITY WARNING: keep the secret key used in production secret!</span>
-SECRET_KEY <span class="token operator">=</span> <span class="token string">'django-insecure-#x(fox4#*2+x(c%v!jmf(7om$xw)_9qx0y^&amp;efx6i9_b)9fv+d'</span>
-
-<span class="token comment"># SECURITY WARNING: don't run with debug turned on in production!</span>
-DEBUG <span class="token operator">=</span> <span class="token boolean">True</span>
-
-ALLOWED_HOSTS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-<span class="token comment"># Application definition</span>
-
-INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">'django.contrib.admin'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.auth'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.contenttypes'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.sessions'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.messages'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.staticfiles'</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-
-MIDDLEWARE <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token string">'django.middleware.security.SecurityMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.sessions.middleware.SessionMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.middleware.common.CommonMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.middleware.csrf.CsrfViewMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.auth.middleware.AuthenticationMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.contrib.messages.middleware.MessageMiddleware'</span><span class="token punctuation">,</span>
-    <span class="token string">'django.middleware.clickjacking.XFrameOptionsMiddleware'</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-
-ROOT_URLCONF <span class="token operator">=</span> <span class="token string">'django_test.urls'</span>
-
-TEMPLATES <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">'BACKEND'</span><span class="token punctuation">:</span> <span class="token string">'django.template.backends.django.DjangoTemplates'</span><span class="token punctuation">,</span>
-        <span class="token string">'DIRS'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token string">'APP_DIRS'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">,</span>
-        <span class="token string">'OPTIONS'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">'context_processors'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
-                <span class="token string">'django.template.context_processors.debug'</span><span class="token punctuation">,</span>
-                <span class="token string">'django.template.context_processors.request'</span><span class="token punctuation">,</span>
-                <span class="token string">'django.contrib.auth.context_processors.auth'</span><span class="token punctuation">,</span>
-                <span class="token string">'django.contrib.messages.context_processors.messages'</span><span class="token punctuation">,</span>
-            <span class="token punctuation">]</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-
-WSGI_APPLICATION <span class="token operator">=</span> <span class="token string">'django_test.wsgi.application'</span>
-
-<span class="token comment"># Database</span>
-<span class="token comment"># https://docs.djangoproject.com/en/3.2/ref/settings/#databases</span>
-
-DATABASES <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token string">'default'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token string">'ENGINE'</span><span class="token punctuation">:</span> <span class="token string">'django.db.backends.postgresql'</span><span class="token punctuation">,</span>
-        <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'django_db'</span><span class="token punctuation">,</span>
-        <span class="token string">'USER'</span><span class="token punctuation">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span>
-        <span class="token string">'PASSWORD'</span><span class="token punctuation">:</span> <span class="token string">'admin'</span><span class="token punctuation">,</span>
-        <span class="token string">'HOST'</span><span class="token punctuation">:</span> <span class="token string">'localhost'</span>
-        <span class="token string">'PORT'</span><span class="token punctuation">:</span> <span class="token string">'5432'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment"># Password validation</span>
-<span class="token comment"># https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators</span>
-
-AUTH_PASSWORD_VALIDATORS <span class="token operator">=</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'django.contrib.auth.password_validation.MinimumLengthValidator'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'django.contrib.auth.password_validation.CommonPasswordValidator'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-        <span class="token string">'NAME'</span><span class="token punctuation">:</span> <span class="token string">'django.contrib.auth.password_validation.NumericPasswordValidator'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span>
-
-<span class="token comment"># Internationalization</span>
-<span class="token comment"># https://docs.djangoproject.com/en/3.2/topics/i18n/</span>
-
-LANGUAGE_CODE <span class="token operator">=</span> <span class="token string">'en-us'</span>
-
-TIME_ZONE <span class="token operator">=</span> <span class="token string">'Asia/Seoul'</span>
-
-USE_I18N <span class="token operator">=</span> <span class="token boolean">True</span>
-
-USE_L10N <span class="token operator">=</span> <span class="token boolean">True</span>
-
-USE_TZ <span class="token operator">=</span> <span class="token boolean">True</span>
-
-<span class="token comment"># Static files (CSS, JavaScript, Images)</span>
-<span class="token comment"># https://docs.djangoproject.com/en/3.2/howto/static-files/</span>
-
-STATIC_URL <span class="token operator">=</span> <span class="token string">'/static/'</span>
-STATIC_ROOT <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">'static'</span><span class="token punctuation">)</span>
-
-<span class="token comment"># Default primary key field type</span>
-<span class="token comment"># https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field</span>
-
-DEFAULT_AUTO_FIELD <span class="token operator">=</span> <span class="token string">'django.db.models.BigAutoField'</span></code></pre></div>
-<h2 id="django--postgresql-연동하기" style="position:relative;"><a href="#django--postgresql-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0" aria-label="django  postgresql 연동하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django + PostgreSQL 연동하기</h2>
-<p>Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.</p>
-<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># 마이그레이트</span>
-python3 manage.py migrate
-
-<span class="token comment"># 슈퍼유저 생성</span>
-python manage.py createsuperuser</code></pre></div>
+<p>해당 방법으로 가상 머신 실행에 성공하였고, 이후로도 오류가 발생하지 않았다.</p>
 <h2 id="참고자료" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C" aria-label="참고자료 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고자료</h2>
 <ul>
-<li>Django 초보 가이드 - 실습을 통해 알아보는 장고 입문 (<a href="https://www.inflearn.com/course/django-%EC%B4%88%EB%B3%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%8B%A4%EC%8A%B5%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9E%A5%EA%B3%A0-%EC%9E%85%EB%AC%B8">강의</a>)</li>
-<li>
-<p>Django 공식 문서 (문서)</p>
-<ul>
-<li>Django 앱 작성하기 (<a href="https://docs.djangoproject.com/ko/3.2/intro/tutorial01/">문서</a>)</li>
-<li>ASGI를 사용하여 배포하는 방법 (<a href="https://docs.djangoproject.com/ko/3.2/howto/deployment/asgi/">문서</a>)</li>
-</ul>
-</li>
-<li>
-<p>Django Girls 튜토리얼</p>
-<ul>
-<li>나의 첫 번째 Django 프로젝트 (<a href="https://tutorial.djangogirls.org/ko/django_start_project/">블로그</a>)</li>
-<li>PostgreSQL 연동 준비 (<a href="https://tutorial-extensions.djangogirls.org/ko/optional_postgresql_installation#undefined-6">블로그</a>)</li>
-</ul>
-</li>
-<li>REST API 개발로 알아보는 WSGI, ASGI (<a href="https://blog.neonkid.xyz/249">블로그</a>)</li>
-<li>psycopg2 설치 오류 (<a href="https://stackoverflow.com/questions/63584368/pip-install-psycopg2-error-command-x86-64-linux-gnu-gcc-failed-with-exit-st">문서</a>)</li>
-<li>PostgreSQL 연동하기 (<a href="https://hecpas0620.tistory.com/15">블로그</a>)</li>
+<li>VirtualBox 공식 홈페이지 (<a href="https://www.virtualbox.org/">문서</a>)</li>
+<li>PuTTY 공식 홈페이지 (<a href="https://www.putty.org/">문서</a>)</li>
+<li>가상 머신 중복 확인 (<a href="https://ffoorreeuunn.tistory.com/43">블로그</a>)</li>
+<li>UUID의 정의 (<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">문서</a>)</li>
+<li>UUID 리스트 조회하기 (<a href="https://lng1982.tistory.com/293">블로그</a>)</li>
 </ul></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABJ0AAASdAHeZh94AAAEiklEQVQ4y22U21NTVxSH89gXH2r70JnWf6A++O6MfXKKLVqk3upUHa3tDGLFqkWr3L1RFeQaIDfCJdyjgxECxkgJBJSQG8QQuQgIokWLtQqIgPm6z4mh1HbPrKwzJ9m//a3fWjuKYDCIFG/evJFzUORFEeEVnF9g9tUs07Ozcg4uLITeL9sj5fCzIiTyz5dhsZnpaZz3h6jr8VBwx052R5uc6zxOvMPDQnhR/t3iO6KK5SeFxQYnJlA7bpPpukOOz43S76VAir4e8vvvyu+NPW6mxaHSWk6qCJe8uBg68eHjR2S2Wsm966FIEhGCBeI51+3gQlsLyVdqUfa6uNzrpErQLrx+/S9RRRg1LHjNZOJMcwNqQaKU6EQUCbL0Tht1rS0oM7OIVxWhHx3gnLCg3uVeKl0mDAtKa35+ngOxB0lrqEc94JdJpNAOBYivLCfu4CG2RX3N8YwMSobvcfSmlT3FFczNvVqiXPJQbsSzZ0St+4yLgkYV6JXp8r3d6B4McuDcWVa8t4K1H69Co9OgGvQTc91MlLac0UePlyhlwnAznAP9ZDaZZM/kEB4qe5yox4ZITErgp5UfkLdmDY03mskSh+011rNZEPpHRkOCwrZQyVJjxHxJJv/a1UGW8CZHdDJP0OV5HCI7yRbvVHpBVqxB0+vmQvcdostq2CoExycn/5/QMzIsym0jx9FJppi7jA4bGZ1v8+12LgrxS55ucro7iDU1sKG4kh8rakWn5wi+66FEKfpOvdtFmqDR9vvQ9feiuRcKdaCHQolYkB9raia6tIbP1WUUWSzy7frPYC+8HRtJNMdsYWeNiWMtbaTa2zndaSel3cbPViu7jSaiDUY2FZdzxmzGZrfgs/8WKlnYplh+b1++eEng4Thmcd0SVUnsLsxks65cbK7kS20lG9QG4VkpkXlqNp1NpqzDSqPyLNrI1Tx/9oesoZA+Xs3McHvgHnpRzqnWdrKsJTztO0J74x6u1u6nrPoguurDVNbGkq4+zHflFRxpNLPzSgM/nIxHv+59ujSJIcHxJ5MYXF2cFk2IaWjiK20FbfYkglNneNR/kp7W7+m27MFt+Rbb9b1cbjOT3+dHP+AjwWYjQlPBxW/WcW3Xan4fG0Zxyd7KMestdohuRehqOGrIZbznBCO+BJ7eTxGRzKAnnkBHDAZrPrl9AQrEPS7q8xLX2EREqZGEmO00Rq6ky6hCsV1VTLS+im2GWr4QgrW30lmcFELDKTzwnSLgOMHkYDJD3kQKHVbyfF5UQuySmMOtpVVsrq7n/C+HMG/8kPYL+1CsV+qIKNKzQVPORpUejyuJucdpvJxI488HKYz5E1l4kkrAf55sMfTpLRayXA72XTXJe2LrzVwvL6Qu8hNuxq1Fcc3lxeT0YPEFqBd/T/e9CcwIwRcP05gaEZR3E5mdSKLJqeV4Szs7DTXsrqxlR0k1mwr1NA8N0FSUTsX6j2jevzrU5fB6MTXMkPskz8dSZcKp0VTG/af4azyNbFM+W4rLiCqpYovhCrvyMtAZsxh4/hRD3HaqI1bRtO9T/gYncg3gT+zbgAAAAABJRU5ErkJggg==" alt="Seongmin Ha" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/43eb4ac538679f5bf1d2beb719dc4028/e5b88/profile.png 1x,
 /static/43eb4ac538679f5bf1d2beb719dc4028/e7bd6/profile.png 1.5x,
 /static/43eb4ac538679f5bf1d2beb719dc4028/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/43eb4ac538679f5bf1d2beb719dc4028/e5b88/profile.png 1x,
 /static/43eb4ac538679f5bf1d2beb719dc4028/e7bd6/profile.png 1.5x,
-/static/43eb4ac538679f5bf1d2beb719dc4028/a12fc/profile.png 2x" src="/static/43eb4ac538679f5bf1d2beb719dc4028/e5b88/profile.png" alt="Seongmin Ha" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><a class="author-name-content" href="/about"><span>@<!-- -->Seongmin Ha</span></a><div class="author-introduction">휘발되지 않는 멋쟁이 개발자 되기</div><p class="author-socials"><a href="https://github.com/makeitmin">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/TIL/postgresql-시작하기-(feat.-django)/">← <!-- -->PostgreSQL 시작하기 (feat. Django)</a></li><li><a rel="next" href="/TIL/virtualbox-+-putty-환경-구성하기/">VirtualBox + PuTTY 환경 구성하기<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/makeitmin">makeitmin</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/TIL/django-시작하기-(feat.-postgresql)/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-c3e773f2cd03c6ddd00d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-38fe08ef875e5952d5f0.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js"],"component---src-pages-404-js":["/component---src-pages-404-js-ab1d14d8fe8d5f781253.js"],"component---src-pages-about-js":["/component---src-pages-about-js-f43a9b41ff18f6404175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7ff1531a5d2e407b2fec.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js" async=""></script><script src="/69ca9dfa785447e3d8b116b383997bcdc8df623a-10e87aa0d7fcd4caa01a.js" async=""></script><script src="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-0ce370ceadc6d81dc869.js" async=""></script><script src="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-dd6f26883b125809e772.js" async=""></script><script src="/styles-9605c3fbd8ad08ecf405.js" async=""></script><script src="/app-c3e773f2cd03c6ddd00d.js" async=""></script><script src="/framework-727eca7a674e10b21a9f.js" async=""></script><script src="/webpack-runtime-d95f70afb19b3c46baf5.js" async=""></script></body></html>
+/static/43eb4ac538679f5bf1d2beb719dc4028/a12fc/profile.png 2x" src="/static/43eb4ac538679f5bf1d2beb719dc4028/e5b88/profile.png" alt="Seongmin Ha" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><a class="author-name-content" href="/about"><span>@<!-- -->Seongmin Ha</span></a><div class="author-introduction">휘발되지 않는 멋쟁이 개발자 되기</div><p class="author-socials"><a href="https://github.com/makeitmin">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/TIL/django-시작하기-(feat.-postgresql)/">← <!-- -->Django 시작하기 (feat. PostgreSQL)</a></li><li></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/makeitmin">makeitmin</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/TIL/virtualbox-+-putty-환경-구성하기/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-c3e773f2cd03c6ddd00d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-38fe08ef875e5952d5f0.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js"],"component---src-pages-404-js":["/component---src-pages-404-js-ab1d14d8fe8d5f781253.js"],"component---src-pages-about-js":["/component---src-pages-about-js-f43a9b41ff18f6404175.js"],"component---src-pages-index-js":["/component---src-pages-index-js-7ff1531a5d2e407b2fec.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-81183500ff35fa1f08bf.js" async=""></script><script src="/69ca9dfa785447e3d8b116b383997bcdc8df623a-10e87aa0d7fcd4caa01a.js" async=""></script><script src="/4213a708e3c149581c4f5e97d71bfc3d00067ec6-0ce370ceadc6d81dc869.js" async=""></script><script src="/428cc97b99dda93b6f894a0194db3c3a0ab8bbd5-dd6f26883b125809e772.js" async=""></script><script src="/styles-9605c3fbd8ad08ecf405.js" async=""></script><script src="/app-c3e773f2cd03c6ddd00d.js" async=""></script><script src="/framework-727eca7a674e10b21a9f.js" async=""></script><script src="/webpack-runtime-d95f70afb19b3c46baf5.js" async=""></script></body></html>

@@ -304,13 +304,46 @@ STATIC_ROOT <span class="token operator">=</span> os<span class="token punctuati
 <span class="token comment"># https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field</span>
 
 DEFAULT_AUTO_FIELD <span class="token operator">=</span> <span class="token string">'django.db.models.BigAutoField'</span></code></pre></div>
+<h2 id="django-app-작성하기" style="position:relative;"><a href="#django-app-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0" aria-label="django app 작성하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django App 작성하기</h2>
+<p>다음 명령어를 통해 프로젝트 내부에 기능 별로 App을 작성할 수 있다.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">python3 manage.py startapp example_app</code></pre></div>
+<p>디렉토리 구조는 다음과 같이 바뀐다.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">django_test
+    <span class="token operator">|</span>-- django_test
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- __init__.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- asgi.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- settings.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- urls.py
+    <span class="token operator">|</span>   <span class="token variable"><span class="token variable">`</span>-- wsgi.py
+    <span class="token operator">|</span>-- example_app
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- __init__.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- admin.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- apps.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- migrations
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- models.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- tests.py
+    <span class="token operator">|</span>   <span class="token operator">|</span>-- views.py
+    <span class="token variable">`</span></span>-- manage.py</code></pre></div>
 <h2 id="django--postgresql-연동하기" style="position:relative;"><a href="#django--postgresql-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0" aria-label="django  postgresql 연동하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django + PostgreSQL 연동하기</h2>
-<p>Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.</p>
+<p>생성하고자 하는 데이터베이스를 <code class="language-text">models.py</code> 에 작성한 후, Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.</p>
 <div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># 마이그레이트</span>
+python3 manage.py makemigration
 python3 manage.py migrate
 
 <span class="token comment"># 슈퍼유저 생성</span>
 python manage.py createsuperuser</code></pre></div>
+<h2 id="django-서버-실행하기" style="position:relative;"><a href="#django-%EC%84%9C%EB%B2%84-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0" aria-label="django 서버 실행하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Django 서버 실행하기</h2>
+<h3 id="debug-옵션-수정하기" style="position:relative;"><a href="#debug-%EC%98%B5%EC%85%98-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0" aria-label="debug 옵션 수정하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DEBUG 옵션 수정하기</h3>
+<p>Django 서버를 실행하기에 앞서, <code class="language-text">settings.py</code>에서 <code class="language-text">DEBUG</code> 옵션을 <code class="language-text">True</code>로 설정해야 한다. 이는 배포용이 아닌 개발용으로 사용하겠다는 의미이다.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># settings.py</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+DEBUG <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<p><code class="language-text">DEBUG</code> 옵션이 <code class="language-text">True</code>인 상태에서는 <code class="language-text">static</code> 폴더에 있는 정적 파일(이미지, CSS 등)이 기본적으로 지원된다.
+<code class="language-text">DEBUG</code> 옵션이 <code class="language-text">False</code>이면 웹 서버에서 을 지원하도록 개발자가 따로 설정해야 CSS 등이 적용된 화면이 제대로 출력된다.</p>
+<h3 id="서버-실행하기" style="position:relative;"><a href="#%EC%84%9C%EB%B2%84-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B0" aria-label="서버 실행하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서버 실행하기</h3>
+<p>설정을 마치면 다음 명령어로 Django 서버를 실행한다.</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">python3 manage.py runserver</code></pre></div>
 <h2 id="참고자료" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C" aria-label="참고자료 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고자료</h2>
 <ul>
 <li>Django 초보 가이드 - 실습을 통해 알아보는 장고 입문 (<a href="https://www.inflearn.com/course/django-%EC%B4%88%EB%B3%B4-%EA%B0%80%EC%9D%B4%EB%93%9C-%EC%8B%A4%EC%8A%B5%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EB%8A%94-%EC%9E%A5%EA%B3%A0-%EC%9E%85%EB%AC%B8">강의</a>)</li>
@@ -330,6 +363,7 @@ python manage.py createsuperuser</code></pre></div>
 </li>
 <li>REST API 개발로 알아보는 WSGI, ASGI (<a href="https://blog.neonkid.xyz/249">블로그</a>)</li>
 <li>psycopg2 설치 오류 (<a href="https://stackoverflow.com/questions/63584368/pip-install-psycopg2-error-command-x86-64-linux-gnu-gcc-failed-with-exit-st">문서</a>)</li>
+<li>DEBUG=False 이면 static 파일에 접근이 안 되는 이유 (<a href="https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail">문서</a>)</li>
 <li>PostgreSQL 연동하기 (<a href="https://hecpas0620.tistory.com/15">블로그</a>)</li>
 </ul></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABJ0AAASdAHeZh94AAAEiklEQVQ4y22U21NTVxSH89gXH2r70JnWf6A++O6MfXKKLVqk3upUHa3tDGLFqkWr3L1RFeQaIDfCJdyjgxECxkgJBJSQG8QQuQgIokWLtQqIgPm6z4mh1HbPrKwzJ9m//a3fWjuKYDCIFG/evJFzUORFEeEVnF9g9tUs07Ozcg4uLITeL9sj5fCzIiTyz5dhsZnpaZz3h6jr8VBwx052R5uc6zxOvMPDQnhR/t3iO6KK5SeFxQYnJlA7bpPpukOOz43S76VAir4e8vvvyu+NPW6mxaHSWk6qCJe8uBg68eHjR2S2Wsm966FIEhGCBeI51+3gQlsLyVdqUfa6uNzrpErQLrx+/S9RRRg1LHjNZOJMcwNqQaKU6EQUCbL0Tht1rS0oM7OIVxWhHx3gnLCg3uVeKl0mDAtKa35+ngOxB0lrqEc94JdJpNAOBYivLCfu4CG2RX3N8YwMSobvcfSmlT3FFczNvVqiXPJQbsSzZ0St+4yLgkYV6JXp8r3d6B4McuDcWVa8t4K1H69Co9OgGvQTc91MlLac0UePlyhlwnAznAP9ZDaZZM/kEB4qe5yox4ZITErgp5UfkLdmDY03mskSh+011rNZEPpHRkOCwrZQyVJjxHxJJv/a1UGW8CZHdDJP0OV5HCI7yRbvVHpBVqxB0+vmQvcdostq2CoExycn/5/QMzIsym0jx9FJppi7jA4bGZ1v8+12LgrxS55ucro7iDU1sKG4kh8rakWn5wi+66FEKfpOvdtFmqDR9vvQ9feiuRcKdaCHQolYkB9raia6tIbP1WUUWSzy7frPYC+8HRtJNMdsYWeNiWMtbaTa2zndaSel3cbPViu7jSaiDUY2FZdzxmzGZrfgs/8WKlnYplh+b1++eEng4Thmcd0SVUnsLsxks65cbK7kS20lG9QG4VkpkXlqNp1NpqzDSqPyLNrI1Tx/9oesoZA+Xs3McHvgHnpRzqnWdrKsJTztO0J74x6u1u6nrPoguurDVNbGkq4+zHflFRxpNLPzSgM/nIxHv+59ujSJIcHxJ5MYXF2cFk2IaWjiK20FbfYkglNneNR/kp7W7+m27MFt+Rbb9b1cbjOT3+dHP+AjwWYjQlPBxW/WcW3Xan4fG0Zxyd7KMestdohuRehqOGrIZbznBCO+BJ7eTxGRzKAnnkBHDAZrPrl9AQrEPS7q8xLX2EREqZGEmO00Rq6ky6hCsV1VTLS+im2GWr4QgrW30lmcFELDKTzwnSLgOMHkYDJD3kQKHVbyfF5UQuySmMOtpVVsrq7n/C+HMG/8kPYL+1CsV+qIKNKzQVPORpUejyuJucdpvJxI488HKYz5E1l4kkrAf55sMfTpLRayXA72XTXJe2LrzVwvL6Qu8hNuxq1Fcc3lxeT0YPEFqBd/T/e9CcwIwRcP05gaEZR3E5mdSKLJqeV4Szs7DTXsrqxlR0k1mwr1NA8N0FSUTsX6j2jevzrU5fB6MTXMkPskz8dSZcKp0VTG/af4azyNbFM+W4rLiCqpYovhCrvyMtAZsxh4/hRD3HaqI1bRtO9T/gYncg3gT+zbgAAAAABJRU5ErkJggg==" alt="Seongmin Ha" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/43eb4ac538679f5bf1d2beb719dc4028/e5b88/profile.png 1x,
 /static/43eb4ac538679f5bf1d2beb719dc4028/e7bd6/profile.png 1.5x,

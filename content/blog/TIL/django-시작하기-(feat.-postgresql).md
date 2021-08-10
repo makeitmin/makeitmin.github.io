@@ -1,3 +1,18 @@
+---
+title: Django 시작하기 (feat. PostgreSQL)
+date: 2021-08-03 12:08:42
+category: TIL
+thumbnail: { thumbnailSrc }
+draft: false
+---
+
+이때까지 사용해본 웹 프레임워크는 **Spring**과 **Flask**가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다.
+
+Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller)로 이루어져 있었다. 사실 그때는 MVC 패턴의 장점인 재사용성, 모듈화 등을 정확히 알고 썼다기보다는 폴더가 역할별로 잘 나뉘어 있기 때문에 화면 코드(JSP, HTML)와 데이터를 불러오는 코드(DAO: Data Access Object)가 어지럽게 뒤섞이지 않는 것이 좋았던 것 같다.
+
+Flask는 Python 환경에서 Flask 패키지를 설치해서 `app.py` 파일 하나에 API 함수를 짜서 하나하나 조립하듯이 구현했기 때문에 직관적이고 자유도가 높아서 좋았다.
+
+이렇게 지금까지 알고 있던 2개의 프레임워크를 뒤로 하고, Python으로 백엔드를 구현할 때 가장 많이 사용한다는 Django에 대해 알아보려고 한다.
 
 ## Django 조사하기
 

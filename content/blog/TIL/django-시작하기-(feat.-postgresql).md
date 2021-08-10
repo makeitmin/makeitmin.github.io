@@ -1,18 +1,3 @@
----
-title: Django 시작하기 (feat. PostgreSQL)
-date: 2021-08-03 12:08:42
-category: TIL
-thumbnail: { thumbnailSrc }
-draft: false
----
-
-이때까지 사용해본 웹 프레임워크는 **Spring**과 **Flask**가 있었다. Spring은 Java를 사용하던 3학년 때 전자정부표준프레임워크(eGovFrame)을 사용했던 경험으로 알고 있었고, Flask는 지난 6개월 간 엘리스 AI 트랙에서 수행한 프로젝트에서 백엔드 프레임워크로 사용하며 경험하였다.
-
-Spring은 MVC 패턴을 따르는 프레임워크로, 데이터를 관리하는 부분(Model)과 HTTP 요청을 처리하는 부분(View)과 라우팅 부분(Controller)로 이루어져 있었다. 사실 그때는 MVC 패턴의 장점인 재사용성, 모듈화 등을 정확히 알고 썼다기보다는 폴더가 역할별로 잘 나뉘어 있기 때문에 화면 코드(JSP, HTML)와 데이터를 불러오는 코드(DAO: Data Access Object)가 어지럽게 뒤섞이지 않는 것이 좋았던 것 같다.
-
-Flask는 Python 환경에서 Flask 패키지를 설치해서 `app.py` 파일 하나에 API 함수를 짜서 하나하나 조립하듯이 구현했기 때문에 직관적이고 자유도가 높아서 좋았다.
-
-이렇게 지금까지 알고 있던 2개의 프레임워크를 뒤로 하고, Python으로 백엔드를 구현할 때 가장 많이 사용한다는 Django에 대해 알아보려고 한다.
 
 ## Django 조사하기
 
@@ -287,16 +272,70 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ```
 
+## Django App 작성하기
+
+다음 명령어를 통해 프로젝트 내부에 기능 별로 App을 작성할 수 있다.
+
+```bash
+python3 manage.py startapp example_app
+```
+
+디렉토리 구조는 다음과 같이 바뀐다.
+
+```bash
+django_test
+    |-- django_test
+    |   |-- __init__.py
+    |   |-- asgi.py
+    |   |-- settings.py
+    |   |-- urls.py
+    |   `-- wsgi.py
+    |-- example_app
+    |   |-- __init__.py
+    |   |-- admin.py
+    |   |-- apps.py
+    |   |-- migrations
+    |   |-- models.py
+    |   |-- tests.py
+    |   |-- views.py
+    `-- manage.py
+```
+
 ## Django + PostgreSQL 연동하기
 
-Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.
+생성하고자 하는 데이터베이스를 ```models.py``` 에 작성한 후, Django 프로젝트에 데이터베이스가 반영될 수 있도록 마이그레이션 작업을 해준다.
 
 ```bash
 # 마이그레이트
+python3 manage.py makemigration
 python3 manage.py migrate
 
 # 슈퍼유저 생성
 python manage.py createsuperuser
+```
+
+## Django 서버 실행하기
+
+### DEBUG 옵션 수정하기
+
+Django 서버를 실행하기에 앞서, ```settings.py```에서 ```DEBUG``` 옵션을 ```True```로 설정해야 한다. 이는 배포용이 아닌 개발용으로 사용하겠다는 의미이다.
+
+```python
+# settings.py
+...
+DEBUG = True
+...
+```
+
+```DEBUG``` 옵션이 ```True```인 상태에서는 ```static``` 폴더에 있는 정적 파일(이미지, CSS 등)이 기본적으로 지원된다.
+```DEBUG``` 옵션이 ```False```이면 웹 서버에서 을 지원하도록 개발자가 따로 설정해야 CSS 등이 적용된 화면이 제대로 출력된다.
+
+### 서버 실행하기
+
+설정을 마치면 다음 명령어로 Django 서버를 실행한다.
+
+```bash
+python3 manage.py runserver
 ```
 
 ## 참고자료
@@ -310,4 +349,5 @@ python manage.py createsuperuser
     - PostgreSQL 연동 준비 ([블로그](https://tutorial-extensions.djangogirls.org/ko/optional_postgresql_installation#undefined-6))
 - REST API 개발로 알아보는 WSGI, ASGI ([블로그](https://blog.neonkid.xyz/249))
 - psycopg2 설치 오류 ([문서](https://stackoverflow.com/questions/63584368/pip-install-psycopg2-error-command-x86-64-linux-gnu-gcc-failed-with-exit-st))
+- DEBUG=False 이면 static 파일에 접근이 안 되는 이유 ([문서](https://stackoverflow.com/questions/5836674/why-does-debug-false-setting-make-my-django-static-files-access-fail))
 - PostgreSQL 연동하기 ([블로그](https://hecpas0620.tistory.com/15))

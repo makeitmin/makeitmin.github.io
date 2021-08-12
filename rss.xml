@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 10 Aug 2021 03:11:41 GMT</lastBuildDate><item><title><![CDATA[스케줄링 알고리즘과 우선순위]]></title><description><![CDATA[스케줄러의 동작 방식에 따른 OS 종류 일반 OS와 리얼타임 OS(RTOS) 실행속도는 CPU의 성능에 종속적 (OS 이슈 X) 핵심은 시작시각: RTOS가 일반 OS…]]></description><link>https://makeitmin.github.io/Computer Science/스케줄링-알고리즘과-우선순위/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/스케줄링-알고리즘과-우선순위/</guid><pubDate>Sun, 08 Aug 2021 04:08:43 GMT</pubDate><content:encoded>&lt;h2 id=&quot;스케줄러의-동작-방식에-따른-os-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC%EC%9D%98-%EB%8F%99%EC%9E%91-%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%94%B0%EB%A5%B8-os-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;스케줄러의 동작 방식에 따른 os 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;스케줄러의 동작 방식에 따른 OS 종류&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Aug 2021 15:18:18 GMT</lastBuildDate><item><title><![CDATA[스케줄링 알고리즘과 우선순위]]></title><description><![CDATA[스케줄러의 동작 방식에 따른 OS 종류 일반 OS와 리얼타임 OS(RTOS) 실행속도는 CPU의 성능에 종속적 (OS 이슈 X) 핵심은 시작시각: RTOS가 일반 OS…]]></description><link>https://makeitmin.github.io/Computer Science/스케줄링-알고리즘과-우선순위/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/스케줄링-알고리즘과-우선순위/</guid><pubDate>Sun, 08 Aug 2021 04:08:43 GMT</pubDate><content:encoded>&lt;h2 id=&quot;스케줄러의-동작-방식에-따른-os-종류&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC%EC%9D%98-%EB%8F%99%EC%9E%91-%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%94%B0%EB%A5%B8-os-%EC%A2%85%EB%A5%98&quot; aria-label=&quot;스케줄러의 동작 방식에 따른 os 종류 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;스케줄러의 동작 방식에 따른 OS 종류&lt;/h2&gt;
 &lt;h3 id=&quot;일반-os와-리얼타임-osrtos&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%BC%EB%B0%98-os%EC%99%80-%EB%A6%AC%EC%96%BC%ED%83%80%EC%9E%84-osrtos&quot; aria-label=&quot;일반 os와 리얼타임 osrtos permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;일반 OS와 리얼타임 OS(RTOS)&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;실행속도는 CPU의 성능에 종속적 (OS 이슈 X)&lt;/li&gt;
@@ -1009,18 +1009,18 @@ gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;Docker 가상환경 이미지 (&lt;a href=&quot;https://hub.docker.com/repository/docker/seongminha/blog&quot;&gt;링크&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;VSCode에 Docker 연동하기 (&lt;a href=&quot;https://89douner.tistory.com/123&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Gatsby로 Github page 만들기 (&lt;a href=&quot;https://velog.io/@_woogie/Gatsby%EB%A1%9C-Github-page-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[GitLab에서 GitHub로 Repository 이전하기]]></title><description><![CDATA[Code 이전하기 (간단) Issues, Milestones, Merge Request 이전하기 (복잡)   시작하기 전에 Merge Request를 이전하는 것은 open 되어 있는 것들만 가능합니다. GitHub API 정책상 Merge…]]></description><link>https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</link><guid isPermaLink="false">https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</guid><pubDate>Sat, 27 Mar 2021 07:07:12 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[GitLab에서 GitHub로 Repository 이전하기]]></title><description><![CDATA[Code 이전하기 (간단) Issues, Milestones, Merge Request 이전하기 (복잡)   시작하기 전에 Merge Request를 이전하는 것은 open 되어 있는 것들만 가능하다. GitHub API 정책상 Merge…]]></description><link>https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</link><guid isPermaLink="false">https://makeitmin.github.io/Git/gitlab에서-github로-repository-이전하기/</guid><pubDate>Sat, 27 Mar 2021 07:07:12 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;Code 이전하기 (간단)&lt;/li&gt;
 &lt;li&gt;Issues, Milestones, Merge Request 이전하기 (복잡)  &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;시작하기-전에&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90&quot; aria-label=&quot;시작하기 전에 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시작하기 전에&lt;/h2&gt;
-&lt;p&gt;Merge Request를 이전하는 것은 &lt;strong&gt;open&lt;/strong&gt; 되어 있는 것들만 가능합니다. GitHub API 정책상 Merge Request를 Pull Request로 옮기는 것은 &lt;strong&gt;Target 브랜치와 Source 브랜치 간의 커밋 차이&lt;/strong&gt;가 있어야 가능하다고 합니다. 이미 merged 상태인 것은 두 브랜치 간의 차이를 추적할 수 없으므로 Merge Request의 형태로 옮기기 어렵습니다.  &lt;/p&gt;
-&lt;p&gt;해당 부분에 대해 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/issues/91#issuecomment-884719601&quot;&gt;직접 질문을 남긴 내용&lt;/a&gt;입니다.  &lt;/p&gt;
-&lt;p&gt;질문 당시 merged 상태인 Merge Request를 이전할 경우 오류가 나고 있는 상황이었고, 이에 따라 이미 merged 상태인 Merge Request는 Issue의 형태로 이전되도록 어떤 친절한 개발자분의 코드 개선으로 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/pull/93&quot;&gt;오류가 핸들링된 내용&lt;/a&gt;입니다.&lt;/p&gt;
+&lt;p&gt;Merge Request를 이전하는 것은 &lt;strong&gt;open&lt;/strong&gt; 되어 있는 것들만 가능하다. GitHub API 정책상 Merge Request를 Pull Request로 옮기는 것은 &lt;strong&gt;Target 브랜치와 Source 브랜치 간의 커밋 차이&lt;/strong&gt;가 있어야 가능하다고 한다. 이미 merged 상태인 것은 두 브랜치 간의 차이를 추적할 수 없으므로 Merge Request의 형태로 옮기기 어렵다.  &lt;/p&gt;
+&lt;p&gt;해당 부분에 대해 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/issues/91#issuecomment-884719601&quot;&gt;직접 질문을 남긴 내용&lt;/a&gt;이다.  &lt;/p&gt;
+&lt;p&gt;질문 당시 merged 상태인 Merge Request를 이전할 경우 오류가 나고 있는 상황이었고, 이에 따라 이미 merged 상태인 Merge Request는 Issue의 형태로 이전되도록 어떤 친절한 개발자분의 코드 개선으로 &lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github/pull/93&quot;&gt;오류가 핸들링된 내용&lt;/a&gt;이다.&lt;/p&gt;
 &lt;h2 id=&quot;방법-1--code-이전하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%A9%EB%B2%95-1--code-%EC%9D%B4%EC%A0%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;방법 1  code 이전하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;방법 1 : Code 이전하기&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;GitHub에 옮길 빈 Repository를 미리 생성합니다.&lt;/li&gt;
-&lt;li&gt;로컬에서 다음을 수행합니다.&lt;/li&gt;
+&lt;li&gt;GitHub에 옮길 빈 Repository를 미리 생성한다.&lt;/li&gt;
+&lt;li&gt;로컬에서 다음을 수행한다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# GitLab에서 bare 상태로 자신의 Repository clone 해오기&lt;/span&gt;
 &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone --mirror https://kdt-gitlab.elice.io/001_part2_project-portfolio/team2/skidmarker.git
@@ -1035,7 +1035,7 @@ gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push --no-verify --mirror https://github.com/makeitmin/skidmarker.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;방법-2---issues-milestones-merge-requests-이전하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%A9%EB%B2%95-2---issues-milestones-merge-requests-%EC%9D%B4%EC%A0%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;방법 2   issues milestones merge requests 이전하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;방법 2 :  Issues, Milestones, Merge Requests 이전하기&lt;/h2&gt;
 &lt;h3 id=&quot;폴더-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;폴더 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;폴더 생성하기&lt;/h3&gt;
-&lt;p&gt;CMD를 열고 다음을 수행합니다.&lt;/p&gt;
+&lt;p&gt;CMD를 열고 다음을 수행한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; C:/Users/사용자/.ssh
 &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; github
 &lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; gitlab&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1134,6 +1134,321 @@ transfer: &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
 &lt;li&gt;node-gitlab-2-github (&lt;a href=&quot;https://github.com/piceaTech/node-gitlab-2-github&quot;&gt;레포지토리&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;SSH 공개키 생성 (&lt;a href=&quot;https://git-scm.com/book/ko/v2/Git-%EC%84%9C%EB%B2%84-SSH-%EA%B3%B5%EA%B0%9C%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;SSH 공개키 등록 (&lt;a href=&quot;https://brunch.co.kr/@anonymdevoo/10&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Docker 환경 구성하기 03]]></title><description><![CDATA[Docker 이미지 받아오기 이전 글에서 생성했던 Docker 이미지, 그러니까 프로젝트 팀원들에게 배포하기 위해 생성한 Docker 이미지는 Docker Hub…]]></description><link>https://makeitmin.github.io/Docker/docker-환경-구성하기-03/</link><guid isPermaLink="false">https://makeitmin.github.io/Docker/docker-환경-구성하기-03/</guid><pubDate>Fri, 29 Jan 2021 14:08:14 GMT</pubDate><content:encoded>&lt;h2 id=&quot;docker-이미지-받아오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B0%9B%EC%95%84%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;docker 이미지 받아오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 이미지 받아오기&lt;/h2&gt;
+&lt;p&gt;이전 글에서 생성했던 Docker 이미지, 그러니까 프로젝트 팀원들에게 배포하기 위해 생성한 Docker 이미지는 Docker Hub의 &lt;a href=&quot;https://hub.docker.com/repository/docker/seongminha/masl&quot;&gt;개인 레포지토리&lt;/a&gt;에 있다. 이 이미지를 끌어와서 간단하게 동일한 개발환경을 세팅할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker pull seongminha/masl:2.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 이미지가 잘 가져와졌는지 확인한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker images&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;docker-컨테이너-생성-및-실행&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;docker 컨테이너 생성 및 실행 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 컨테이너 생성 및 실행&lt;/h2&gt;
+&lt;p&gt;이미지를 잘 가져왔다면, 이 이미지를 쓸 수 있도록 컨테이너로 만들어줘야한다. &lt;code class=&quot;language-text&quot;&gt;coffee&lt;/code&gt;는 그냥 컨테이너를 부를 이름이다. 마음에 드는 이름으로 바꾸어도 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; docker run -it --name coffee seongminha/masl:2.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ubuntu 컨테이너로 접속이 되는 것을 확인하였다면, 여러 명령어를 사용하여 프로그램들이 잘 설치되어 있는지 확인한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
+node -v
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; -v
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 Ubuntu 컨테이너를 종료한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;컨테이너를 다시 시작할 때는 꼭 다음 명령어를 사용한다. &lt;code class=&quot;language-text&quot;&gt;docker run -&lt;/code&gt; 명령어를 사용하면 컨테이너를 리셋하고 새로 시작하는 것이기 때문에 내부에 있던 작업물이 전부 날아가니 주의한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker start coffee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;컨테이너를 시작한 후 Ubuntu shell에 접속할 때는 다음 명령어를 사용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;docker attach coffee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;visual-studio-code에서-docker-컨테이너-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#visual-studio-code%EC%97%90%EC%84%9C-docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;visual studio code에서 docker 컨테이너 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Visual Studio Code에서 Docker 컨테이너 사용하기&lt;/h2&gt;
+&lt;p&gt;아무래도 계속 shell에서 개발을 하는 것은 무리가 있다. Visual Studio Code에 Docker 컨테이너를 붙여서 개발환경을 로컬처럼 만들어보자.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Visual Studio Code에서 &lt;strong&gt;Remote Container Extension&lt;/strong&gt;과 &lt;strong&gt;Docker Extension&lt;/strong&gt;, &lt;strong&gt;Docker Explorer Extension&lt;/strong&gt;을 각각 설치해준다.&lt;/li&gt;
+&lt;li&gt;F1을 눌러 &lt;code class=&quot;language-text&quot;&gt;Remote-Containers: Attach to Running Container...&lt;/code&gt; 을 클릭해준다. 이 때 Docker 컨테이너는 start 되어 있는 상태여야 한다.&lt;/li&gt;
+&lt;li&gt;Docker 컨테이너와 Visual Studio Code가 연결되면 왼쪽 하단에 &lt;code class=&quot;language-text&quot;&gt;Container 이미지명 (/컨테이너명)&lt;/code&gt; 이 Remote로 연결되었다고 뜬다.&lt;/li&gt;
+&lt;li&gt;Visual Studio Code에서 Terminal을 열어 workspace 폴더에 프로젝트를 git clone 해준다.&lt;/li&gt;
+&lt;li&gt;좌측의 Explorer에서 Open Folder로 clone 된 프로젝트 폴더를 열어주면 개발을 진행할 수 있는 환경이 된다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;초보를 위한 도커 안내서 (&lt;a href=&quot;https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;도커(Docker) 입문편: 컨테이너 기초부터 서버 배포까지 (&lt;a href=&quot;https://www.44bits.io/ko/post/easy-deploy-with-docker#%EB%8F%84%EC%BB%A4-%ED%97%88%EB%B8%8C%EC%97%90-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%98%AC%EB%A6%AC%EA%B8%B0&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;VS Code에 Docker 연동하기 (&lt;a href=&quot;https://89douner.tistory.com/m/123&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Docker 환경 구성하기 02]]></title><description><![CDATA[Docker 환경을 구성하는 것에는 2가지 방법이 있다. 직접 환경(이미지)을 생성하는 방법 다른 사람이 만들어 배포한 환경(이미지)를 받아 사용하는 방법 여기에서는 1번을 먼저 설명한다. 2번은 다음 글에서 설명할 예정이다. Dockerfile…]]></description><link>https://makeitmin.github.io/Docker/docker-환경-구성하기-02/</link><guid isPermaLink="false">https://makeitmin.github.io/Docker/docker-환경-구성하기-02/</guid><pubDate>Thu, 28 Jan 2021 13:08:27 GMT</pubDate><content:encoded>&lt;p&gt;Docker 환경을 구성하는 것에는 2가지 방법이 있다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;직접 환경(이미지)을 생성하는 방법&lt;/li&gt;
+&lt;li&gt;다른 사람이 만들어 배포한 환경(이미지)를 받아 사용하는 방법&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;여기에서는 1번을 먼저 설명한다. 2번은 다음 글에서 설명할 예정이다.&lt;/p&gt;
+&lt;h2 id=&quot;dockerfile-작성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dockerfile-%EC%9E%91%EC%84%B1&quot; aria-label=&quot;dockerfile 작성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dockerfile 작성&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dockerfile 이란?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dockerfile은 Docker 개발환경을 만들 때 작성하는 명세 같은 파일이다. 우리가 &lt;strong&gt;“Ubuntu OS 위에 Python과 Git이 설치된 환경 필요해!”&lt;/strong&gt;라고 Docker에게 말을 해야 Docker가 이미지를 만들어 줄 수 있다. Docker에게 무엇을 설치해야 하는지 말해주는 명령파일이라고 생각하면 된다. Dockerfile을 실행(빌드)하면 다른 사람에게 배포할 수 있는 Docker 이미지가 만들어지는데, 이 안에는 개발환경이 들어있다.&lt;/p&gt;
+&lt;p&gt;Dockerfile의 이름은 Dockerfile로 정해져 있고, 임의로 변경할 수 없다. 확장자도 없다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dockerfile의 경로 및 준비사항&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dockerfile이 있어야 하는 경로는 따로 정해진 바 없으나, 이후에 Docker 이미지를 만드는 명령어는 반드시 Dockerfile과 같은 경로에서 실행해야 한다. 따라서 WSL2 Ubuntu에서 &lt;code class=&quot;language-text&quot;&gt;/home&lt;/code&gt; 밑에 Docker라는 폴더를 새로 만들어주고, 그 안에서 이 작업들을 진행했다. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dockerfile에 사용하는 명령어&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 부분이 가장 어려워서 많이 헤맸다. Dockerfile의 내용 자체가 어렵다기보다는 전체적인 개념 차원에서 바라보는게 어려웠다. shell이나 bash 형태로 명령어를 쓰는 것에 약간의 공포감이 있는 것 같은데, 터미널에 익숙해지도록 노력해야겠다는 생각이 들었다.&lt;br&gt;
+아래 명령은 Docker 폴더에서 Dockerfile을 생성하고 Nano 에디터로 파일을 여는 명령이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;touch&lt;/span&gt; Dockerfile
+&lt;span class=&quot;token function&quot;&gt;nano&lt;/span&gt; Dockerfile&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이번 프로젝트에 최종적으로 배포했던 Dockerfile의 내용이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#1 베이스 이미지&lt;/span&gt;
+FROM ubuntu:18.04
+MAINTAINER Seongmin &lt;span class=&quot;token string&quot;&gt;&quot;seongminha.dev@gmail.com&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#2 환경변수 설정&lt;/span&gt;
+ENV &lt;span class=&quot;token environment constant&quot;&gt;LANG&lt;/span&gt; C.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
+
+&lt;span class=&quot;token comment&quot;&gt;#3 필요한 프로그램 설치&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#3-1 apt 패키지 업데이트&lt;/span&gt;
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; update &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; -y upgrade
+
+&lt;span class=&quot;token comment&quot;&gt;#3-2 기본 프로그램 설치&lt;/span&gt;
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; net-tools &lt;span class=&quot;token function&quot;&gt;wget&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;lsof&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; gnupg gnupg2 gnupg1
+
+&lt;span class=&quot;token comment&quot;&gt;#3-3 Git 설치&lt;/span&gt;
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#3-4 Python3 및 관련 프로그램 설치&lt;/span&gt;
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y python3 python3-pip python3-dev
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y python3-pandas
+
+&lt;span class=&quot;token comment&quot;&gt;#3-5 Node.js 버전 세팅 및 설치&lt;/span&gt;
+RUN &lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; -sL https://deb.nodesource.com/setup_12.x &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; -
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y nodejs
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; build-essential
+
+&lt;span class=&quot;token comment&quot;&gt;##3-6 MongoDB 세팅&lt;/span&gt;
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+RUN &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tee&lt;/span&gt; /etc/apt/sources.list.d/mongodb-org-4.4.list
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; update
+RUN &lt;span class=&quot;token function&quot;&gt;apt-get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -y mongodb-org&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;#1&lt;/strong&gt;:&lt;br&gt;
+말 그대로 개발 환경의 베이스가 되는 컨테이너이다. Ubuntu 환경을 쓰기로 했으니 Ubuntu OS 컨테이너를 베이스로 올려주었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#2&lt;/strong&gt;:&lt;br&gt;
+Ubuntu 내 기본 유저를 root 유저로 설정했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#3&lt;/strong&gt;:&lt;br&gt;
+한글이 깨질 수도 있어서, 언어 설정을 UTF-8로 설정했고, 사용자의 동의를 묻는 질문 때문에 설치가 중간에 끊기지 않도록 shell을 non-interactive로 설정했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#4&lt;/strong&gt;:&lt;br&gt;
+/home 디렉토리로 이동한다. cd 명령어와 비슷하다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#5&lt;/strong&gt;:&lt;br&gt;
+필요한 디렉토리를 생성한다. 프로젝트를 수행할 디렉토리를 만들었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#6&lt;/strong&gt;:&lt;br&gt;
+필요한 프로그램을 설치한다. 이 프로그램들은 Ubuntu, 즉 전체에 설치되는 프로그램이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#7&lt;/strong&gt;:&lt;br&gt;
+Docker 환경에 처음 들어갈 때 이 디렉토리에서 시작하게 된다.&lt;/p&gt;
+&lt;h2 id=&quot;dockerfile-빌드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dockerfile-%EB%B9%8C%EB%93%9C&quot; aria-label=&quot;dockerfile 빌드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dockerfile 빌드&lt;/h2&gt;
+&lt;p&gt;Dockerfile을 저장하고, 같은 경로에서 아래의 빌드 명령어를 실행하면 Docker 이미지가 생성된다. &lt;code class=&quot;language-text&quot;&gt;masldev/env_masl:2.0&lt;/code&gt; 은 추후에 Docker Hub로 배포하기 위한 Docker 이미지명이다. &lt;code class=&quot;language-text&quot;&gt;[Docker Hub 아이디]/[이미지명]:[버전]&lt;/code&gt; 의 형태로 작성하면 된다. 버전을 작성하지 않으면 &lt;code class=&quot;language-text&quot;&gt;latest&lt;/code&gt;로 자동 지정된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker build --tag masldev/env_masl:2.0 &lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 이미지가 잘 생성되었는지 확인한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker images&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;docker-컨테이너-생성-및-실행&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;docker 컨테이너 생성 및 실행 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 컨테이너 생성 및 실행&lt;/h2&gt;
+&lt;p&gt;이미지가 잘 생성되었다면, 이 이미지를 쓸 수 있도록 컨테이너로 만들어줘야 한다. &lt;code class=&quot;language-text&quot;&gt;coffee&lt;/code&gt;는 그냥 컨테이너를 부를 이름이다. 마음에 드는 이름으로 바꾸어도 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; docker run -it --name coffee masldev/env_masl:2.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ubuntu 컨테이너로 접속이 되는 것을 확인하였다면, 여러 명령어를 사용하여 Dockerfile에 적었던 프로그램들이 잘 설치되어 있는지 확인한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;
+node -v
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; -v
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 Ubuntu 컨테이너를 종료한다. MongoDB는 서비스를 확실하게 종료시키지 않고 시스템을 꺼버리면 다음에 켤 때 오류가 발생하니 주의한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;컨테이너를 다시 시작할 때는 꼭 다음 명령어를 사용한다. &lt;code class=&quot;language-text&quot;&gt;docker start -&lt;/code&gt; 가 아닌 &lt;code class=&quot;language-text&quot;&gt;docker run -&lt;/code&gt; 명령어를 사용하면 컨테이너를 리셋하고 새로 시작하는 것이기 때문에 내부에 작업하고 있던 것들이 전부 날아가니 주의한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker start coffee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;컨테이너를 시작한 후 Ubuntu shell에 접속할 때는 다음 명령어를 사용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker attach coffee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;docker-이미지-배포&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B0%B0%ED%8F%AC&quot; aria-label=&quot;docker 이미지 배포 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 이미지 배포&lt;/h2&gt;
+&lt;p&gt;컨테이너까지 잘 실행되는 것을 확인하였다면, 이미지를 모두가 쓸 수 있도록 배포하는 작업을 한다. 다음 명령어로 Docker Hub에 만들어 둔 계정에 로그인한다. Username과 Password를 입력한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker login&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;로그인에 성공하였다면 다음 명령어로 이미지를 Docker Hub에 배포한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker push masldev/masl_env:2.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 과정이 끝나면 Docker Hub에 이미지가 잘 올라가 있는 것을 확인할 수 있다. 이제 다른 사람들도 이 이미지를 받아서 동일한 개발환경을 사용할 수 있게 된다.  &lt;/p&gt;
+&lt;p&gt;모든 팀원이 이렇게 만들어 쓰려면 소모되는 노력과 시간이 너무 크다. 다른 사람이 배포한 이미지를 받아 간단하게 개발환경을 구성하는 방법은 다음 글에서 설명한다.&lt;/p&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;초보를 위한 도커 안내서 (&lt;a href=&quot;https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;도커(Docker) 입문편: 컨테이너 기초부터 서버 배포까지 (&lt;a href=&quot;https://www.44bits.io/ko/post/easy-deploy-with-docker#%EB%8F%84%EC%BB%A4-%ED%97%88%EB%B8%8C%EC%97%90-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%98%AC%EB%A6%AC%EA%B8%B0&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Docker 이미지 만들기 &amp;#x26; 배포하기 (&lt;a href=&quot;https://jgtonys.github.io/blog/2019/08/13/docker-image-upload/&quot;&gt;블로그&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Docker 환경 구성하기 01]]></title><description><![CDATA[Docker 환경을 구성하기에 앞서, 알아두어야 할 점은 Docker는 Linux 환경 위에 올려야 한다는 점이다. 사용하고 있는 기본 OS가 Linux 환경이라면, 그냥 Docker를 설치하면 된다. 하지만, 여기서는 Windows…]]></description><link>https://makeitmin.github.io/Docker/docker-환경-구성하기-01/</link><guid isPermaLink="false">https://makeitmin.github.io/Docker/docker-환경-구성하기-01/</guid><pubDate>Wed, 27 Jan 2021 13:09:25 GMT</pubDate><content:encoded>&lt;p&gt;Docker 환경을 구성하기에 앞서, 알아두어야 할 점은 Docker는 Linux 환경 위에 올려야 한다는 점이다. 사용하고 있는 기본 OS가 Linux 환경이라면, 그냥 Docker를 설치하면 된다. 하지만, 여기서는 Windows 환경에서 Docker를 설치하기 위해 Linux 가상환경을 구성하는 단계부터 시작해보려고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;wsl2-환경-구성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wsl2-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;wsl2 환경 구성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;WSL2 환경 구성하기&lt;/h2&gt;
+&lt;p&gt;WSL2는 Windows 10에서 공식적으로 지원하는 Linux 가상환경이다. 전체 이름은 Windows Subsystem for Linux이고, WSL이라고 부른다. Docker 환경을 성공적으로 구성하기 위해서는 기존에 릴리즈된 WSL1 환경이 아닌 WSL2 환경이 필요하다.&lt;/p&gt;
+&lt;h3 id=&quot;wsl2-설치하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wsl2-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;wsl2 설치하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;WSL2 설치하기&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;WSL 활성화하기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력하여 활성화를 시켜준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;strong&gt;윈도우 업데이트&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;그 후 윈도우를 최신 버전으로 업데이트 해주어야 한다. &lt;code class=&quot;language-text&quot;&gt;[설정]-[업데이트 및 보안]-[Windows 업데이트]&lt;/code&gt; 로 들어가면 현재 자신의 윈도우가 최신 버전인지, 아니면 업데이트가 필요한 버전인지 알려준다. 최신 버전으로 업데이트를 하고, 컴퓨터를 다시 시작한다.  &lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Virtual Machine 활성화하기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력합니다. 가상 머신을 활성화하는 작업이다. 마찬가지로 활성화한 뒤 컴퓨터를 다시 시작한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Linux 커널 업데이트 패키지 실행&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi&quot;&gt;Linux 커널 업데이트 패키지 다운로드&lt;/a&gt; 후 관리자 권한으로 실행 및 설치한다.  &lt;/p&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;&lt;strong&gt;WSL2를 기본값으로 지정하기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력한다. WSL2를 기본값으로 사용하겠다고 지정하는 명령어이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
+wsl --set-default-version 2
+```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;windows-terminal-설치하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#windows-terminal-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;windows terminal 설치하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows Terminal 설치하기&lt;/h3&gt;
+&lt;p&gt;Windows Terminal은 Linux 환경을 쓸 수 있는 Terminal이다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Microsoft Store에 들어간다.&lt;/li&gt;
+&lt;li&gt;Windows Terminal을 검색하여 다운로드하고, Ubuntu 18.04 LTS를 검색하여 다운로드한다.&lt;/li&gt;
+&lt;li&gt;컴퓨터에서 Windows Terminal을 실행하고, 상단의 &lt;code class=&quot;language-text&quot;&gt;[+]&lt;/code&gt; 옆의 &lt;code class=&quot;language-text&quot;&gt;아래방향 화살표&lt;/code&gt;를 클릭하여 Ubuntu 서버로 들어간다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAAA2ElEQVQoz7WQWQ6CMBRFuwr8kKEMASKU2RhFpohfroH9L+NKm2AIUUCiH6dNXtv7zis5FzWC8gHZPGAnSdB1HYwxxHEM3/df8NqUIAjgui7ae4uu61BVFcjxfAU71QizC/I8R1EUSJIEYRjCMIxFVFVFFEVomkY0IVTToMr73sLDrW1FIL+QpilM01wFpRSKoojpiGVZfUFHlmWoyhKe54lOfMzBYi5sek74wpP5X/Ag27bhOI7Y1wROIeNOPHj6R+8sFgPnHmwyHJv83fBbyCezrZBfmQ08AbDOPCk887UCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;windows terminal&quot;
+        title=&quot;windows terminal&quot;
+        src=&quot;/static/f8a6be6eaf7cbfa2352f631a864cb457/c1b63/windows-terminal.png&quot;
+        srcset=&quot;/static/f8a6be6eaf7cbfa2352f631a864cb457/5a46d/windows-terminal.png 300w,
+/static/f8a6be6eaf7cbfa2352f631a864cb457/0a47e/windows-terminal.png 600w,
+/static/f8a6be6eaf7cbfa2352f631a864cb457/c1b63/windows-terminal.png 1200w,
+/static/f8a6be6eaf7cbfa2352f631a864cb457/1e2b7/windows-terminal.png 1483w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;여기까지 하면 Docker를 설치하기 위한 사전 작업이 모두 끝난다.&lt;/p&gt;
+&lt;h2 id=&quot;docker-환경-구성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;docker 환경 구성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 환경 구성하기&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Docker Desktop for Windows 다운로드&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt; &lt;a href=&quot;https://www.docker.com/products/docker-desktop&quot;&gt;Docker 다운로드 사이트&lt;/a&gt;에 들어가서 받아도 되고, &lt;a href=&quot;https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe&quot;&gt;Docker Desktop for Windows&lt;/a&gt;를 클릭하여 실행파일을 받아도 된다.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;strong&gt;파일 실행하여 설치하기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;다운로드 받은 실행파일을 실행하여 설치를 진행한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAABJ0AAASdAHeZh94AAAAl0lEQVQI102OyRLDMAhD/f//2cm0Bpyk3jBeqjSXMDp4niWBEyYRKaWMMXrv1po/omcWZu8pxnhBs1zKFg5ihiSEWiu4e23b++NzLviuqmst5MO+s8g3pmY25wREdc6ZJCB6nCeSgA4opaSqY8IwgFprKEo5w3Gfcy8H16JQb7ZQOKZbj4GJ6DoVbywcj1E0mpIl/otahH7fp+fdl1J0zwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker install&quot;
+        title=&quot;docker install&quot;
+        src=&quot;/static/fddeffb2ae356dbe2375660a0a80a640/c1b63/docker-install.png&quot;
+        srcset=&quot;/static/fddeffb2ae356dbe2375660a0a80a640/5a46d/docker-install.png 300w,
+/static/fddeffb2ae356dbe2375660a0a80a640/0a47e/docker-install.png 600w,
+/static/fddeffb2ae356dbe2375660a0a80a640/c1b63/docker-install.png 1200w,
+/static/fddeffb2ae356dbe2375660a0a80a640/8454b/docker-install.png 1798w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Docker 실행하기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;설치된 Docker Desktop을 실행하면 다음과 같은 화면이 뜬다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABJ0AAASdAHeZh94AAAA9klEQVQY001P2U7DMBDM/38BPHCExJSr/QleQNAmbYVECUlbqdA0IXZ87MZOWow5xWq0mp3Z0Wq9i6kMYxlE0h/y4yE/GfGrqejFdRiJ8L46vCnIWJJYOD2IxN4d7zs3YiRip2PpWYO2xXcN1fqlWs3Xywxqajtt20YLLil1lt211tXOlLXcGv3FOxf0hEQu0fVawHWislyB+lHeqHjNKTbt5GF2QC79s0FwPvB7/f0jcjuaGLP1lMJfwKpUjAN8j4CMibJgoJqirJJ0nqTLx+fFU7qYJVm+KRH1/zCCu/rHockpyzZFLZTb08a98QmtO2M6p0iFH9+sDYnUMLktAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker dashboard&quot;
+        title=&quot;docker dashboard&quot;
+        src=&quot;/static/917152bf124091f9c6594dc9f891a25a/c1b63/docker-dashboard.png&quot;
+        srcset=&quot;/static/917152bf124091f9c6594dc9f891a25a/5a46d/docker-dashboard.png 300w,
+/static/917152bf124091f9c6594dc9f891a25a/0a47e/docker-dashboard.png 600w,
+/static/917152bf124091f9c6594dc9f891a25a/c1b63/docker-dashboard.png 1200w,
+/static/917152bf124091f9c6594dc9f891a25a/d61c2/docker-dashboard.png 1800w,
+/static/917152bf124091f9c6594dc9f891a25a/97a96/docker-dashboard.png 2400w,
+/static/917152bf124091f9c6594dc9f891a25a/d7576/docker-dashboard.png 2641w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Docker에서 WSL2 옵션 켜기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Docker에서는 WSL2 연동 옵션을 제공한다. 톱니바퀴 모양의 설정 아이콘을 클릭하면 Default로 WSL2가 설정이 되어있고, 설치된 Ubuntu를 인식한 것까지 확인할 수 있다. 만약 체크가 되어있지 않다면 다음과 같이 체크를 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHYdOyCw//EABgQAAMBAQAAAAAAAAAAAAAAAAACEgEQ/9oACAEBAAEFAoUhSFM7/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAEDAQE/AYiI/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/Aays/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEyIJH/2gAIAQEABj8ClcJRKx//xAAaEAACAgMAAAAAAAAAAAAAAAAAARARMeHx/9oACAEBAAE/IcgloTijWos//9oADAMBAAIAAwAAABDzD//EABURAQEAAAAAAAAAAAAAAAAAAABh/9oACAEDAQE/EIIP/8QAFREBAQAAAAAAAAAAAAAAAAAAAGH/2gAIAQIBAT8Qoo//xAAbEAACAgMBAAAAAAAAAAAAAAAAARExIWGB8f/aAAgBAQABPxB0NWAhfBTyo2RwSJmj/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker settings&quot;
+        title=&quot;docker settings&quot;
+        src=&quot;/static/4242f852b4a7dcd55034286ab63bbb57/e5166/docker-settings.jpg&quot;
+        srcset=&quot;/static/4242f852b4a7dcd55034286ab63bbb57/f93b5/docker-settings.jpg 300w,
+/static/4242f852b4a7dcd55034286ab63bbb57/b4294/docker-settings.jpg 600w,
+/static/4242f852b4a7dcd55034286ab63bbb57/e5166/docker-settings.jpg 1200w,
+/static/4242f852b4a7dcd55034286ab63bbb57/f2a9a/docker-settings.jpg 1563w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Docker 실행해보기&lt;/strong&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ubuntu가 돌아가는 WSL2 터미널에서 Docker가 잘 설치되었는지 실행해본다. 아래 화면처럼 Docker에서 사용할 수 있는 여러 옵션 가이드가 뜨면 설치와 연동이 제대로 된 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
+docker
+```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAc9VQoSD/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAIBEBIT/9oACAEBAAEFAttJpjo5N//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAMBAQAAAAAAAAAAAAAAAAABMpEg/9oACAEBAAY/ArelPSnx/8QAGBAAAwEBAAAAAAAAAAAAAAAAARAxAPH/2gAIAQEAAT8hNSRunoD/AP/aAAwDAQACAAMAAAAQw8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMRDR/9oACAEBAAE/EMdlc1E/plYBUYbitqqd8//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docker execute&quot;
+        title=&quot;docker execute&quot;
+        src=&quot;/static/520250a0979cba788859bd24e5bc1250/e5166/docker-execute.jpg&quot;
+        srcset=&quot;/static/520250a0979cba788859bd24e5bc1250/f93b5/docker-execute.jpg 300w,
+/static/520250a0979cba788859bd24e5bc1250/b4294/docker-execute.jpg 600w,
+/static/520250a0979cba788859bd24e5bc1250/e5166/docker-execute.jpg 1200w,
+/static/520250a0979cba788859bd24e5bc1250/d8920/docker-execute.jpg 1483w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows Subsystem for Linux Installation Guide for Windows 10 (&lt;a href=&quot;https://docs.microsoft.com/ko-kr/windows/wsl/install-win10#manual-installation-steps&quot;&gt;문서&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[소개 업데이트 예정입니다]]></description><link>https://makeitmin.github.io/resume-en/</link><guid isPermaLink="false">https://makeitmin.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h1&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;p&gt;&lt;em&gt;업데이트 예정입니다&lt;/em&gt;&lt;/p&gt;

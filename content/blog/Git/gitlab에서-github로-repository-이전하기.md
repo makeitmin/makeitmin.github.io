@@ -11,19 +11,19 @@ draft: false
 
 ## 시작하기 전에
 
-Merge Request를 이전하는 것은 **open** 되어 있는 것들만 가능합니다. GitHub API 정책상 Merge Request를 Pull Request로 옮기는 것은 **Target 브랜치와 Source 브랜치 간의 커밋 차이**가 있어야 가능하다고 합니다. 이미 merged 상태인 것은 두 브랜치 간의 차이를 추적할 수 없으므로 Merge Request의 형태로 옮기기 어렵습니다.  
+Merge Request를 이전하는 것은 **open** 되어 있는 것들만 가능하다. GitHub API 정책상 Merge Request를 Pull Request로 옮기는 것은 **Target 브랜치와 Source 브랜치 간의 커밋 차이**가 있어야 가능하다고 한다. 이미 merged 상태인 것은 두 브랜치 간의 차이를 추적할 수 없으므로 Merge Request의 형태로 옮기기 어렵다.  
 
-해당 부분에 대해 [직접 질문을 남긴 내용](https://github.com/piceaTech/node-gitlab-2-github/issues/91#issuecomment-884719601)입니다.  
+해당 부분에 대해 [직접 질문을 남긴 내용](https://github.com/piceaTech/node-gitlab-2-github/issues/91#issuecomment-884719601)이다.  
 
-질문 당시 merged 상태인 Merge Request를 이전할 경우 오류가 나고 있는 상황이었고, 이에 따라 이미 merged 상태인 Merge Request는 Issue의 형태로 이전되도록 어떤 친절한 개발자분의 코드 개선으로 [오류가 핸들링된 내용](https://github.com/piceaTech/node-gitlab-2-github/pull/93)입니다.
+질문 당시 merged 상태인 Merge Request를 이전할 경우 오류가 나고 있는 상황이었고, 이에 따라 이미 merged 상태인 Merge Request는 Issue의 형태로 이전되도록 어떤 친절한 개발자분의 코드 개선으로 [오류가 핸들링된 내용](https://github.com/piceaTech/node-gitlab-2-github/pull/93)이다.
 
 
 ## 방법 1 : Code 이전하기
 
 
-1. GitHub에 옮길 빈 Repository를 미리 생성합니다.
+1. GitHub에 옮길 빈 Repository를 미리 생성한다.
 
-2. 로컬에서 다음을 수행합니다.
+2. 로컬에서 다음을 수행한다.
 
 ```bash
 # GitLab에서 bare 상태로 자신의 Repository clone 해오기
@@ -44,7 +44,7 @@ git push --no-verify --mirror https://github.com/makeitmin/skidmarker.git
 
 ### 폴더 생성하기
 
-CMD를 열고 다음을 수행합니다.
+CMD를 열고 다음을 수행한다.
 
 ```bash
 cd C:/Users/사용자/.ssh

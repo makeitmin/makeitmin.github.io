@@ -1,5 +1,5 @@
 ---
-title: YOLOv4 + DeepFashion2 Datasets로 Object Detection 하기
+title: YOLOv4 + DeepFashion2로 Object Detection 학습하기
 date: 2021-05-25 07:08:06
 category: Project
 thumbnail: { thumbnailSrc }
@@ -260,7 +260,7 @@ darknet 폴더로 이동합니다.
 %cd /content/darknet
 ```
 
-YOLOv4 학습을 시작합니다.
+YOLOv4 학습을 시작합니다. 학습된 weights 파일은 .data에서 설정한 경로에 저장됩니다.
 
 ```shell
 !./darknet detector train custom/custom.data cfg/yolov4.cfg yolov4.conv.137 -map -dont_show

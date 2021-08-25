@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 22 Aug 2021 10:39:20 GMT</lastBuildDate><item><title><![CDATA[컴퓨터 구조에 대한 세 번째 이야기]]></title><description><![CDATA[함수를 호출할 때 수행되는 작업 함수 호출 인자 전달 지역 변수 처리 실행의 이동 절차적 함수 호출(Procedure Call) 지원 CPU 모델 스택 프레임 (Stack Frame…]]></description><link>https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-세-번째-이야기/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-세-번째-이야기/</guid><pubDate>Sun, 22 Aug 2021 10:08:57 GMT</pubDate><content:encoded>&lt;p&gt;함수를 호출할 때 수행되는 작업&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 Aug 2021 15:44:11 GMT</lastBuildDate><item><title><![CDATA[Media Query에서 font-size 줄이기]]></title><description><![CDATA[만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query…]]></description><link>https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</guid><pubDate>Mon, 23 Aug 2021 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query를 작성했는데, 이상하게도 화면을 아무리 줄여봐도 &lt;code class=&quot;language-text&quot;&gt;font-size&lt;/code&gt; 값이 줄어들지 않았다.&lt;/p&gt;
+&lt;p&gt;예를 들어 HTML에 이런 코드를 작성하고,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text-span&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;왜 안 줄어들지?&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;CSS에 이런 코드를 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;@media (max-width: 1440px) {
+	.text-span {
+		font-size: 32px;
+	}
+}
+
+@media (max-width: 992px) {
+	.text-span {
+		font-size: 28px;
+	}
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;창 크기를 1440px에서 992px로 줄였을 때, 당연히 &lt;code class=&quot;language-text&quot;&gt;font-size&lt;/code&gt;도 32px → 28px로 줄어들어야 한다고 생각했는데, 줄지 않았다. 하다하다 안 돼서 결국 동료 분이 찾아주셨는데, 매우 간단히 해결할 수 있었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1440px&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token selector&quot;&gt;div span.text-span&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 32px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token atrule&quot;&gt;&lt;span class=&quot;token rule&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 992px&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token selector&quot;&gt;div span.text-span&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 28px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;span&amp;gt;&lt;/code&gt; 안에 있는 &lt;code class=&quot;language-text&quot;&gt;font-size&lt;/code&gt;를 줄이려면 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;에 속성을 줄 때처럼 클래스명만 명시하는 것이 아니라 앞에 꼭 태그명을 명시해줘야 하는 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[컴퓨터 구조에 대한 세 번째 이야기]]></title><description><![CDATA[함수를 호출할 때 수행되는 작업 함수 호출 인자 전달 지역 변수 처리 실행의 이동 절차적 함수 호출(Procedure Call) 지원 CPU 모델 스택 프레임 (Stack Frame…]]></description><link>https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-세-번째-이야기/</link><guid isPermaLink="false">https://makeitmin.github.io/Computer Science/컴퓨터-구조에-대한-세-번째-이야기/</guid><pubDate>Sun, 22 Aug 2021 10:08:57 GMT</pubDate><content:encoded>&lt;p&gt;함수를 호출할 때 수행되는 작업&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;함수 호출 인자 전달&lt;/li&gt;
 &lt;li&gt;지역 변수 처리&lt;/li&gt;
@@ -983,44 +1012,44 @@ DELETE FROM &lt;span class=&quot;token string&quot;&gt;&quot;USER&quot;&lt;/span
 &lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;뇌를 자극하는 윈도우즈 시스템 프로그래밍 (&lt;a href=&quot;http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&amp;#x26;mallGb=KOR&amp;#x26;barcode=9788979144611&amp;#x26;orderClick=LEa&amp;#x26;Kc=&quot;&gt;도서&lt;/a&gt;, &lt;a href=&quot;https://www.inflearn.com/course/%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&quot;&gt;강의&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[YOLOv4 + DeepFashion2로 Object Detection 학습하기]]></title><description><![CDATA[이 글의 Code Snippets는 Jupyter Notebook에서 Code Shell 단위로 실행됩니다. 코드 전문은 GitHub Repository에 있습니다.   YOLO는 Darknet이라는 프레임워크를 사용합니다. Darknet은 YOLOv…]]></description><link>https://makeitmin.github.io/Project/yolov4-+-deepfashion2-로-object-detection-학습하기/</link><guid isPermaLink="false">https://makeitmin.github.io/Project/yolov4-+-deepfashion2-로-object-detection-학습하기/</guid><pubDate>Tue, 25 May 2021 07:08:06 GMT</pubDate><content:encoded>&lt;p&gt;이 글의 Code Snippets는 Jupyter Notebook에서 Code Shell 단위로 실행됩니다. 코드 전문은 &lt;a href=&quot;https://github.com/makeitmin/yolov4-deepfashion2/blob/master/YOLOv4_DeepFashion2.ipynb&quot;&gt;GitHub Repository&lt;/a&gt;에 있습니다.  &lt;/p&gt;
-&lt;p&gt;YOLO는 Darknet이라는 프레임워크를 사용합니다.&lt;br&gt;
-Darknet은 YOLOv4 뿐 아니라 다양한 버전의 YOLO 모델을 서빙하고 있습니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[YOLOv4 + DeepFashion2로 Object Detection 학습하기]]></title><description><![CDATA[이 글의 Code Snippets는 Jupyter Notebook에서 Code Shell 단위로 실행된다. 코드 전문은 GitHub Repository에 있다.   YOLO는 Darknet이라는 프레임워크를 사용한다. Darknet은 YOLOv…]]></description><link>https://makeitmin.github.io/Project/yolov4-+-deepfashion2-로-object-detection-학습하기/</link><guid isPermaLink="false">https://makeitmin.github.io/Project/yolov4-+-deepfashion2-로-object-detection-학습하기/</guid><pubDate>Tue, 25 May 2021 07:08:06 GMT</pubDate><content:encoded>&lt;p&gt;이 글의 Code Snippets는 Jupyter Notebook에서 Code Shell 단위로 실행된다. 코드 전문은 &lt;a href=&quot;https://github.com/makeitmin/yolov4-deepfashion2/blob/master/YOLOv4_DeepFashion2.ipynb&quot;&gt;GitHub Repository&lt;/a&gt;에 있다.  &lt;/p&gt;
+&lt;p&gt;YOLO는 Darknet이라는 프레임워크를 사용한다.&lt;br&gt;
+Darknet은 YOLOv4 뿐 아니라 다양한 버전의 YOLO 모델을 서빙하고 있다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;git clone https://github.com/AlexeyAB/darknet.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;해당 Darknet Repository의  &lt;a href=&quot;https://github.com/AlexeyAB/darknet#how-to-evaluate-fps-of-yolov4-on-gpu&quot;&gt;README.md&lt;/a&gt;  에서는 GPU를 사용한 YOLOv4 를 학습하기 전 Darknet 프레임워크를 초기화(빌드)하는 방법을 설명하고 있습니다.  &lt;/p&gt;
+&lt;p&gt;해당 Darknet Repository의 &lt;a href=&quot;https://github.com/AlexeyAB/darknet#how-to-evaluate-fps-of-yolov4-on-gpu&quot;&gt;README.md&lt;/a&gt;에서는 GPU를 사용한 YOLOv4를 학습하기 전 Darknet 프레임워크를 초기화(빌드)하는 방법을 설명하고 있다.  &lt;/p&gt;
 &lt;h2 id=&quot;makefile-빌드하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#makefile-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0&quot; aria-label=&quot;makefile 빌드하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Makefile 빌드하기&lt;/h2&gt;
-&lt;p&gt;다음과 같이 darknet/Makefile의 앞부분을 수정합니다.&lt;/p&gt;
+&lt;p&gt;다음과 같이 &lt;code class=&quot;language-text&quot;&gt;darknet/Makefile&lt;/code&gt;의 앞부분을 수정한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;GPU=1
 CUDNN=1 
 CUDNN_HALF=1 
 OPENCV=1
 LIBSO=1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Makefile을 빌드합니다.&lt;/p&gt;
+&lt;p&gt;Makefile을 빌드한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;%cd darknet/
 &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;make
 &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;mkdir DeepFashion2
 %cd &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;데이터셋-가져오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;데이터셋 가져오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터셋 가져오기&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/switchablenorms/DeepFashion2&quot;&gt;DeepFashion2&lt;/a&gt;  를 본인의 Google Drive 에 받는 자세한 방법은  &lt;a href=&quot;https://beausty23.tistory.com/82&quot;&gt;링크&lt;/a&gt;를 참고하세요.&lt;br&gt;
-DeepFashion2 의 데이터셋이 매우 방대하므로 이 학습에서는 Validation Set 만을 받아 Train 과 Validation으로 나누어 사용합니다.
-본인의 Google Drive 를 마운트하여,&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/switchablenorms/DeepFashion2&quot;&gt;DeepFashion2&lt;/a&gt;를 본인의 Google Drive에 받는 자세한 방법은 &lt;a href=&quot;https://beausty23.tistory.com/82&quot;&gt;링크&lt;/a&gt;를 참고하자.&lt;br&gt;
+DeepFashion2의 데이터셋이 매우 방대하므로 이 학습에서는 Validation Set만을 받아 Train과 Validation으로 나누어 사용한다.
+본인의 Google Drive를 마운트하여,&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; google&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;colab &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; drive
 drive&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mount&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/content/gdrive&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://drive.google.com/drive/folders/125F48fsMBz2EF0Cpqk6aaHet5VH399Ok&quot;&gt;데이터셋&lt;/a&gt;을 복사합니다.  &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/drive/folders/125F48fsMBz2EF0Cpqk6aaHet5VH399Ok&quot;&gt;데이터셋&lt;/a&gt;을 복사한다.  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;cp /content/gdrive/MyDrive/validation.zip /content/darknet/DeepFashion2/validation.zip&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;패스워드와 함께 데이터셋의 압축을 해제합니다.&lt;/p&gt;
+&lt;p&gt;패스워드와 함께 데이터셋의 압축을 해제한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;unzip -P &lt;span class=&quot;token string&quot;&gt;&quot;패스워드&quot;&lt;/span&gt; /content/darknet/DeepFashion2/validation.zip -d /content/darknet/DeepFashion2/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;annotation-format-변환하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#annotation-format-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;annotation format 변환하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Annotation Format 변환하기&lt;/h2&gt;
-&lt;p&gt;다음은 클래스를 나누어 각각의 이미지와 그에 대응하는 클래스, 어노테이션을 묶는 validation.json 파일을 생성하는 코드입니다. 이 작업이 필요한 이유는 현재 DeepFashion2 의 Annotation Format 이 YOLOv4 가 요구하는 Format 과 맞지 않기 때문입니다.  &lt;/p&gt;
-&lt;p&gt;다음과 같은 순서로 Format 을 맞출 예정입니다.&lt;/p&gt;
+&lt;p&gt;다음은 클래스를 나누어 각각의 이미지와 그에 대응하는 클래스, 어노테이션을 묶는 validation.json 파일을 생성하는 코드이다. 이 작업이 필요한 이유는 현재 DeepFashion2의 Annotation Format이 YOLOv4가 요구하는 Format과 맞지 않기 때문이다.  &lt;/p&gt;
+&lt;p&gt;다음과 같은 순서로 Format 을 맞출 예정이다.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;DeepFashion2 의 Annotation Format 을 COCO Format 으로 변환&lt;/li&gt;
-&lt;li&gt;COCO Format 을 YOLO Format 으로 변환&lt;/li&gt;
+&lt;li&gt;DeepFashion2의 Annotation Format을 COCO Format으로 변환&lt;/li&gt;
+&lt;li&gt;COCO Format을 YOLO Format으로 변환&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;아래 셀의 코드는 1번의 과정입니다.&lt;br&gt;
-DeepFashion2 의 데이터셋은 총 13개 클래스입니다.&lt;/p&gt;
+&lt;p&gt;아래 셀의 코드는 1번의 과정이다.&lt;br&gt;
+DeepFashion2 의 데이터셋은 총 13개 클래스이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;mkdir /content/darknet/DeepFashion2/validation/annotations&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;다음 폴더를 만든 후 코드를 실행합니다.&lt;/p&gt;
+&lt;p&gt;다음 폴더를 만든 후 코드를 실행한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; PIL &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Image
 &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; np
 &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; json
@@ -1119,23 +1148,23 @@ sub_index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span c
 json_name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/content/darknet/DeepFashion2/validation/validation.json&apos;&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;json_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;w&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     json&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dump&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;dataset&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;YOLO Format 의 Annotations 가 저장될 폴더를 생성합니다.&lt;/p&gt;
+&lt;p&gt;YOLO Format의 Annotations가 저장될 폴더를 생성한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;%cd /content/darknet/DeepFashion2
 &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;mkdir YOLO/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;아래 셀의 코드는 2번의 과정입니다.&lt;br&gt;
-DeepFashion2 폴더 내에 다음 2개의 파일을 추가한 후 실행해야 합니다.&lt;/p&gt;
+&lt;p&gt;아래 셀의 코드는 2번의 과정이다.&lt;br&gt;
+DeepFashion2 폴더 내에 다음 2개의 파일을 추가한 후 실행해야한다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/ssaru/convert2Yolo/blob/master/example.py&quot;&gt;example.py&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/ssaru/convert2Yolo/blob/master/Format.py&quot;&gt;Format.py&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;python ./example.py --datasets COCO --img_path ./validation/image/ --label ./validation/annotations/validation.json --convert_output_path ./YOLO/ --img_type &lt;span class=&quot;token string&quot;&gt;&quot;.jpg&quot;&lt;/span&gt; --manifest_path ./validation/ --cls_list_file ./validation/deepfashion2.names&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 작업이 끝나면 다음의 것들이 생성됩니다.&lt;/p&gt;
+&lt;p&gt;위 작업이 끝나면 다음 내용이 생성된다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;YOLO/*.txt : 이미지별 바운딩 좌표가 Yolo Format 으로 변환되어 있습니다.&lt;/li&gt;
-&lt;li&gt;manifest.txt : 모든 이미지의 경로를 모아 놓은 파일입니다.&lt;/li&gt;
+&lt;li&gt;YOLO/*.txt : 이미지별 바운딩 좌표가 Yolo Format 으로 변환되어있다.&lt;/li&gt;
+&lt;li&gt;manifest.txt : 모든 이미지의 경로를 모아 놓은 파일이다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;데이터-전처리하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;데이터 전처리하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 전처리하기&lt;/h2&gt;
-&lt;p&gt;데이터를 shuffle 하는 코드입니다.&lt;/p&gt;
+&lt;p&gt;데이터를 shuffle하는 코드이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; random 
 txt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/content/darknet/DeepFashion2/validation/manifest.txt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;r&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
 f &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/content/darknet/DeepFashion2/validation/manifest_shuffle.txt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;w&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
@@ -1150,7 +1179,7 @@ random&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;shuffle&lt;s
   f&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;write&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
 txt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
 f&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;shuffle 된 데이터셋을 Train 과 Validation 으로 나누는 코드입니다.&lt;/p&gt;
+&lt;p&gt;shuffle된 데이터셋을 Train과 Validation으로 나누는 코드이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; 
 length &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;37205&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;#total line &lt;/span&gt;
 txt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/content/darknet/DeepFashion2/validation/manifest_shuffle.txt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;r&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
@@ -1171,11 +1200,11 @@ txt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span c
 f&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; 
 f2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;close&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;yolov4-학습하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#yolov4-%ED%95%99%EC%8A%B5%ED%95%98%EA%B8%B0&quot; aria-label=&quot;yolov4 학습하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;YOLOv4 학습하기&lt;/h2&gt;
-&lt;p&gt;첫 학습에 사용할 초기 모델로 yolov4.conv.137 을 가져옵니다.&lt;/p&gt;
+&lt;p&gt;첫 학습에 사용할 초기 모델로 yolov4.conv.137을 가져온다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;gdown --id 1JKF-bdIklxOOVy-2Cr5qdvjgGpmGfcbp -O /content/darknet/yolov4.conv.137&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;darknet 폴더로 이동합니다.&lt;/p&gt;
+&lt;p&gt;darknet 폴더로 이동한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;%cd /content/darknet&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;YOLOv4 학습을 시작합니다. 학습된 weights 파일은 .data에서 설정한 경로에 저장됩니다.&lt;/p&gt;
+&lt;p&gt;YOLOv4 학습을 시작한다. 학습된 weights 파일은 .data에서 설정한 경로에 저장된다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;./darknet detector train custom/custom.data cfg/yolov4.cfg yolov4.conv.137 -map -dont_show&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
 &lt;ul&gt;

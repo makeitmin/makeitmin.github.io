@@ -18,9 +18,9 @@ WSL2는 Windows 10에서 공식적으로 지원하는 Linux 가상환경이다. 
 
 관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력하여 활성화를 시켜준다.
 
-	```bash
-    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-	```
+```bash
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
 2.  **윈도우 업데이트**  
 
 그 후 윈도우를 최신 버전으로 업데이트 해주어야 한다. `[설정]-[업데이트 및 보안]-[Windows 업데이트]` 로 들어가면 현재 자신의 윈도우가 최신 버전인지, 아니면 업데이트가 필요한 버전인지 알려준다. 최신 버전으로 업데이트를 하고, 컴퓨터를 다시 시작한다.  
@@ -29,9 +29,9 @@ WSL2는 Windows 10에서 공식적으로 지원하는 Linux 가상환경이다. 
 
 관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력합니다. 가상 머신을 활성화하는 작업이다. 마찬가지로 활성화한 뒤 컴퓨터를 다시 시작한다.
 
-	```bash
-    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-	```
+```bash
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
     
 4.  **Linux 커널 업데이트 패키지 실행**  
 
@@ -41,9 +41,9 @@ WSL2는 Windows 10에서 공식적으로 지원하는 Linux 가상환경이다. 
 
 관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력한다. WSL2를 기본값으로 사용하겠다고 지정하는 명령어이다.
 
-    ```bash
-    wsl --set-default-version 2
-    ```
+```bash
+wsl --set-default-version 2
+```
 
 ### Windows Terminal 설치하기
 Windows Terminal은 Linux 환경을 쓸 수 있는 Terminal이다.
@@ -86,9 +86,9 @@ Docker에서는 WSL2 연동 옵션을 제공한다. 톱니바퀴 모양의 설�
 
 Ubuntu가 돌아가는 WSL2 터미널에서 Docker가 잘 설치되었는지 실행해본다. 아래 화면처럼 Docker에서 사용할 수 있는 여러 옵션 가이드가 뜨면 설치와 연동이 제대로 된 것이다.
 
-    ```bash
-    docker
-    ```
+```bash
+docker
+```
 
 ![](./images/docker-execute.jpg)
 

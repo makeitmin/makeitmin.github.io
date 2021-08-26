@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 25 Aug 2021 15:44:11 GMT</lastBuildDate><item><title><![CDATA[Media Query에서 font-size 줄이기]]></title><description><![CDATA[만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query…]]></description><link>https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</guid><pubDate>Mon, 23 Aug 2021 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query를 작성했는데, 이상하게도 화면을 아무리 줄여봐도 &lt;code class=&quot;language-text&quot;&gt;font-size&lt;/code&gt; 값이 줄어들지 않았다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Aug 2021 14:51:26 GMT</lastBuildDate><item><title><![CDATA[Media Query에서 font-size 줄이기]]></title><description><![CDATA[만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query…]]></description><link>https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/media-query에서-font-size-줄이기/</guid><pubDate>Mon, 23 Aug 2021 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;만들고자 하는 화면의 반응형 기준은 총 4가지(1440px / 992px / 768px / 576px)였다. Bootstrap 만으로는 한계가 있어 CSS 파일에 Media Query를 작성했는데, 이상하게도 화면을 아무리 줄여봐도 &lt;code class=&quot;language-text&quot;&gt;font-size&lt;/code&gt; 값이 줄어들지 않았다.&lt;/p&gt;
 &lt;p&gt;예를 들어 HTML에 이런 코드를 작성하고,&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text-span&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;왜 안 줄어들지?&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -1583,9 +1583,7 @@ node -v
 &lt;li&gt;&lt;strong&gt;WSL 활성화하기&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력하여 활성화를 시켜준다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;&lt;strong&gt;윈도우 업데이트&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
@@ -1594,9 +1592,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 &lt;li&gt;&lt;strong&gt;Virtual Machine 활성화하기&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력합니다. 가상 머신을 활성화하는 작업이다. 마찬가지로 활성화한 뒤 컴퓨터를 다시 시작한다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;4&quot;&gt;
 &lt;li&gt;&lt;strong&gt;Linux 커널 업데이트 패키지 실행&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
@@ -1605,9 +1601,7 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 &lt;li&gt;&lt;strong&gt;WSL2를 기본값으로 지정하기&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;관리자 권한으로 실행한 Windows Powershell에서 다음 명령어를 입력한다. WSL2를 기본값으로 사용하겠다고 지정하는 명령어이다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
-wsl --set-default-version 2
-```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;wsl --set-default-version &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;windows-terminal-설치하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#windows-terminal-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;windows terminal 설치하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Windows Terminal 설치하기&lt;/h3&gt;
 &lt;p&gt;Windows Terminal은 Linux 환경을 쓸 수 있는 Terminal이다.&lt;/p&gt;
 &lt;ol&gt;
@@ -1727,9 +1721,7 @@ wsl --set-default-version 2
 &lt;li&gt;&lt;strong&gt;Docker 실행해보기&lt;/strong&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Ubuntu가 돌아가는 WSL2 터미널에서 Docker가 잘 설치되었는지 실행해본다. 아래 화면처럼 Docker에서 사용할 수 있는 여러 옵션 가이드가 뜨면 설치와 연동이 제대로 된 것이다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;```bash
-docker
-```&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;

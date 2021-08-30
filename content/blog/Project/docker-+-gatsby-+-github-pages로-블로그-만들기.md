@@ -94,9 +94,9 @@ RUN apt-get install -y gcc g++ make
 
 1. GitHub 레포지토리 생성
 
-    GitHub에 `GitHub계정명.github.io` 라는 이름의 레포지토리를 생성합니다.
+    GitHub에 `GitHub계정명.github.io` 라는 이름의 레포지토리를 생성한다.
 
-    생성한 레포지토리와 블로그 코드를 git remote로 연결해줍니다.
+    생성한 레포지토리와 블로그 코드를 git remote로 연결해준다.
 
     ```bash
     git remote add origin 'https://github.com/GitHub계정명/GitHub계정명.github.io

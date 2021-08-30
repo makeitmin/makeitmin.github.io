@@ -276,4 +276,4 @@ YOLOv4 학습을 시작한다. 학습된 weights 파일은 .data에서 설정한
 
 -   Colab에서 Detectron2로 의류 인식하기 ([블로그](https://airsbigdata.tistory.com/208))
 
--   ssaru/convert2Yolo ([GitHub](https://github.com/ssaru/convert2Yolo))
+-   ssaru/convert2Yolo ([레포지토리](https://github.com/ssaru/convert2Yolo))

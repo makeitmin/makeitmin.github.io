@@ -1,4 +1,423 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 01 Sep 2021 14:17:12 GMT</lastBuildDate><item><title><![CDATA[Django ORM Func() 사용하기]]></title><description><![CDATA[오늘 Django ORM Query 코드를 보다가 중간중간 Func()이라는 함수를 발견했다. 모르고 있던 함수여서 검색을 했는데, 감이 잘 안 잡혀서 동료 분한테 다시 여쭤보고 정리할 수 있었다. Func()의 개념과 구성 요소 Func()는 ORM…]]></description><link>https://makeitmin.github.io/TIL/django-orm-func()-사용하기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/django-orm-func()-사용하기/</guid><pubDate>Tue, 31 Aug 2021 12:08:51 GMT</pubDate><content:encoded>&lt;p&gt;오늘 Django ORM Query 코드를 보다가 중간중간 Func()이라는 함수를 발견했다. 모르고 있던 함수여서 검색을 했는데, 감이 잘 안 잡혀서 동료 분한테 다시 여쭤보고 정리할 수 있었다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[makeitmin.io]]></title><description><![CDATA[휘발되지 않는 멋쟁이 개발자 되기]]></description><link>https://makeitmin.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Sep 2021 14:59:07 GMT</lastBuildDate><item><title><![CDATA[Django 소셜 로그인(Google OAuth) 구현하기]]></title><description><![CDATA[Django 프로젝트에 소셜 로그인을 추가해보기로 했다.  패키지를 설치하고, Google OAuth…]]></description><link>https://makeitmin.github.io/TIL/django-소셜-로그인(google-oauth)-구현하기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/django-소셜-로그인(google-oauth)-구현하기/</guid><pubDate>Thu, 02 Sep 2021 14:10:19 GMT</pubDate><content:encoded>&lt;p&gt;Django 프로젝트에 소셜 로그인을 추가해보기로 했다. &lt;code class=&quot;language-text&quot;&gt;django-allauth&lt;/code&gt; 패키지를 설치하고, Google OAuth를 연동하여 소셜 로그인을 하는 방법은 검색하면 많이 나왔다. 아무래도 소셜 로그인이라는 것이, 자체 회원가입 절차를 간소화할 수 있어서 사용하는 방법이다 보니 자체 회원가입과 소셜 로그인을 굳이 모두 구현하는 시도는 흔하지 않았다.&lt;/p&gt;
+&lt;p&gt;하지만 사용자에게 (Google을 비롯한) 연동할 플랫폼의 계정이 없을 수도 있기 때문에, 기존에 해오던 대로 사용자의 입력을 받아 회원가입을 하는 선택지 또한 남겨놓는 것이 개인적으로는 조금 더 강건한 서비스라고 생각했다. &lt;/p&gt;
+&lt;p&gt;문제는 2가지 흐름을 결국 1개의 User 테이블로 귀결시켜야 한다는 점에 있었다. 자체 회원가입 기능은 내가 프로젝트에 참여하기 이전부터 &lt;strong&gt;account&lt;/strong&gt; 라는 앱으로 구현되어 있었고, 이 앱 또한 Django에서 사용자 회원가입과 인증을 위해 Default로 제공하는 &lt;code class=&quot;language-text&quot;&gt;User Model&lt;/code&gt;에 기반하고 있다. 여기다 &lt;code class=&quot;language-text&quot;&gt;allauth&lt;/code&gt; 모듈을 사용하는 소셜 로그인까지 추가하려면? 머리가 조금 아팠다. &lt;/p&gt;
+&lt;p&gt;결정적으로 이 프로젝트에서는 &lt;strong&gt;username&lt;/strong&gt; 필드의 값을 &lt;strong&gt;사용자의 이메일&lt;/strong&gt;로 받고 있어서, &lt;code class=&quot;language-text&quot;&gt;allauth&lt;/code&gt; 모듈을 그대로 갖다 쓰면 기획 단계에서 설계한 &lt;strong&gt;username&lt;/strong&gt; 필드의 무결성이 완전히 깨진다. &lt;/p&gt;
+&lt;p&gt;사용자가 자체 회원가입을 했을 때는 &lt;strong&gt;username&lt;/strong&gt; 필드에 이메일 값이 들어오도록 잘 구현이 되어있는데, 소셜 로그인을 이용하면 이메일이 들어와야 할 &lt;strong&gt;username&lt;/strong&gt; 필드에 &lt;code class=&quot;language-text&quot;&gt;allauth&lt;/code&gt; 모듈의 로직에 따라 그냥 Google OAuth가 보내주는 “user”라는 단어가 뚝 들어와버리는 것이다. 그래서 모듈이 실행되는 중간에서 Google OAuth를 통해 들어오는 사용자 정보를 &lt;del&gt;슥 가로채서&lt;/del&gt; 우리가 쓰는 필드에 알맞은 값이 들어가도록 커스터마이즈할 필요성도 있었다.&lt;/p&gt;
+&lt;p&gt;상황 설명은 여기까지 하고, 그래서 자체 회원가입이 구현된 Django 프로젝트에 소셜 로그인을 추가하는 방법을 기록으로 남겨보려고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;gcp-console에서-oauth-client-설정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#gcp-console%EC%97%90%EC%84%9C-oauth-client-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;gcp console에서 oauth client 설정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GCP Console에서 OAuth Client 설정하기&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;일단 &lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;Google Cloud Platform Console&lt;/a&gt;에 처음 접속하면 이것저것 동의를 요청하는 창이 뜬다. 필요한 것만 체크해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABcUlEQVQoz3WPjU7CMBDH94Q+iEIUwxNgGB+aiAgYNRJgtFu7lg/fxMjHNvQRNEDpYIMNDzAIEf65XnPX+6X/Uy7U2rmqRa5qZ4naaULbRCyF4lkM+TfSOJ7VYykcVXFExZcZPZpEJ9GycvNIrh+M5F0tma+rBZS8R7fPrFBp5su8UGkVq+1StZ174dkSypRwqriKdAmnizj3ZChNTl9bnOp1RrBpIKxVPuyuFEMx+g4WXhj4y+Xyc2DBAEw2OVkFI4wSblKFUGqapq4bjUYTRCnt9XqTifQ83/fn09ksCELbtg0DBhp8Xwp0GWPAQAHPUDq2Db+FYbjNjuMchgkhcG1hKN/era+hFO5cur5YOZhb/T70D8BsrR3Y6HTtiZzK6dydehKO7/ePwbquw85/tgmxLUuIsRiPhBCuK8H2YDA4bFvTtD0YdnacIAiklO5aM2/R6fbA0eGdt7ZBmy0aO2Kcm+sm/ycFIbQLb/ld8SP6AV+K1Ob+egWiAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 1&quot;
+        title=&quot;google cloud platform 1&quot;
+        src=&quot;/static/399c1149b58312f0e9eb3344ee8e8b19/c1b63/google-cloud-platform-1.png&quot;
+        srcset=&quot;/static/399c1149b58312f0e9eb3344ee8e8b19/5a46d/google-cloud-platform-1.png 300w,
+/static/399c1149b58312f0e9eb3344ee8e8b19/0a47e/google-cloud-platform-1.png 600w,
+/static/399c1149b58312f0e9eb3344ee8e8b19/c1b63/google-cloud-platform-1.png 1200w,
+/static/399c1149b58312f0e9eb3344ee8e8b19/d61c2/google-cloud-platform-1.png 1800w,
+/static/399c1149b58312f0e9eb3344ee8e8b19/2093e/google-cloud-platform-1.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;우측의 &lt;strong&gt;프로젝트 만들기&lt;/strong&gt;를 클릭하면 창이 뜨는데, 상단의 &lt;strong&gt;새 프로젝트&lt;/strong&gt;를 클릭한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABT0lEQVQoz52P3U7CMBSA94S+hwJRUR9ACHP8mKgRES+86Fi7dt1GfBgzMw2J4+fCMItVTBibnrCIi+zKLyf9OT1fT6vsqWhX1YtVVKignYq+fYwK1V5Zw0cNclDH6zhs4H0Nl1RcVHG5Tko1Y6t0q7S6tNkxa+eodtFTL7HWJo2Oedo1W9e/0ewQiHobn6xCu4IyfHZjKq7N7vo2Iz3OMMX648O9nE0/3sT8Xcyl+JQzKaYifHnyPYvivsNcm7qcckZtiymUMcuyCDEdx7U4fw6CKIoWiyiKv1KSJIFxOByaJtQ4dgYFUpxzxhgcwC2DwQCql8tlHMfJCliDHARBjkwphSmVYRyPx+tu2c75Ml/xT5kQAq9dy5PJJFcejUY5sq7rWdn3fSllGIavP8BaCOF5Hnww58/ps9O9YRj6BgghyNsbKJDNynC3m8efninf0D7i0W/DrvcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 2&quot;
+        title=&quot;google cloud platform 2&quot;
+        src=&quot;/static/df05c47f804402cdeb203d1b0cf2462a/c1b63/google-cloud-platform-2.png&quot;
+        srcset=&quot;/static/df05c47f804402cdeb203d1b0cf2462a/5a46d/google-cloud-platform-2.png 300w,
+/static/df05c47f804402cdeb203d1b0cf2462a/0a47e/google-cloud-platform-2.png 600w,
+/static/df05c47f804402cdeb203d1b0cf2462a/c1b63/google-cloud-platform-2.png 1200w,
+/static/df05c47f804402cdeb203d1b0cf2462a/d61c2/google-cloud-platform-2.png 1800w,
+/static/df05c47f804402cdeb203d1b0cf2462a/2093e/google-cloud-platform-2.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;프로젝트 이름을 적고, &lt;strong&gt;조직 없음&lt;/strong&gt;으로 선택한 뒤 프로젝트를 만들어준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAAA1UlEQVQoz62QWwuCQBCF9y/3d4rqRaN/IRRpRkWPUXSDih68lK6uueppMqIbPWgd+NiZHfZwZpnSO0LRT6hqLnHMqWkOVN1Dy+Bom8EHqhGg0eVoEnVC7VPf8VBpHMD0qQtzzmHM/Jw+1cOVwGQTEQLj9Scjmg8WD4bL2910fwbbb3ewLQvCdxB6NiLuAMhQVkxEMaRMwHkAEZ1zkiRFSp5plhWGhaFARoWUkowSxDLN+6uuZ1FYKOKXyPfBvS688nuSZ+NSf/htvdIJf3n8deV/6u+GF64iVhLA+YpkAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 3&quot;
+        title=&quot;google cloud platform 3&quot;
+        src=&quot;/static/d1c34da27659e5bb4661e3c85a570158/c1b63/google-cloud-platform-3.png&quot;
+        srcset=&quot;/static/d1c34da27659e5bb4661e3c85a570158/5a46d/google-cloud-platform-3.png 300w,
+/static/d1c34da27659e5bb4661e3c85a570158/0a47e/google-cloud-platform-3.png 600w,
+/static/d1c34da27659e5bb4661e3c85a570158/c1b63/google-cloud-platform-3.png 1200w,
+/static/d1c34da27659e5bb4661e3c85a570158/d61c2/google-cloud-platform-3.png 1800w,
+/static/d1c34da27659e5bb4661e3c85a570158/2093e/google-cloud-platform-3.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;조금 기다리면 프로젝트가 생성이 되고 대시보드가 뜨는데, 좌측의 사이드바에 Google Cloud Platform이 제공하는 기능들이 나열되어 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABqUlEQVQoz1WR3YrbMBCF9ch9jIRc5LbQFvrLbukzlP6wabtJaGGhlNBkL3rliySWZUu2bMtn5yjI9RoOo9HMfGeiqHcrjberAi+/5nj2KcfTj2fRCc8/F7j6UeHDxuL69r+uRO/XjA5vvju8Xl3yVzcGT15kUNt7h83B4stvHXXzJ8dqZ7DeV9geSqz/8lyO2hwqfNtp3O5z/Lov8VO0yzrc/XPY7g2Usw61c+iaCt5qBF/h0Rc80NeP79DCN1bUAEMn+SCS2DdQdePRdj2MKWFdDVc3F84wIIQBXR+k3knso3rmbQddGOS6gLVW5pxEWUxYynsvgz2cXHrfSbGNQyFc1EeIwATatu2YF0UBzo4/JIRYVwQNsg0jm4wxsZBgPKd8KvZyhh/nqQikcwLWdR1dp5s08k5VVY33Sbxjf4LRhD2KQ0wIpAiYbpQAbE5QxmSSnoIxAs/nc0zoloBpOwJZmyoBy7Ic33EKVgRwZf5bx+MRyYBAmnCQ78pIcZgzWuuYc4mpmeLqCXg6nZBlWTzTfblcYj6fY7FYYDabxZwgbk5jijkNEvABEztEg+xuxu4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 4&quot;
+        title=&quot;google cloud platform 4&quot;
+        src=&quot;/static/30e149b801b3694fcc3735b1bd721901/c1b63/google-cloud-platform-4.png&quot;
+        srcset=&quot;/static/30e149b801b3694fcc3735b1bd721901/5a46d/google-cloud-platform-4.png 300w,
+/static/30e149b801b3694fcc3735b1bd721901/0a47e/google-cloud-platform-4.png 600w,
+/static/30e149b801b3694fcc3735b1bd721901/c1b63/google-cloud-platform-4.png 1200w,
+/static/30e149b801b3694fcc3735b1bd721901/d61c2/google-cloud-platform-4.png 1800w,
+/static/30e149b801b3694fcc3735b1bd721901/2093e/google-cloud-platform-4.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우리는 Google OAuth API를 사용하는 것이므로 해당되는 메뉴를 선택하고, &lt;strong&gt;사용자 인증 정보&lt;/strong&gt;를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABoElEQVQoz12S2U4jMRBF+5P5HCRA8AAKI/4AMWwiIpPMvCDCaMTyypL0ard7dV/qOqpMwNKVXVX2qWt3R0fjDIfjHAfXKXYuUmz/TEQxdi9zjCYWJ7MSx7/+ayT6MS1xdOtwcFNiXzSaOOxfF9jae0M0e3GYPZe4mmdBN39TjP8VmD5Z/H42mD5ybdaaSX7ymOPs/h2ndyudPyxwPl/iz4tBVLkKdVWhqy2aMoNvLL4M3wB99TWHHs7EcDaROmtDyGFoERlj4aoahTFhpgJnGOD9gL73aLsOXd+L/CpuO9iyhBMzXdcHcU9dN4iKokAlDpMkgbGyqWrDIe9X6gVEdXKgbdt1nGWZAFbNh9Dch3pEGAc3xHEMI05ZUBjXGm8qz3Nx6NZAKgDZmQFBpVxDAeqELqyV922akNeZOZpR2NohDzFgkR0JUEfaVbUJ1Sb6FDpHfDsuCFMgi5Re+bs7zrwRr831JjhiwEFYHC+RpkkAbb7LdyCb8s0J5Tk1EICLxVJ+AYElKd4/PvD6+obFMg6/BAc3KkihzPFmlH5tBX4C9HJJ8Fax1q8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 5&quot;
+        title=&quot;google cloud platform 5&quot;
+        src=&quot;/static/0ab6257d498aef82fecf255b3067d1df/c1b63/google-cloud-platform-5.png&quot;
+        srcset=&quot;/static/0ab6257d498aef82fecf255b3067d1df/5a46d/google-cloud-platform-5.png 300w,
+/static/0ab6257d498aef82fecf255b3067d1df/0a47e/google-cloud-platform-5.png 600w,
+/static/0ab6257d498aef82fecf255b3067d1df/c1b63/google-cloud-platform-5.png 1200w,
+/static/0ab6257d498aef82fecf255b3067d1df/d61c2/google-cloud-platform-5.png 1800w,
+/static/0ab6257d498aef82fecf255b3067d1df/2093e/google-cloud-platform-5.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;사용자 인증 정보 만들기&lt;/strong&gt;를 클릭하여 OAuth 클라이언트 ID를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABMElEQVQoz6WPX0vDMBTF85n9NjKkPkzUgV9BnavMuU0fi4huT6JuLEnb/E9vvE06qLAn/XE4nJR7clMyzOnwnp+Od4Ob3eCWHV/TkzG7mNVXCzl6FJd7jebibCqyvM4m9flMZJPyKPsk0xe+XOu8YJOC3RXluKgeXuvnlVxGPa3VcqXQUfN3NXtrhWGxUsWHIdbYEIJTXPBtRb/L3ZdTpRbMCB68DmAC2Oi/5S2AJ5RXzkNV19oYzvlms+W8FFJqbbxvrHNSKWMtBhRiYza2FcEcALBGKVUR2TZbcLRpmuQJH8EA8UjwzQBQRYwxaSKFBN7u95gITliHcl2ZMYbL+3MIHnHUH0Jpp7Ttymlh+54eaTMcIpagK4c/QcI/IFIqIaRAl8lTkP0g03ch8df65R9cXHS0MHG5HQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 6&quot;
+        title=&quot;google cloud platform 6&quot;
+        src=&quot;/static/5245fc0b62a8ea21c69ec9393f391da1/c1b63/google-cloud-platform-6.png&quot;
+        srcset=&quot;/static/5245fc0b62a8ea21c69ec9393f391da1/5a46d/google-cloud-platform-6.png 300w,
+/static/5245fc0b62a8ea21c69ec9393f391da1/0a47e/google-cloud-platform-6.png 600w,
+/static/5245fc0b62a8ea21c69ec9393f391da1/c1b63/google-cloud-platform-6.png 1200w,
+/static/5245fc0b62a8ea21c69ec9393f391da1/d61c2/google-cloud-platform-6.png 1800w,
+/static/5245fc0b62a8ea21c69ec9393f391da1/2093e/google-cloud-platform-6.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;먼저 &lt;strong&gt;동의 화면 구성&lt;/strong&gt;을 선택한다. 소셜 로그인을 할 때 사용자에게 보여질 동의 화면을 구성하는 작업이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAAAyklEQVQoz9XN3Q7BMAAF4D6ztxGJuSBCvAJLbIKZ34T4STZc+N1WXdtpy1YmIRFucOXkO5cnB2R1mK2hjAZTqpuseCkVpqt+wQhKZlAw6EOxRXN1quhE0Ui+SRXNTygbUJ+g9pxVR7Dc36kDRx/7jRkxLdpdsM78iWkfDSvWso+9JZ9uT0AIIaXE0PX2K+is3f0WeU5AkJTnF+GDd+AICwARPodScIYxuYvDGOdcvHUSYmhjaxXcnqNIfhVwbfT5OIxiX45/ev7r8QXJCXkRVsFrygAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 7&quot;
+        title=&quot;google cloud platform 7&quot;
+        src=&quot;/static/5be6dd17c3320f329bbf401f315218ea/c1b63/google-cloud-platform-7.png&quot;
+        srcset=&quot;/static/5be6dd17c3320f329bbf401f315218ea/5a46d/google-cloud-platform-7.png 300w,
+/static/5be6dd17c3320f329bbf401f315218ea/0a47e/google-cloud-platform-7.png 600w,
+/static/5be6dd17c3320f329bbf401f315218ea/c1b63/google-cloud-platform-7.png 1200w,
+/static/5be6dd17c3320f329bbf401f315218ea/d61c2/google-cloud-platform-7.png 1800w,
+/static/5be6dd17c3320f329bbf401f315218ea/2093e/google-cloud-platform-7.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;당연히 외부 사용자가 사용할 수 있어야 하므로 &lt;strong&gt;User Type&lt;/strong&gt;은 외부로 설정한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABN0lEQVQoz5VP20rDQBDNN/s5om0fKqLgN7S10VIb+2IFldIKEtRcuptkb9ns7jimkopEqodhZtiZs2eO1/dJ/yrrjTbHA3I0pIcD0rnMzm74RSAwN3E+4ycT3hmzns9Pp6I7zg+6b97kMbtdy9EiHdwl/kN+/VRMlyxYsfmzxPcm5ms5W4nhYoM706UI1vI+LD2jFQCIgmhBnWZgS4AKwEALXEEiRmNTMuwxvIQKbYBkGc0Fl0bpSqlS68o5+BHWuiRJ4zimlGJfGePpEqWAEPoSvr5HCc6iKCKEtCkD55wxVtYU55xXF1iFLN4UebGdMqVUy9HOoSb+a4zZkY11SFbawj4gOU1TzCjeKKP7T0t1/RU4xsOKGtig/hfZwX7gFtKklGgKs7V2p/wXiBpbz/8m46b9Zu8DreN01a9oK64AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 8&quot;
+        title=&quot;google cloud platform 8&quot;
+        src=&quot;/static/be06143ae30b912024fdf4b4bec1d819/c1b63/google-cloud-platform-8.png&quot;
+        srcset=&quot;/static/be06143ae30b912024fdf4b4bec1d819/5a46d/google-cloud-platform-8.png 300w,
+/static/be06143ae30b912024fdf4b4bec1d819/0a47e/google-cloud-platform-8.png 600w,
+/static/be06143ae30b912024fdf4b4bec1d819/c1b63/google-cloud-platform-8.png 1200w,
+/static/be06143ae30b912024fdf4b4bec1d819/d61c2/google-cloud-platform-8.png 1800w,
+/static/be06143ae30b912024fdf4b4bec1d819/2093e/google-cloud-platform-8.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;앱 정보를 기재해준다. * 표시가 붙은 필수 항목만 넣고 저장하여 다음 단계로 넘어간다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABq0lEQVQoz3WS627UMBCF88o8DqBSqSAE4h2otgV1aSn8alHFtlC0dC+5rJP4MnbsHMapkt0GraWjSSb2N2cyTo5OC7z+JHA4KfDyeIMXxwLPP25wMCnx7ovChwvVxV29P1d4c6ZwcFJ3ejtVODyp8OzVEsn0RuDyF2FyVeDzD4HpT8lSOJ9JXN5JfP9t8G2kmPt6Z3B6LXB2U+PiVne6mhOS0BjEZbUEGgV4fg/EspxtsH+1CE6ClOCzootxf5IJA3It8jyHVApEFlobGEMIgQ+1I3GOAxofoNISVBOsslw/wBMDnbVdvbqWEEKgabauQgh8uH3007aD+m9GSBRpjsX8AekqBW0kkn6z1pqhdSdjDCwXInJDe7vgDtgGaHa4vl9i8SfD6n7xCOyrSilRVVUXIzAWsNY9cbcL9NFhXkGkAjmDa3bblGbrsCzLwWGExkhEe4Gdw1WJYr6GeFijWubwYgTMsmxoOar/n2Ng/+wUYbUuMPtbY7ZQKHP9tOUIVTxp7/1eZ7s5bz10RXxlHFTt4EyzdRhB0V0PjFMcT/k/IO+TSnL7frgZ/wBn50uNwvCLzQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 9&quot;
+        title=&quot;google cloud platform 9&quot;
+        src=&quot;/static/fc65f2cac38c52b47c74a44066b8c371/c1b63/google-cloud-platform-9.png&quot;
+        srcset=&quot;/static/fc65f2cac38c52b47c74a44066b8c371/5a46d/google-cloud-platform-9.png 300w,
+/static/fc65f2cac38c52b47c74a44066b8c371/0a47e/google-cloud-platform-9.png 600w,
+/static/fc65f2cac38c52b47c74a44066b8c371/c1b63/google-cloud-platform-9.png 1200w,
+/static/fc65f2cac38c52b47c74a44066b8c371/d61c2/google-cloud-platform-9.png 1800w,
+/static/fc65f2cac38c52b47c74a44066b8c371/2093e/google-cloud-platform-9.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;범위 설정은 Google OAuth를 통해 Google에 등록되어 있는 사용자의 정보를 어디까지 가져올지 정하는 것이다. 보통 맨 위의 3개 정도면 회원가입 목적의 사용자 정보로는 충분하다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABuElEQVQoz12S227UMBRF87stSH1A/YBeoC1tkQCNKLx0crXj3FRA4h1ekBAoyvwAo4womUlTk8TkPsMmqVDKlnNsWd5e55xY2nks7zxRHx7I2/vK9r66tac8ONAenRi7pwRja+/yw0e/KotouUyzTIjfAh9UlG3bSUcv1dMLevhCPZ4YRxN6PCFPX9GzC3L+mj57Yx4+Vz59/pamfD6fL8JwsQh/Xl/H8SqKYlwgWYxceQ4luqFOVUUmuoLBqP7uyn3/1vNs6vtBzCv+K89EyVOxuuFYFFVTVo00VQmzbFXTL6cIlBAKMWw5juO6lJIvX4Mlb264WCV5FKffwyj8sYpvRVl3EjNN27EZw8xc1/E8z8XUCwtCSBAEqLkArKpykd8mSZalVVV2XSs5/VHDMDRNM00TC0TLssbmumnQp6Io0Kksy8pe6/VaGiC0Fzysl23bYzNsaYpmo9siSRLOOW7puu7OrCiKLMu6riMihTF5NpvhXF3XbdtWvf4nD8ChWsR/ZKTj+z6YIOcjIZemae6RwQEWfFw0Trvpa/77NPqyAe963Znxh4ZWwTkUP057s9kgyc19YecP6/kBeOK7v7wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 11&quot;
+        title=&quot;google cloud platform 11&quot;
+        src=&quot;/static/9768c54ea5cfc8ffde277fe8e3b41d02/c1b63/google-cloud-platform-11.png&quot;
+        srcset=&quot;/static/9768c54ea5cfc8ffde277fe8e3b41d02/5a46d/google-cloud-platform-11.png 300w,
+/static/9768c54ea5cfc8ffde277fe8e3b41d02/0a47e/google-cloud-platform-11.png 600w,
+/static/9768c54ea5cfc8ffde277fe8e3b41d02/c1b63/google-cloud-platform-11.png 1200w,
+/static/9768c54ea5cfc8ffde277fe8e3b41d02/d61c2/google-cloud-platform-11.png 1800w,
+/static/9768c54ea5cfc8ffde277fe8e3b41d02/2093e/google-cloud-platform-11.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;체크 후 &lt;strong&gt;업데이트&lt;/strong&gt; 버튼을 눌러 잘 설정되었는지 확인하고 넘어간다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABDUlEQVQoz5WP20rDQBCG95l9HEXTi4oo+AzVthJrWm8EQayNeCfWzU6yu7PZTWadNuIBxLY/P8MMwzcH0R8X/SvoXcrDgTy4UPuD4mgIpzfmfGo5fvksM8epScY6GemTiemNyr3kVaQPMM1xeK/SR53O8Xpus4Wd5eb2GWf5L2c5Tp5WzhbIyN0Lisa7GKOzlYYlFBKrAivpsYobRLH1YqmsbwhK/fauoEJEx/Y+0Kofif5225JztfDec+VD6JK4nYiormvRFbwRSjDWSim11tygfwd9w7QW88YYhjk653aA2x/ismmaHc5WSvFOay3fzJt5xA4wZ0xy7B7eBg4hfJ7NmwGgXosf3nh2R30AOFB3HpT3OWMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 12&quot;
+        title=&quot;google cloud platform 12&quot;
+        src=&quot;/static/12747e81c3cd226f93e2755152b19182/c1b63/google-cloud-platform-12.png&quot;
+        srcset=&quot;/static/12747e81c3cd226f93e2755152b19182/5a46d/google-cloud-platform-12.png 300w,
+/static/12747e81c3cd226f93e2755152b19182/0a47e/google-cloud-platform-12.png 600w,
+/static/12747e81c3cd226f93e2755152b19182/c1b63/google-cloud-platform-12.png 1200w,
+/static/12747e81c3cd226f93e2755152b19182/d61c2/google-cloud-platform-12.png 1800w,
+/static/12747e81c3cd226f93e2755152b19182/2093e/google-cloud-platform-12.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;앱을 게시하기 전까지는 테스트 계정을 통해 개발을 진행할 수 있다. 개발할 동안 사용할 테스트 계정을 적어주고 동의 화면 구성을 완료한다. 참고로 앱을 테스트용이 아닌 외부로 게시하기 위해서는 HTTPS로 접속할 수 있는, 그러니까 서버에 SSL 인증서를 가진 진짜 도메인이 필요하다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABbklEQVQoz62QTU/CQBRF+3NRExbGH6CASNQYDRo1EYG2dD46rRKNa0104QoNje5kg2EjGi1C+LzOFIqIO8JLTl7ayTtz32jRRB7RdQNLsTwW1iQxHRHZF+MGllMWVjYVBJHVLK5uHtDrtuH7DTSbzTHtdhutVgudTgfaRtrA1iFFYk9HMm0iuU8kFlIHBfm/gO0jgp1jhvhuHrf3JXx+vOGlUsFrtYparRZQr9cDfN+HJjhF8dyBzQgcTuAKPsSmsjNcyLPLooszQVEqPcL/7sjBL3S7Xajq9/tBMlWDwQBaTiegXCCXy+Mkc4pMVoduGNB1A6ZZgBACwnHBKMH1XQnvDYyGhwJFKFOlMcbgOAKEMBDKwLkN2/5FCV3XhWVZeH7ygqGeTDUpmkRzHAcK0zQD1AWc8wBK6R9hueyNJP1/ovHKwUoSyjiYlITfIeqyUOh53vjdQsl0BQknh6eZTDiTcDrhXITTfS7CWVf+AcYX5BiWn9X3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 13&quot;
+        title=&quot;google cloud platform 13&quot;
+        src=&quot;/static/8e971ad9bee281fdde76a24dbc44f8c2/c1b63/google-cloud-platform-13.png&quot;
+        srcset=&quot;/static/8e971ad9bee281fdde76a24dbc44f8c2/5a46d/google-cloud-platform-13.png 300w,
+/static/8e971ad9bee281fdde76a24dbc44f8c2/0a47e/google-cloud-platform-13.png 600w,
+/static/8e971ad9bee281fdde76a24dbc44f8c2/c1b63/google-cloud-platform-13.png 1200w,
+/static/8e971ad9bee281fdde76a24dbc44f8c2/d61c2/google-cloud-platform-13.png 1800w,
+/static/8e971ad9bee281fdde76a24dbc44f8c2/2093e/google-cloud-platform-13.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저장하면 동의 화면 구성이 완료된 것을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABPUlEQVQoz4WQb0/CMBDG95n9OhLwBcZg4mcQHWSBMF8pESXIG6NxGytde9d/6zw2AsEgPLmk7fV+7XMXdAd5d7juPGSt+1Wrzy77efuR98ZwF0NvLHdxO5bXkWyH4mogb0bQCflF5zuIZut4qcLpKpzm0bsYzororYgXYrKQ8Qfu4mmJo7noP68Gr3w0h8kHvnzqwBpVVZUWOUu+lOQWuUFeGqi8rQ7lnS7yH8FSpwWdKIKMobZeSgmIf6v9QSitkyRN0pQxVpbeOkc/G+89kWVZVidljBG1tNb10z5oFgB0zp2GiclrNZV7mGzXKX8WzrKMbNN+D1M2pWbWBaICAKXUUbixXRRF89kWVojknHGgwQHI/2DOOdLziso3M9rAtAgB1p7pmQS1mp63MElpmrqrTfjGy1GY8sTsbn8BP2R06oxfEasAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 14&quot;
+        title=&quot;google cloud platform 14&quot;
+        src=&quot;/static/659850bb9eca83cae069c2709736020b/c1b63/google-cloud-platform-14.png&quot;
+        srcset=&quot;/static/659850bb9eca83cae069c2709736020b/5a46d/google-cloud-platform-14.png 300w,
+/static/659850bb9eca83cae069c2709736020b/0a47e/google-cloud-platform-14.png 600w,
+/static/659850bb9eca83cae069c2709736020b/c1b63/google-cloud-platform-14.png 1200w,
+/static/659850bb9eca83cae069c2709736020b/d61c2/google-cloud-platform-14.png 1800w,
+/static/659850bb9eca83cae069c2709736020b/2093e/google-cloud-platform-14.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다시 사이드바에서 &lt;strong&gt;사용자 인증 정보&lt;/strong&gt; 메뉴를 선택하고, 5번에서 했던 것처럼 &lt;strong&gt;사용자 인증 정보 만들기&lt;/strong&gt;를 클릭하여 클라이언트 ID를 발급하는 작업을 시작할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAABGklEQVQoz6WR307CMBjF+8y+jVEzLjAqia+gTiCIgNw5jVG4MiqBraVf2/Wv31ZGMHqFv5yenDY9bdKSdi9v92krXR1fr45uisOr/CQtzof8ciw693DRqDOC0wEkPZ50+dkQWl12kHySwTOdzFX/iXYf89uMpdn67oVPZ2JS62Eutxq9yeFrJQzjmczeS2K0CSFYBcEpwZZ0+WEkU0BLoMHpUOHCD/w2kJyujfNFQRlbo38tFuicg1LKWmuMFUJqbTCgMJSlrrPRWhMc3mO5Aho451JiRzvn0G1DWRMPxT6prveeMYYFXHU1MWAtbv2NVFoovSnjMXGf+wvfsJtxtimHvfh3eW8I/gSAAHQRPQaxG0RcB4GPslv+BpZcdbCpGEQFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 15&quot;
+        title=&quot;google cloud platform 15&quot;
+        src=&quot;/static/cad98a2ee8c218cf0b8a5d3497f919e6/c1b63/google-cloud-platform-15.png&quot;
+        srcset=&quot;/static/cad98a2ee8c218cf0b8a5d3497f919e6/5a46d/google-cloud-platform-15.png 300w,
+/static/cad98a2ee8c218cf0b8a5d3497f919e6/0a47e/google-cloud-platform-15.png 600w,
+/static/cad98a2ee8c218cf0b8a5d3497f919e6/c1b63/google-cloud-platform-15.png 1200w,
+/static/cad98a2ee8c218cf0b8a5d3497f919e6/d61c2/google-cloud-platform-15.png 1800w,
+/static/cad98a2ee8c218cf0b8a5d3497f919e6/2093e/google-cloud-platform-15.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;해당되는 내용을 전부 채워준다. 나는 현재 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;의 8000번 포트에서 개발을 진행 중이므로 아래와 같이 채워주었지만, 각자 사용하는 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt; 주소를 넣으면 된다. Google은 보안 정책 상 &lt;strong&gt;HTTPS 도메인이 아닌것은 허용하지 않는다&lt;/strong&gt;. 다만, 개발 목적의 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt; 만을 예외로 두고 있어 다행히도 사용할 수 있다.
+리디렉션 URI는 Google OAuth에서 Google 로그인 창을 띄우기 위해 보내는 콜백을 받을 주소를 의미한다. 이미지에 나와있는 URI에서 본인의 &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt; 주소만 바꿔주면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABJ0AAASdAHeZh94AAAA/0lEQVQoz5WRTUvDQBCG85v9OVKIQkUseNZDIWIqtYkVRCj0YNuDsdS22Y/s7Hazza6Txg96cvPwMjuX4X1nNugOSPeBncekE+WnEenc0TDmvUReP8mrBH7VS+FiCOFAhLG4HMFZzE/CVTCcsvFiF71ubpL32zTrv6zvJ+RxSp8Xajw/UjpXo7da6azuJx86KMvSObf5XBZkbRRXIIyWdq+dBwFhhakcpVRKta8xBktVWev+FTrXJoyxLMu225wwYHkhuPBybh4pJedcCLHT2pQG8R221gKA1hrzYu+8+R6WSjdu9ocWw0opzIzVteEvNv5ZY9jaGa+FB4cD/pt/AYrnd7XevWUuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 17&quot;
+        title=&quot;google cloud platform 17&quot;
+        src=&quot;/static/ec4e926e34ba37af89a54cd504040e99/c1b63/google-cloud-platform-17.png&quot;
+        srcset=&quot;/static/ec4e926e34ba37af89a54cd504040e99/5a46d/google-cloud-platform-17.png 300w,
+/static/ec4e926e34ba37af89a54cd504040e99/0a47e/google-cloud-platform-17.png 600w,
+/static/ec4e926e34ba37af89a54cd504040e99/c1b63/google-cloud-platform-17.png 1200w,
+/static/ec4e926e34ba37af89a54cd504040e99/d61c2/google-cloud-platform-17.png 1800w,
+/static/ec4e926e34ba37af89a54cd504040e99/2093e/google-cloud-platform-17.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;전부 완료하면 클라이언트 ID와 비밀번호가 발급된다. 나중에 Django admin 페이지에 기재해주어야 하므로 적어두자.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABJ0AAASdAHeZh94AAABtUlEQVQoz32Q3U4aURSF5wV9DpuS2Er6AFUR/3qFjfVCL4bDnPn/ofSCuwGLJDyFwKVlgIyIhoQs9z4CnUytk3xZ+8w+e511jrZT0rFzKFDY1/Fhj6li+6uOj/sCu8cSX04liqTFkxWr+lPZQKH0yucjicJBDVuFa2jH5wLfLi2UKwKHlSrK5wZKFQNH3w2c/ZDUM0n/wmvez/XJxSunqmehcmVDc2wHUeDDtSUC10LoWQiI0PfQqIf4VQ82NIifkU9Qj7SxqhWhRz4etKow4LgeqkIoHMeFlCbiVgv9/gB3/T4GwyHG4zHSNEUcxxC1GkzLgk1h1jgOKUEJbXieB13XFa7rwjAM3N52kSQJRn8SJPdjjJIpHudP+H1zQwdKNJtNhGFIZjzvwjRNSELzfV8ZCkrHRlyzdrtdpA8p5o9zPD89Y05mi8UC7XZb9aMoUodzMlZp2gqNDRhuWHQNrjlBr9fDcrlUZL9Op7M5mI2yymwSsjJBEChjHpzNZphOp4rJZIIHWsdxi/qm2reeybIxzML/2JSfIY9Fb/bWzD8JsynXNafIk7/Ruwmzm/+XIN/PG74Alkme5q6KBD4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;google cloud platform 18&quot;
+        title=&quot;google cloud platform 18&quot;
+        src=&quot;/static/2f11dd534a2650d54dde0703b0c4ad81/c1b63/google-cloud-platform-18.png&quot;
+        srcset=&quot;/static/2f11dd534a2650d54dde0703b0c4ad81/5a46d/google-cloud-platform-18.png 300w,
+/static/2f11dd534a2650d54dde0703b0c4ad81/0a47e/google-cloud-platform-18.png 600w,
+/static/2f11dd534a2650d54dde0703b0c4ad81/c1b63/google-cloud-platform-18.png 1200w,
+/static/2f11dd534a2650d54dde0703b0c4ad81/d61c2/google-cloud-platform-18.png 1800w,
+/static/2f11dd534a2650d54dde0703b0c4ad81/2093e/google-cloud-platform-18.png 1858w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Django ORM Func() 사용하기]]></title><description><![CDATA[오늘 Django ORM Query 코드를 보다가 중간중간 Func()이라는 함수를 발견했다. 모르고 있던 함수여서 검색을 했는데, 감이 잘 안 잡혀서 동료 분한테 다시 여쭤보고 정리할 수 있었다. Func()의 개념과 구성 요소 Func()는 ORM…]]></description><link>https://makeitmin.github.io/TIL/django-orm-func()-사용하기/</link><guid isPermaLink="false">https://makeitmin.github.io/TIL/django-orm-func()-사용하기/</guid><pubDate>Tue, 31 Aug 2021 12:08:51 GMT</pubDate><content:encoded>&lt;p&gt;오늘 Django ORM Query 코드를 보다가 중간중간 Func()이라는 함수를 발견했다. 모르고 있던 함수여서 검색을 했는데, 감이 잘 안 잡혀서 동료 분한테 다시 여쭤보고 정리할 수 있었다.&lt;/p&gt;
 &lt;h2 id=&quot;func의-개념과-구성-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#func%EC%9D%98-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;func의 개념과 구성 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Func()의 개념과 구성 요소&lt;/h2&gt;
 &lt;p&gt;Func()는 ORM이 자체 함수로 지원하지 않는 데이터베이스 함수를 개발자가 직접 적용할 수 있도록 해주는 함수이다. Func()에는 3개의 속성이 있다.&lt;/p&gt;
 &lt;ul&gt;

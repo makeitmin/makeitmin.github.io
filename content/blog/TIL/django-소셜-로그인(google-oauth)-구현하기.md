@@ -85,4 +85,44 @@ Django 프로젝트에 소셜 로그인을 추가해보기로 했다. ``django-a
 
 	![](./images/google-cloud-platform-18.png)
 	
+## Django에서 소셜 로그인 연동하기
 
+Django에서 소셜 로그인을 연동하기 위해서는 ``django-allauth`` 패키지가 필요하다. 다음 명령어를 통해 패키지를 설치해준다.
+
+```bash
+	pip install django-allauth
+```
+
+설치가 완료되면 allauth 설정을 ``settings.py``에 등록해주어야 한다.
+
+```python
+# settings.py
+INSTALLED_APPS = [
+	...
+	'django.contrib.sites',
+	'allauth',
+	'allauth.account',
+	'allauth.socialaccount',
+	'allauth.socialaccount.providers.google',
+	...
+]
+
+AUTHENTICATION_BACKENDS = (
+	'django.contrib.auth.backends.ModelBackend',
+	'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+```

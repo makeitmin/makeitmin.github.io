@@ -1,5 +1,5 @@
 ---
-title: Django ORM Func() 사용하기
+title: Django ORM에서 Func() 사용하기
 date: 2021-08-31 12:08:51
 category: TIL
 thumbnail: { thumbnailSrc }

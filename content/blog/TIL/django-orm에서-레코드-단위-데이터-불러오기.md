@@ -1,5 +1,5 @@
 ---
-title: Django ORM으로 레코드 단위의 데이터 불러오기
+title: Django ORM에서 레코드 단위의 데이터 불러오기
 date: 2021-08-27 13:08:64
 category: TIL
 thumbnail: { thumbnailSrc }
